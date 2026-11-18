@@ -10,7 +10,7 @@ jobs:
       - name: Depoyu Al
         uses: actions/checkout@v4
 
-      - name: PDF Yapisina Ozel Sifir Kayipli Ayiklama
+      - name: Teorik ve Sozlu Sorulari Kesin Ayir ve Sifir Kayipla Topla
         run: |
           cat << 'EOF' > topla.py
           import re, json
@@ -18,11 +18,10 @@ jobs:
           with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
               ham = f.read()
 
-          # Gürültü satırlarını temizle
           gurultu = [
               "camscanner", "wps office", "edit with wps", "öğrencinin adı", "sınav tarihi",
               "aldığı puan", "imzası", "kolay gelsin", "soruların cevaplarında hata",
-              "meyus ve ümitsiz", "her şeyi maddede", "ey muhammed", "kullarıma"
+              "meyus ve ümitsiz", "her şeyi maddede", "ey muhammed", "kullarıma", "yorum yap vurgula"
           ]
 
           satirlar = []
@@ -40,6 +39,7 @@ jobs:
           gorulen = set()
           mod = "TEORİK"
           aktif_hoca = ""
+          sozlu_satir_sayaci = 0
 
           hoca_isimleri = [
               "ahmet adıgüzel", "ahmet hoca", "fatma ebru", "ebru hoca", "ebru alagül", "ebru algül",
@@ -47,9 +47,7 @@ jobs:
               "suat kamışlı", "özden kamışlı", "abdülcemal özcan", "abdulcemal özcan"
           ]
 
-          # Soru başlangıç kalıbı: 1), 1-, 1., 1-), Soru 1 -, SORU 1 -, # 1), 22-)
           SORU_BAS_RE = re.compile(r'^(?:#\s*)?(?:SORU\s+|Soru\s+)?(\d{1,3})\s*[\)\.\-\:]+\s*(.+)$')
-          # Şık kalıbı: A), a), A-, a-, A., a., (A), [A]
           SIK_RE = re.compile(r'^(?:[\(\[]?([A-Ea-e])[\)\.\-\:\]]+)\s*(.+)$')
 
           kok_buf = []
@@ -63,7 +61,6 @@ jobs:
               koku = re.sub(r'^(?:#\s*)?(?:SORU\s+|Soru\s+)?\d{1,3}\s*[\)\.\-\:]+\s*', '', koku).strip()
               if len(koku) < 15:
                   return
-              # En az 2 şık varsa veya içinde 'cevap' geçiyorsa gerçek teorik sorudur
               cevap_notu = ""
               for line in kok_list:
                   cm = re.search(r'(?:Cevap|Doğru\s*cevap)\s*[:\=\-\)]\s*(.+)', line, re.I)
@@ -89,52 +86,61 @@ jobs:
                   "dogru_harf": harf
               })
 
-          for s in satirlar:
+          for idx, s in enumerate(satirlar):
               low = s.lower()
 
-              # Bölüm geçişlerini algıla (Sözlü vs Teorik)
+              # 1) Sözlü başlığı veya hoca adı geçerse SÖZLÜ modunu aç
               if re.match(r'^(?:#\s*)?sözlü(?:\s+soruları|\s+sınavı|\s+25-26.*)?$', low):
                   teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
                   kok_buf, siklar_buf, dogru_harf = [], [], ""
                   mod = "SÖZLÜ"
+                  sozlu_satir_sayaci = 0
                   continue
 
-              if any(k in low for k in ["teorik 25-26", "teorik soruları", "staj sonu sınavı", "telafi stajı", "dönem v sınav", "grup 1 nöroloji", "grup 12", "grup 11", "grup 10", "grup 9", "grup 8", "grup 7", "grup 6", "grup 5", "grup 4", "grup 3", "2.grup", "whatsapp soruları", "sıraya yazılanlar"]):
-                  teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
-                  kok_buf, siklar_buf, dogru_harf = [], [], ""
-                  mod = "TEORİK"
-                  aktif_hoca = ""
-                  continue
-
-              # Hoca adı geçerse otomatik SÖZLÜ moduna geç
-              hoca_bulundu = next((h for h in hoca_isimleri if h in low and len(s) < 40), None)
+              hoca_bulundu = next((h for h in hoca_isimleri if h in low and len(s) < 42), None)
               if hoca_bulundu:
                   teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
                   kok_buf, siklar_buf, dogru_harf = [], [], ""
                   mod = "SÖZLÜ"
                   aktif_hoca = re.sub(r'^[#\-\•\*]+\s*', '', s).strip()
+                  sozlu_satir_sayaci = 0
                   continue
 
+              # 2) SÖZLÜ modundayken teorik bir test sorusu başlarsa ANINDA TEORİK moduna geri dön!
               if mod == "SÖZLÜ":
-                  temiz_sozlu = re.sub(r'^(?:[#\-\•\*]+|\d{1,2}\s*(?:numara|vaka)?[\)\.\-\:]?)\s*', '', s, flags=re.I).strip()
-                  if len(temiz_sozlu) < 6 or len(temiz_sozlu) > 180:
+                  # Sınav başlığı, A) şıkkı, "aşağıdakilerden hangisi" veya 60 satırdan fazla ilerlediyse SÖZLÜ biter
+                  teorik_basladi = (
+                      bool(SIK_RE.match(s)) or
+                      "aşağıdakilerden" in low or
+                      "hangisi yanlıştır" in low or
+                      "hangisi doğrudur" in low or
+                      "hangileri yanlıştır" in low or
+                      "hangileri doğrudur" in low or
+                      any(k in low for k in ["grup", "teorik", "staj", "sınav", "telafi", "dönem v", "whatsapp", "sıraya yazılan"]) or
+                      sozlu_satir_sayaci > 45
+                  )
+                  if teorik_basladi:
+                      mod = "TEORİK"
+                      aktif_hoca = ""
+                  else:
+                      sozlu_satir_sayaci += 1
+                      temiz_sozlu = re.sub(r'^(?:[#\-\•\*]+|\d{1,2}\s*(?:numara|vaka)?[\)\.\-\:]?)\s*', '', s, flags=re.I).strip()
+                      if len(temiz_sozlu) < 6 or len(temiz_sozlu) > 150:
+                          continue
+                      if temiz_sozlu.startswith(("→", "↳", "✓", "X")):
+                          continue
+                      anahtar = re.sub(r'\W+', '', temiz_sozlu.lower())[:85]
+                      if anahtar not in gorulen:
+                          gorulen.add(anahtar)
+                          tum_sorular.append({
+                              "tur": "SÖZLÜ",
+                              "soru": f"[{aktif_hoca}] {temiz_sozlu}" if aktif_hoca else temiz_sozlu,
+                              "siklar": [],
+                              "dogru_harf": ""
+                          })
                       continue
-                  # Düz not/ok işaretli açıklamaları atla, soruları al
-                  if temiz_sozlu.startswith(("→", "↳", "✓", "X")):
-                      continue
-                  anahtar = re.sub(r'\W+', '', temiz_sozlu.lower())[:85]
-                  if anahtar not in gorulen:
-                      gorulen.add(anahtar)
-                      tum_sorular.append({
-                          "tur": "SÖZLÜ",
-                          "soru": f"[{aktif_hoca}] {temiz_sozlu}" if aktif_hoca else temiz_sozlu,
-                          "siklar": [],
-                          "dogru_harf": ""
-                      })
-                  continue
 
-              # TEORİK MODU:
-              # 1) Tek satırda yan yana şıklar varsa (örn: A)2 B)3*** C)4 D)5 E)6)
+              # 3) TEORİK MODU:
               yy = list(re.finditer(r'(?:^|\s)([A-Ea-e])[\)\.\-]\s*', s))
               if len(yy) >= 3 and yy[0].group(1).upper() == 'A':
                   bas_kisim = s[:yy[0].start()].strip()
@@ -152,7 +158,6 @@ jobs:
                   kok_buf, siklar_buf, dogru_harf = [], [], ""
                   continue
 
-              # 2) Alt alta şık satırı mı?
               m_sik = SIK_RE.match(s)
               if m_sik and (kok_buf or siklar_buf):
                   h = m_sik.group(1).upper()
@@ -166,23 +171,18 @@ jobs:
                   siklar_buf.append(f"{h}) {st}")
                   continue
 
-              # 3) Yeni soru numarasıyla mı başlıyor?
               m_soru = SORU_BAS_RE.match(s)
               if m_soru:
-                  # Önceki soru birikmişse kaydet (Romen rakamı I., II., 1., 2. öncüllerini ayır)
                   num_val = int(m_soru.group(1))
-                  # Eğer şıklar zaten toplandıysa yeni soru başlamıştır
                   if len(siklar_buf) >= 2:
                       teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
                       kok_buf, siklar_buf, dogru_harf = [s], [], ""
                       continue
-                  # Eğer önceki soru kökü varsa ve num_val > 6 veya önceki kökte '?' varsa yeni sorudur
                   if kok_buf and (num_val > 6 or "?" in " ".join(kok_buf) or "hangisi" in " ".join(kok_buf).lower()):
                       teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
                       kok_buf, siklar_buf, dogru_harf = [s], [], ""
                       continue
 
-              # Normal soru kökü satırı (veya önceki şıkkın 2. satırı)
               if siklar_buf and len(siklar_buf) < 5 and not s.endswith("?") and "hangisi" not in low:
                   siklar_buf[-1] += " " + s
               else:
@@ -208,5 +208,5 @@ jobs:
           git config user.name "VIP-Noroloji-Bot"
           git config user.email "tus@vip.local"
           git add cikmis_arsiv.json
-          git commit -m "248 sayfalik PDF yapisina ozel sifir kayipli arsiv"
+          git commit -m "Teorik ve Sozlu modu kilidi duzeltildi"
           git push origin main
