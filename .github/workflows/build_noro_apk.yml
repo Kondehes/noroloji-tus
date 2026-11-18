@@ -16,7 +16,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: VIP Noroloji Master APK Derle
+      - name: VIP Noroloji Master APK Derle (Offline Gomulu Veri)
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
@@ -57,8 +57,8 @@ jobs:
                   applicationId "com.vip.noroloji.master"
                   minSdk 24
                   targetSdk 34
-                  versionCode 6
-                  versionName "6.0"
+                  versionCode 7
+                  versionName "7.0"
               }
               buildTypes {
                   release {
@@ -111,8 +111,6 @@ jobs:
                   WebSettings ws = webView.getSettings();
                   ws.setJavaScriptEnabled(true);
                   ws.setDomStorageEnabled(true);
-                  ws.setAllowFileAccessFromFileURLs(true);
-                  ws.setAllowUniversalAccessFromFileURLs(true);
                   webView.setWebViewClient(new WebViewClient());
                   setContentView(webView);
                   webView.loadUrl("file:///android_asset/index.html");
@@ -127,9 +125,6 @@ jobs:
               }
           }
           EOF
-
-          cp cikmis_arsiv.json app/src/main/assets/cikmis_arsiv.json || echo '{"toplam":0,"sorular":[]}' > app/src/main/assets/cikmis_arsiv.json
-          cp noroloji_kaynak.txt app/src/main/assets/noroloji_kaynak.txt || echo '' > app/src/main/assets/noroloji_kaynak.txt
 
           cat << 'EOF' > app/src/main/assets/index.html
           <!DOCTYPE html>
@@ -192,25 +187,14 @@ jobs:
           <div class="container" id="mainContainer"></div>
 
           <script>
-          const GROQ_KEY = "__GROQ_KEY_PLACEHOLDER__";
-          let ALL_Q = [];
-          let SLAYT_TEXT = "";
+          const GROQ_KEY = __GROQ_KEY_JSON__;
+          const ALL_Q = __ALL_Q_JSON__;
+          const SLAYT_TEXT = __SLAYT_TEXT_JSON__;
           let MODE = "ALL";
           let SELECTED_SLAYT = null;
           let CURRENT_LIST = [];
 
-          async function init() {
-            try {
-              const r = await fetch("cikmis_arsiv.json");
-              const d = await r.json();
-              ALL_Q = d.sorular || [];
-            } catch(e) { ALL_Q = []; }
-
-            try {
-              const rs = await fetch("noroloji_kaynak.txt");
-              SLAYT_TEXT = await rs.text();
-            } catch(e) { SLAYT_TEXT = ""; }
-
+          function init() {
             const tCount = ALL_Q.filter(x => x.tur === "TEORİK").length;
             const sCount = ALL_Q.filter(x => x.tur === "SÖZLÜ").length;
             document.getElementById("statsBadge").innerText = `${tCount} Teorik • ${sCount} Sözlü`;
@@ -417,12 +401,37 @@ jobs:
           </html>
           EOF
 
-          sed -i "s|__GROQ_KEY_PLACEHOLDER__|${GROQ_API_KEY}|g" app/src/main/assets/index.html
+          python3 - << 'PYEOF'
+          import os, json
+
+          groq_key = os.environ.get("GROQ_API_KEY", "").strip()
+          sorular = []
+          if os.path.isfile("cikmis_arsiv.json"):
+              with open("cikmis_arsiv.json", "r", encoding="utf-8", errors="ignore") as f:
+                  sorular = json.load(f).get("sorular", [])
+
+          slayt_txt = ""
+          if os.path.isfile("noroloji_kaynak.txt"):
+              with open("noroloji_kaynak.txt", "r", encoding="utf-8", errors="ignore") as f:
+                  slayt_txt = f.read()
+
+          with open("app/src/main/assets/index.html", "r", encoding="utf-8") as f:
+              html = f.read()
+
+          html = html.replace("__GROQ_KEY_JSON__", json.dumps(groq_key))
+          html = html.replace("__ALL_Q_JSON__", json.dumps(sorular, ensure_ascii=False).replace("</script>", "<\\/script>"))
+          html = html.replace("__SLAYT_TEXT_JSON__", json.dumps(slayt_txt, ensure_ascii=False).replace("</script>", "<\\/script>"))
+
+          with open("app/src/main/assets/index.html", "w", encoding="utf-8") as f:
+              f.write(html)
+
+          print(f"HTML icine {len(sorular)} soru ve {len(slayt_txt)} karakter slayt gomuldu!")
+          PYEOF
 
           gradle assembleDebug --no-daemon
 
       - name: APK Dosyasini Yukle
         uses: actions/upload-artifact@v4
         with:
-          name: VIP-Noroloji-Cikmis-Master-v6
+          name: VIP-Noroloji-Cikmis-Master-v7
           path: app/build/outputs/apk/debug/app-debug.apk
