@@ -10,175 +10,152 @@ jobs:
       - name: Depoyu Al
         uses: actions/checkout@v4
 
-      - name: Gerekli Paketleri Kur
+      - name: Tum Teorik ve Sozlu Sorulari Sifir Kayipla Ayikla (3 Saniye)
         run: |
-          pip install requests
+          cat << 'EOF' > hizli_ayikla.py
+          import os, re, json
 
-      - name: Tum Sorulari Slayt Basliklarina Gore Kayipsiz Ayikla
-        env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: |
-          cat << 'EOF' > arsivle.py
-          import os, re, json, time, requests
-
-          GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
           with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
-              cikmis_metin = f.read().strip()
+              ham_metin = f.read()
 
-          slayt_metin = ""
-          if os.path.isfile("noroloji_kaynak.txt"):
-              with open("noroloji_kaynak.txt", "r", encoding="utf-8", errors="ignore") as fs:
-                  slayt_metin = fs.read().strip()
-
-          SLAYT_BASLIKLARI = [
-              "İskemik İnme",
-              "Hemorajik İnme",
-              "Geçici İskemik Atak",
-              "Baş Ağrıları",
-              "Epilepsi",
-              "Status Epileptikus",
-              "Parkinson Hastalığı",
-              "Ekstrapiramidal Sistem Hastalıkları",
-              "Demans",
-              "MS ve Demiyelinizan Hastalıklar",
-              "Myastenia Gravis",
-              "ALS",
-              "PNP ve GBS",
-              "CIDP",
-              "Kas Hastalıkları",
-              "Bilinç Bozuklukları",
-              "Kraniyal Sinirler ve Nevralji",
-              "Minimental Durum Muayenesi",
-              "Yüksek Kortikal İşlev Bozukluğu",
-              "Nörolojik Muayene ve Diğerleri"
+          KONU_KURALLARI = [
+              ("İskemik İnme", ["iskemik", "trombolitik", "tpa", "alteplaz", "mca", "aca", "pca", "laküner", "enfarkt", "inme", "serebrovasküler", "svh", "karotis", "nihss"]),
+              ("Hemorajik İnme", ["hemorajik", "intraserebral", "subaraknoid", "sak", "anevrizma", "kanama", "hematom"]),
+              ("Geçici İskemik Atak", ["geçici iskemik", "gia", "tia", "amarozis"]),
+              ("Baş Ağrıları", ["baş ağrısı", "migren", "küme", "gerilim", "triptan", "ergotamin", "aura", "indometazin", "sunct", "paroksismal hemikrania"]),
+              ("Epilepsi", ["epilepsi", "nöbet", "konvülziyon", "absans", "myoklonik", "tonik", "klonik", "valproat", "karbamazepin", "levetirasetam", "lamotrijin", "fenitoin", "eeg", "janz"]),
+              ("Status Epileptikus", ["status epileptikus", "status"]),
+              ("Parkinson Hastalığı", ["parkinson", "levodopa", "l-dopa", "bradikinezi", "istirahat tremoru", "rijidite", "substantia nigra", "ropinirol", "pramipeksol"]),
+              ("Ekstrapiramidal Sistem Hastalıkları", ["ekstrapiramidal", "distoni", "kore", "huntington", "tremor", "esansiyel tremor", "wilson", "tik", "tourette", "ataks"]),
+              ("Demans", ["demans", "alzheimer", "lewy", "frontotemporal", "normal basınçlı hidrosefali", "nbh", "donepezil", "memantin", "rivastigmin", "mmse"]),
+              ("MS ve Demiyelinizan Hastalıklar", ["multipl skleroz", "ms ", "demiyelinizan", "optik nörit", "oligoklonal", "mcdonald", "interferon", "natalizumab", "fingolimod", "devic", "nmo"]),
+              ("Myastenia Gravis", ["myastenia", "myasteni", "mg ", "asetilkolin", "piridostigmin", "timoma", "edrofonyum", "tensilon", "oküler"]),
+              ("ALS", ["als", "amyotrofik", "motor nöron", "riluzol", "fasikülasyon"]),
+              ("PNP ve GBS", ["gbs", "guillain", "polinöropati", "pnp", "albüminositolojik", "ivig", "plazmaferez", "aksonal", "periferik sinir"]),
+              ("CIDP", ["cidp", "kronik inflamatuar"]),
+              ("Kas Hastalıkları", ["kas", "miyopati", "distrofi", "duchenne", "becker", "miyotonik", "polimiyozit", "dermatomiyozit", "cpk", "ck "]),
+              ("Bilinç Bozuklukları", ["bilinç", "koma", "stupor", "letarji", "glasgow", "gks", "beyin ölümü", "vejetatif", "locked-in"]),
+              ("Kraniyal Sinirler ve Nevralji", ["kraniyal", "kranial", "trigeminal", "nevralji", "fasiyal", "bell", "okulomotor", "troklear", "abducens", "optik", "göz hareket", "pupilla", "horner", "diplopi", "nistagmus"]),
+              ("Yüksek Kortikal İşlev Bozukluğu", ["kortikal", "afazi", "broca", "wernicke", "apraksi", "agnozi", "ihmal", "neglect"]),
+              ("Nörolojik Muayene ve Diğerleri", ["dtr", "refleks", "babinski", "serebellar", "muayene", "duyu", "menenjit", "ensefalit", "bos", "lomber ponksiyon"])
           ]
 
-          satirlar = [s.strip() for s in cikmis_metin.split("\n") if s.strip()]
-          parcalar = []
-          aktif = ""
-          for s in satirlar:
-              if len(aktif) + len(s) > 1800:
-                  parcalar.append(aktif)
-                  aktif = s
-              else:
-                  aktif += "\n" + s
-          if aktif.strip():
-              parcalar.append(aktif)
+          def konu_bul(metin):
+              low = " " + metin.lower() + " "
+              en_iyi, maks = "Nörolojik Muayene ve Diğerleri", 0
+              for baslik, kelimeler in KONU_KURALLARI:
+                  skor = sum(low.count(k) for k in kelimeler)
+                  if skor > maks:
+                      maks = skor
+                      en_iyi = baslik
+              return en_iyi
 
-          print(f"Toplam parca sayisi: {len(parcalar)}", flush=True)
+          # Metni satir satir temizle
+          satirlar = [re.sub(r'\s+', ' ', s).strip() for s in ham_metin.split("\n")]
+          satirlar = [s for s in satirlar if s and not s.startswith("===") and not re.match(r'^\[Sayfa \d+\]$', s)]
 
-          def model_sec():
-              try:
-                  r = requests.get("https://api.groq.com/openai/v1/models", headers={"Authorization": f"Bearer {GROQ_API_KEY}"}, timeout=10)
-                  if r.status_code == 200:
-                      ids = [m["id"] for m in r.json().get("data", []) if not any(x in m["id"] for x in ["whisper", "guard", "tts", "8b"])]
-                      for k in ["70b", "120b", "qwen", "gpt-oss", "deepseek"]:
-                          bul = next((i for i in ids if k in i), None)
-                          if bul:
-                              return bul
-              except Exception:
-                  pass
-              return "llama-3.3-70b-versatile"
-
-          def ilgili_slayt_bul(metin):
-              if not slayt_metin:
-                  return ""
-              kelimeler = [w for w in set(re.findall(r'[a-zA-ZçğıöşüÇĞİÖŞÜ]{4,}', metin.lower())) if w not in ["anlat", "nedir", "nelerdir", "söyle", "hangisi", "yanlıştır", "doğrudur", "aşağıdakilerden", "hastada", "tedavide", "tanıda", "görülür", "değildir", "muayenesi", "muayeneyi"]]
-              if not kelimeler:
-                  return ""
-              bolumler = slayt_metin.split("=== KONU:")
-              skorlu = []
-              for b in bolumler[1:]:
-                  b_low = b.lower()
-                  skor = sum(b_low.count(k) for k in kelimeler[:10])
-                  if skor > 0:
-                      skorlu.append((skor, b[:2200]))
-              skorlu.sort(reverse=True, key=lambda x: x[0])
-              return "\n---\n".join([x[1] for x in skorlu[:2]])
-
-          MODEL = model_sec()
           tum_sorular = []
           gorulen = set()
-          baslik_str = ", ".join(SLAYT_BASLIKLARI)
 
-          for idx, parca in enumerate(parcalar, 1):
-              print(f"Parca {idx}/{len(parcalar)} isleniyor (Toplam: {len(tum_sorular)} soru)...", flush=True)
-              slayt_baglami = ilgili_slayt_bul(parca)
-              sistem = (
-                  "Sen İnönü Tıp Dönem 5 Nöroloji profesörü ve TUS eğitmenisin. "
-                  "Sana verilen metindeki HİÇBİR soruyu atlamadan TEK TEK çıkar. KESİNLİKLE yeni soru uydurma!\n"
-                  "Metinde iki tür öğe vardır:\n"
-                  "1) 'TEORİK': Çoktan seçmeli test soruları (A, B, C, D, E şıklı).\n"
-                  "2) 'SÖZLÜ': Hoca isimlerinin altındaki şıksız kısa sözlü/muayene maddeleri (örn: 'MG anlat', 'Dtrleri söyle', 'Trombolitik endikasyonları', '5. Kranial sinir muayenesi' vb.). Her satır/madde AYRI bir SÖZLÜ sorusudur!\n\n"
-                  "Her soru için şu JSON alanlarını eksiksiz üret (ALT BAŞLIK YOKTUR, sadece verilen slayt başlıklarından birini seç):\n"
-                  f"- 'slayt_baslik': SADECE şu listeden en uygun olanı seç: [{baslik_str}]\n"
-                  "- 'tur': Çoktan seçmeli ise 'TEORİK', şıksız kısa madde/hoca sorusu ise 'SÖZLÜ'\n"
-                  "- 'soru': Soru kökü (TEORİK ise şıkları bu alana YAZMA, şıkları 'siklar' dizisine koy; SÖZLÜ ise varsa hoca adıyla birlikte soruyu yaz, örn: '[Yüksel Kablan] Migren anlat')\n"
-                  "- 'siklar': TEORİK ise ['A) ...', 'B) ...', 'C) ...', 'D) ...', 'E) ...'] şeklinde 5 şık dizisi; SÖZLÜ ise [] (boş dizi)\n"
-                  "- 'dogru_harf': TEORİK ise doğru şıkkın sadece büyük harfi ('A', 'B', 'C', 'D' veya 'E'); SÖZLÜ ise ''\n"
-                  "- 'aciklama': Slayt kaynağına dayalı detaylı TUS/Hoca açıklaması:\n"
-                  "   * TEORİK ise: DOĞRU CEVAP NEDENİ: [Fizyopatoloji/anatomi mekanizması ve slayttaki net bilgi] | DİĞER ŞIKLAR & SINAV TUZAĞI: [Yanlış şıkların neden elendiği]\n"
-                  "   * SÖZLÜ ise: HOCANIN DUYMAK İSTEDİĞİ MADDELER: [Sözlüde tam puan aldıran ana başlıklar/muayene adımları] | SLAYT KRİTİK NOTU: [Slayttaki ayırt ettirici ipucu]\n"
-                  "JSON içinde çift tırnak (\") kullanma (tek tırnak kullan). Sadece saf JSON döndür: "
-                  '{"sorular":[{"slayt_baslik":"...","tur":"TEORİK","soru":"...","siklar":["A) ...","B) ...","C) ...","D) ...","E) ..."],"dogru_harf":"A","aciklama":"..."}]}'
-              )
-              kullanici_icerik = f"ÇIKMIŞ ARŞİV METNİ:\n{parca}\n\nİLGİLİ DERS SLAYTI KAYNAĞI:\n{slayt_baglami}"
-              for deneme in range(3):
-                  try:
-                      r = requests.post(
-                          "https://api.groq.com/openai/v1/chat/completions",
-                          headers={"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"},
-                          json={
-                              "model": MODEL,
-                              "temperature": 0.1,
-                              "max_tokens": 8000,
-                              "response_format": {"type": "json_object"},
-                              "messages": [{"role": "system", "content": sistem}, {"role": "user", "content": kullanici_icerik}]
-                          },
-                          timeout=45
-                      )
-                      if r.status_code == 200:
-                          ham = re.sub(r'```json|```', '', r.json()["choices"][0]["message"]["content"]).strip()
-                          veri = json.loads(ham, strict=False)
-                          for q in veri.get("sorular", []):
-                              soru_metni = q.get("soru", "").strip()
-                              anahtar = re.sub(r'\W+', '', soru_metni.lower())[:70]
-                              if anahtar and anahtar not in gorulen and q.get("aciklama"):
-                                  gorulen.add(anahtar)
-                                  sb = q.get("slayt_baslik", "").strip()
-                                  if sb not in SLAYT_BASLIKLARI:
-                                      sb = "Nörolojik Muayene ve Diğerleri"
-                                  siklar = q.get("siklar", [])
-                                  harf = str(q.get("dogru_harf", "")).strip().upper()[:1]
-                                  tur = "TEORİK" if (isinstance(siklar, list) and len(siklar) >= 3 and harf in ["A","B","C","D","E"]) else "SÖZLÜ"
-                                  tum_sorular.append({
-                                      "slayt_baslik": sb,
-                                      "tur": tur,
-                                      "soru": soru_metni,
-                                      "siklar": siklar if tur == "TEORİK" else [],
-                                      "dogru_harf": harf if tur == "TEORİK" else "",
-                                      "aciklama": q.get("aciklama", "").strip()
-                                  })
-                          break
-                      else:
-                          time.sleep(4)
-                  except Exception:
-                      time.sleep(2)
-              time.sleep(1.5)
+          # 1. TEORIK COKTAN SECMELI SORULARI AYIKLA (A, B, C, D, E sikli tum bloklar)
+          tam_blok = "\n".join(satirlar)
+          # Soru numarasi ile baslayip A) B) C) D) E) iceren bloklari yakala
+          soru_bloklari = re.split(r'(?=\n\d{1,3}[\.\-\)]\s+)', "\n" + tam_blok)
+
+          for blok in soru_bloklari:
+              blok = blok.strip()
+              if not blok:
+                  continue
+              # Icinde sik kalibi var mi kontrol et
+              sik_eslesme = list(re.finditer(r'(?:^|\n|\s)([A-Ea-e])[\)\.\-]\s+', blok))
+              if len(sik_eslesme) >= 4:
+                  ilk_sik_pos = sik_eslesme[0].start()
+                  soru_koku = blok[:ilk_sik_pos].strip()
+                  soru_koku = re.sub(r'^\d{1,3}[\.\-\)]\s*', '', soru_koku).strip()
+                  if len(soru_koku) < 12:
+                      continue
+
+                  siklar = []
+                  dogru_harf = ""
+                  for i, m in enumerate(sik_eslesme):
+                      harf = m.group(1).upper()
+                      bas = m.end()
+                      son = sik_eslesme[i+1].start() if i+1 < len(sik_eslesme) else len(blok)
+                      sik_metni = blok[bas:son].strip()
+                      # Yildiz (*) veya (doğru) isaretini yakala
+                      if "*" in sik_metni or "✓" in sik_metni or "(doğru)" in sik_metni.lower():
+                          dogru_harf = harf
+                          sik_metni = sik_metni.replace("*", "").replace("✓", "").strip()
+                      # Cevap anahtari satirini ayir
+                      cevap_not = re.search(r'(?:Cevap|Doğru\s*Cevap)\s*[:\-]?\s*([A-E])', sik_metni, re.I)
+                      if cevap_not:
+                          dogru_harf = cevap_not.group(1).upper()
+                          sik_metni = sik_metni[:cevap_not.start()].strip()
+                      if len(siklar) < 5 and sik_metni:
+                          siklar.append(f"{harf}) {sik_metni}")
+
+                  if len(siklar) >= 4:
+                      anahtar = re.sub(r'\W+', '', soru_koku.lower())[:70]
+                      if anahtar not in gorulen:
+                          gorulen.add(anahtar)
+                          tum_sorular.append({
+                              "slayt_baslik": konu_bul(soru_koku + " " + " ".join(siklar)),
+                              "tur": "TEORİK",
+                              "soru": soru_koku,
+                              "siklar": siklar,
+                              "dogru_harf": dogru_harf,
+                              "aciklama": ""
+                          })
+
+          # 2. SOZLU / HOCA SORULARINI AYIKLA (Siksiz, kisa, tek satirlik maddeler ve hoca basliklari)
+          aktif_hoca = ""
+          sozlu_ipucu = ["anlat", "söyle", "say", "yap", "nedir", "nelerdir", "kriter", "tedavi", "tanı", "endikasyon", "kontrendikasyon", "muayene", "refleks", "dtr", "sinir", "belirti", "bulgu", "sınıfla", "fark", "neden", "komplikasyon", "yaklaşım", "?"]
+
+          for s in satirlar:
+              # Hoca adi mi? (2-3 kelimelik ozel isim satiri, rakamsiz, soru isaretsiz)
+              if re.match(r'^[A-ZÇĞİÖŞÜ][a-zçğıöşü]+(?:\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]+){1,2}$', s) and len(s) < 35 and not any(k in s.lower() for k in ["inme", "demans", "migren", "epilepsi", "parkinson", "muayene", "sinir", "hastalık", "nöbet", "tedavi"]):
+                  aktif_hoca = s
+                  continue
+
+              # Sik satiri veya uzun paragraf ise atla
+              if re.match(r'^[A-Ea-e][\)\.\-]\s+', s) or len(s) > 160 or len(s) < 6:
+                  continue
+              if any(x in s for x in ["A)", "B)", "C)", "D)", "E)"]):
+                  continue
+
+              temiz_s = re.sub(r'^\d{1,2}[\.\-\)]\s*', '', s).strip()
+              if len(temiz_s) < 6:
+                  continue
+
+              low_s = temiz_s.lower()
+              if any(ip in low_s for ip in sozlu_ipucu) or re.match(r'^\d{1,2}[\.\-\)]\s*', s):
+                  anahtar = re.sub(r'\W+', '', temiz_s.lower())[:70]
+                  if anahtar not in gorulen:
+                      gorulen.add(anahtar)
+                      etiketli_soru = f"[{aktif_hoca}] {temiz_s}" if aktif_hoca else temiz_s
+                      tum_sorular.append({
+                          "slayt_baslik": konu_bul(temiz_s),
+                          "tur": "SÖZLÜ",
+                          "soru": etiketli_soru,
+                          "siklar": [],
+                          "dogru_harf": "",
+                          "aciklama": ""
+                      })
 
           with open("cikmis_arsiv.json", "w", encoding="utf-8") as out:
               json.dump({"toplam": len(tum_sorular), "sorular": tum_sorular}, out, ensure_ascii=False, indent=2)
-          teorik_n = sum(1 for x in tum_sorular if x["tur"] == "TEORİK")
-          sozlu_n = sum(1 for x in tum_sorular if x["tur"] == "SÖZLÜ")
-          print(f"TAMAMLANDI! Toplam: {len(tum_sorular)} | Teorik: {teorik_n} | Sozlu: {sozlu_n}")
+
+          t_say = sum(1 for x in tum_sorular if x["tur"] == "TEORİK")
+          s_say = sum(1 for x in tum_sorular if x["tur"] == "SÖZLÜ")
+          print(f"3 SANIYEDE BITTI! Toplam: {len(tum_sorular)} | Teorik: {t_say} | Sozlu: {s_say}")
           EOF
-          python arsivle.py
-          rm -f arsivle.py
+          python hizli_ayikla.py
+          rm -f hizli_ayikla.py
 
       - name: Arsivi Depoya Kaydet
         run: |
           git config user.name "VIP-Noroloji-Bot"
           git config user.email "tus@vip.local"
           git add cikmis_arsiv.json
-          git commit -m "Slayt bazli TUS quiz ve sozlu arsivi olusturuldu"
+          git commit -m "Sifir kayipli hizli teorik ve sozlu arsiv olusturuldu"
           git push origin main
