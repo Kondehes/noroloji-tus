@@ -12,91 +12,23 @@ jobs:
 
       - name: Gerekli Paketleri Kur
         run: |
-          pip install requests gdown pymupdf
+          pip install requests
 
-      - name: Slaytlari ve Cikmis Grup PDFlerini Tara
+      - name: Yerel Cikmis Metnini Basliklandir
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           cat << 'EOF' > arsivle.py
-          import os, re, json, time, subprocess, requests, fitz
+          import os, re, json, time, requests
 
           GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
-          SLAYT_KLASOR_ID = "1sphZMm2-OLog2IoWnZc8jXXEZOQ4oggV"
-          CIKMIS_KLASOR_ID = "1qCju6jDTVNUT9Wj012UKOj3WWOZQTwbb"
+          with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
+              cikmis_metin = f.read().strip()
 
-          def klasor_idleri_bul(klasor_id, ziyaret=None):
-              if ziyaret is None:
-                  ziyaret = set()
-              if klasor_id in ziyaret:
-                  return []
-              ziyaret.add(klasor_id)
-
-              url = f"https://drive.google.com/embeddedfolderview?id={klasor_id}#list"
-              r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
-              html = r.text
-
-              # Alt klasorleri bul
-              alt_klasorler = re.findall(r'drive\.google\.com/drive/folders/([a-zA-Z0-9_-]{20,})', html)
-              dosyalar = []
-              # Dosya ID ve basliklarini bul
-              for m in re.finditer(r'id="entry-([a-zA-Z0-9_-]{20,})".*?flip-entry-title">(.*?)</div>', html, re.S):
-                  fid, ad = m.group(1), re.sub(r'<.*?>', '', m.group(2)).strip()
-                  if fid != klasor_id:
-                      dosyalar.append((fid, ad))
-
-              if not dosyalar:
-                  for fid in set(re.findall(r'file/d/([a-zA-Z0-9_-]{20,})', html)):
-                      dosyalar.append((fid, f"dosya_{fid[:6]}.pdf"))
-
-              for ak in set(alt_klasorler):
-                  if ak not in ziyaret:
-                      dosyalar.extend(klasor_idleri_bul(ak, ziyaret))
-              return dosyalar
-
-          def pdf_klasor_oku(klasor_id, gecici_dir, maks_mb=35):
-              os.makedirs(gecici_dir, exist_ok=True)
-              liste = klasor_idleri_bul(klasor_id)
-              print(f"Klasorde bulunan oge sayisi: {len(liste)}", flush=True)
-              tum_metin = []
-              gorulen_id = set()
-              for fid, ad in liste:
-                  if fid in gorulen_id:
-                      continue
-                  gorulen_id.add(fid)
-                  if "toplu" in ad.lower() and maks_mb < 50:
-                      print(f"Atlandi (buyuk tarama): {ad}", flush=True)
-                      continue
-                  hedef_pdf = os.path.join(gecici_dir, f"{fid}.pdf")
-                  subprocess.run(["gdown", f"https://drive.google.com/uc?id={fid}", "-O", hedef_pdf, "-q"], check=False)
-                  if not os.path.isfile(hedef_pdf):
-                      continue
-                  boyut_mb = os.path.getsize(hedef_pdf) / (1024 * 1024)
-                  if boyut_mb > maks_mb or boyut_mb < 0.005:
-                      print(f"Atlandi boyut ({boyut_mb:.1f} MB): {ad}", flush=True)
-                      continue
-                  try:
-                      doc = fitz.open(hedef_pdf)
-                      sayfalar = [f"[Sayfa {i}] {s.get_text('text').strip()}" for i, s in enumerate(doc, 1) if s.get_text("text").strip()]
-                      icerik = "\n".join(sayfalar)
-                      print(f"Okundu: {ad} -> {len(icerik)} karakter", flush=True)
-                      if icerik:
-                          tum_metin.append(f"=== KAYNAK: {ad} ===\n{icerik}")
-                  except Exception as e:
-                      print(f"PDF okuma hatasi ({ad}): {e}", flush=True)
-              return "\n\n".join(tum_metin)
-
-          slayt_metin = pdf_klasor_oku(SLAYT_KLASOR_ID, "ham_slayt", maks_mb=45)
-          cikmis_metin = pdf_klasor_oku(CIKMIS_KLASOR_ID, "ham_cikmis", maks_mb=30)
-
-          if slayt_metin:
-              with open("noroloji_kaynak.txt", "w", encoding="utf-8") as f:
-                  f.write(slayt_metin)
-          if cikmis_metin:
-              with open("noroloji_cikmis.txt", "w", encoding="utf-8") as f:
-                  f.write(cikmis_metin)
-
-          print(f"TOPLAM Slayt: {len(slayt_metin)} karakter | Cikmis: {len(cikmis_metin)} karakter", flush=True)
+          print(f"Okunan cikmis karakter sayisi: {len(cikmis_metin)}", flush=True)
+          if not cikmis_metin:
+              print("HATA: noroloji_cikmis.txt bos!")
+              exit(1)
 
           satirlar = [s.strip() for s in cikmis_metin.split("\n") if s.strip()]
           parcalar = []
@@ -176,12 +108,12 @@ jobs:
           print(f"TAMAMLANDI! Toplam {len(tum_sorular)} cikmis soru arsivlendi.")
           EOF
           python arsivle.py
-          rm -rf ham_slayt ham_cikmis arsivle.py
+          rm -f arsivle.py
 
       - name: Arsivi Depoya Kaydet
         run: |
           git config user.name "VIP-Noroloji-Bot"
           git config user.email "tus@vip.local"
-          git add cikmis_arsiv.json noroloji_cikmis.txt noroloji_kaynak.txt
-          git commit -m "Embedded Folderview ile Tum Grup Cikmislari ve Slaytlar Eklendi"
+          git add cikmis_arsiv.json
+          git commit -m "Cikmis Sorular Basliklandirildi"
           git push origin main
