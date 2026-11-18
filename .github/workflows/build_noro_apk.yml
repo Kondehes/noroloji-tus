@@ -16,7 +16,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: VIP Noroloji v9 APK Derle
+      - name: VIP Noroloji Canli TUS Motoru v10 Derle
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
@@ -57,8 +57,8 @@ jobs:
                   applicationId "com.vip.noroloji.master"
                   minSdk 24
                   targetSdk 34
-                  versionCode 9
-                  versionName "9.0"
+                  versionCode 10
+                  versionName "10.0"
               }
               buildTypes {
                   release {
@@ -77,7 +77,7 @@ jobs:
           <manifest xmlns:android="http://schemas.android.com/apk/res/android">
               <uses-permission android:name="android.permission.INTERNET" />
               <application
-                  android:label="VIP Nöroloji"
+                  android:label="VIP Nöroloji TUS"
                   android:usesCleartextTraffic="true"
                   android:theme="@android:style/Theme.Material.NoActionBar">
                   <activity
@@ -124,28 +124,37 @@ jobs:
           <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-          <title>VIP Nöroloji</title>
+          <title>VIP Nöroloji TUS</title>
           <style>
             :root {
               --bg:#090d16; --card:#111827; --card2:#1e293b; --border:rgba(255,255,255,0.09);
               --blue:#3b82f6; --gold:#f59e0b; --green:#10b981; --red:#ef4444; --text:#f8fafc; --muted:#94a3b8;
             }
             * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
-            body { background:var(--bg); color:var(--text); padding-bottom:40px; }
-            .topbar { position:sticky; top:0; z-index:99; background:rgba(9,13,22,0.95); backdrop-filter:blur(12px); padding:12px 14px; border-bottom:1px solid var(--border); }
-            .brand-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-            .brand { font-size:17px; font-weight:800; color:#60a5fa; }
-            .pill { background:var(--card2); padding:4px 10px; border-radius:20px; font-size:11.5px; font-weight:700; color:#e2e8f0; border:1px solid var(--border); }
-            .search-wrap { position:relative; margin-bottom:10px; }
-            .search-input { width:100%; background:var(--card); border:1px solid var(--border); color:var(--text); padding:11px 36px 11px 13px; border-radius:12px; font-size:14px; outline:none; }
-            .search-input:focus { border-color:var(--blue); }
-            .clear-btn { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:var(--card2); color:var(--muted); border:none; width:22px; height:22px; border-radius:50%; font-size:12px; display:none; cursor:pointer; }
+            body { background:var(--bg); color:var(--text); padding-bottom:44px; }
+            .topbar { position:sticky; top:0; z-index:99; background:rgba(9,13,22,0.96); backdrop-filter:blur(12px); padding:13px 15px; border-bottom:1px solid var(--border); }
+            .brand-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:11px; }
+            .brand { font-size:18px; font-weight:800; background:linear-gradient(135deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+            .pill { background:var(--card2); padding:4px 10px; border-radius:20px; font-size:11px; font-weight:700; color:#cbd5e1; border:1px solid var(--border); }
             .tabs { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:6px; background:var(--card); padding:4px; border-radius:12px; border:1px solid var(--border); }
             .tab { text-align:center; padding:9px 4px; border-radius:9px; font-size:12.5px; font-weight:700; color:var(--muted); cursor:pointer; }
             .tab.active { background:var(--blue); color:#fff; }
-            .page { padding:12px 14px; max-width:860px; margin:0 auto; }
-            .info-bar { font-size:12px; color:var(--muted); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
-            .q-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:15px; margin-bottom:12px; }
+            .page { padding:14px 15px; max-width:860px; margin:0 auto; }
+
+            .control-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:14px; margin-bottom:14px; }
+            .search-row { display:flex; gap:8px; margin-bottom:11px; }
+            .search-input { flex:1; background:#0b1120; border:1px solid var(--border); color:var(--text); padding:11px 13px; border-radius:12px; font-size:14px; outline:none; }
+            .search-input:focus { border-color:var(--blue); }
+            .go-btn { background:var(--blue); color:#fff; border:none; padding:0 16px; border-radius:12px; font-size:13.5px; font-weight:800; cursor:pointer; white-space:nowrap; }
+            .chips { display:flex; flex-wrap:wrap; gap:6px; }
+            .chip { background:var(--card2); color:#cbd5e1; border:1px solid var(--border); padding:6px 11px; border-radius:999px; font-size:12px; font-weight:600; cursor:pointer; }
+            .chip.active { background:rgba(59,130,246,0.22); border-color:var(--blue); color:#93c5fd; font-weight:700; }
+
+            .loader-box { background:var(--card); border:1px solid rgba(59,130,246,0.3); border-radius:16px; padding:24px 16px; text-align:center; margin-bottom:14px; }
+            .spinner { width:34px; height:34px; border:3px solid rgba(59,130,246,0.2); border-top-color:var(--blue); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 12px; }
+            @keyframes spin { to { transform:rotate(360deg); } }
+
+            .q-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:15px; margin-bottom:12px; box-shadow:0 4px 16px rgba(0,0,0,0.22); }
             .q-stem { font-size:14.5px; line-height:1.58; font-weight:600; color:var(--text); margin-bottom:12px; white-space:pre-line; }
             .opt { width:100%; text-align:left; background:var(--card2); color:#e2e8f0; border:1px solid rgba(255,255,255,0.07); border-radius:11px; padding:11px 13px; margin-bottom:7px; font-size:13.5px; line-height:1.42; cursor:pointer; display:block; }
             .opt.correct { background:rgba(16,185,129,0.2); border-color:var(--green); color:#6ee7b7; font-weight:700; }
@@ -153,75 +162,92 @@ jobs:
             .ans-btn { width:100%; background:rgba(245,158,11,0.16); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); padding:10px; border-radius:11px; font-size:13px; font-weight:700; cursor:pointer; }
             .ans-panel { display:none; margin-top:11px; background:#0b1120; border:1px solid rgba(59,130,246,0.25); border-left:4px solid var(--blue); padding:13px; border-radius:11px; font-size:13.5px; line-height:1.62; color:#e2e8f0; white-space:pre-line; }
             .ans-panel.open { display:block; }
-            .ask-box { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:15px; }
-            .ask-area { width:100%; min-height:110px; background:#0b1120; border:1px solid var(--border); color:var(--text); border-radius:12px; padding:12px; font-size:14px; outline:none; margin-bottom:10px; resize:vertical; }
-            .ask-area:focus { border-color:var(--blue); }
-            .ask-submit { width:100%; background:var(--blue); color:#fff; border:none; padding:12px; border-radius:12px; font-size:14px; font-weight:800; cursor:pointer; }
-            .more-btn { width:100%; background:var(--card2); color:#60a5fa; border:1px solid var(--border); padding:12px; border-radius:12px; font-size:13.5px; font-weight:700; cursor:pointer; margin-top:6px; }
+            .more-btn { width:100%; background:linear-gradient(135deg,#2563eb,#1d4ed8); color:#fff; border:none; padding:13px; border-radius:12px; font-size:14px; font-weight:800; cursor:pointer; margin-top:4px; }
+            .ask-area { width:100%; min-height:120px; background:#0b1120; border:1px solid var(--border); color:var(--text); border-radius:12px; padding:12px; font-size:14px; outline:none; margin-bottom:10px; resize:vertical; }
           </style>
           </head>
           <body>
           <div class="topbar">
             <div class="brand-row">
-              <div class="brand">🧠 VIP NÖROLOJİ</div>
-              <div class="pill" id="statsBadge">Hazırlanıyor...</div>
-            </div>
-            <div class="search-wrap" id="searchWrap">
-              <input type="text" id="searchInput" class="search-input" placeholder="🔍 Ara (örn: inme, migren, trombolitik, Babinski)..." oninput="onSearch()">
-              <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
+              <div class="brand">🧠 VIP NÖROLOJİ TUS</div>
+              <div class="pill">248 Sayfa Çıkmış + 23 Slayt</div>
             </div>
             <div class="tabs">
-              <div class="tab active" id="tabTeorik" onclick="setMode('TEORİK')">Teorik</div>
-              <div class="tab" id="tabSozlu" onclick="setMode('SÖZLÜ')">Sözlü</div>
+              <div class="tab active" id="tabTeorik" onclick="setMode('TEORİK')">Teorik Quiz</div>
+              <div class="tab" id="tabSozlu" onclick="setMode('SÖZLÜ')">Sözlü Soruları</div>
               <div class="tab" id="tabAsk" onclick="setMode('ASK')">Soruma Cevap Ver</div>
             </div>
           </div>
 
-          <div class="page" id="mainContainer"></div>
+          <div class="page">
+            <div class="control-card" id="searchPanel">
+              <div class="search-row">
+                <input type="text" id="topicInput" class="search-input" placeholder="Konu yaz (örn: inme, migren, epilepsi, MG)...">
+                <button class="go-btn" onclick="fetchQuestions(false)">Soruları Çek</button>
+              </div>
+              <div class="chips" id="chipBox"></div>
+            </div>
+            <div id="contentArea"></div>
+          </div>
 
           <script>
           const GROQ_KEY = __GROQ_KEY_JSON__;
-          const ALL_Q = __ALL_Q_JSON__;
-          const SLAYT_TEXT = __SLAYT_TEXT_JSON__;
+          const CIKMIS_RAW = __CIKMIS_RAW_JSON__;
+          const SLAYT_RAW = __SLAYT_RAW_JSON__;
+
+          const TOPICS = [
+            { label: "İnme (İskemik / Hemorajik / GİA)", keys: ["inme", "iskemik", "hemorajik", "trombolitik", "tpa", "gia", "geçici iskemik", "mca", "afazi"] },
+            { label: "Baş Ağrıları & Migren", keys: ["migren", "baş ağrısı", "küme", "gerilim", "triptan", "sekonder baş"] },
+            { label: "Epilepsi & Status", keys: ["epilepsi", "nöbet", "status", "valproik", "karbamazepin", "levetirasetam", "absans"] },
+            { label: "Parkinson & Hareket", keys: ["parkinson", "tremor", "kore", "distoni", "levodopa", "esansiyel", "huntington", "msa", "psp"] },
+            { label: "Demans & Alzheimer", keys: ["demans", "alzheimer", "lewy", "frontotemporal", "hidrosefali", "psödodemans", "minimental"] },
+            { label: "MS & Demiyelinizan", keys: ["multipl skleroz", "ms ", "demiyelinizan", "optik nörit", "oligoklonal", "uhthoff"] },
+            { label: "Myastenia Gravis & LEMS", keys: ["myastenia", "myasteni", "mg ", "lambert", "botilismus", "asetilkolin", "piridostigmin"] },
+            { label: "ALS & Motor Nöron", keys: ["als", "amyotrofik", "motor nöron", "sma", "spinal müsküler"] },
+            { label: "GBS / CIDP & Kas", keys: ["guillain", "gbs", "cidp", "polinöropati", "miyozit", "polimiyozit", "rabdomiyoliz", "miyopati"] },
+            { label: "Bilinç & Koma", keys: ["bilinç", "koma", "stupor", "beyin ölümü", "locked-in", "gks", "glasgow"] },
+            { label: "Kraniyal Sinirler & Muayene", keys: ["kraniyal", "kranial", "trigeminal", "fasiyal", "dtr", "babinski", "serebellar", "muayene"] }
+          ];
+
           let MODE = "TEORİK";
-          let CURRENT_LIST = [];
-          let SHOW_LIMIT = 60;
           let ACTIVE_MODEL = "";
+          let CHUNK_INDEX = 0;
+          let RELEVANT_CHUNKS = [];
+          let LOADED_QUESTIONS = [];
+          let CURRENT_QUERY = "";
 
           function init() {
-            const tCount = ALL_Q.filter(x => x.tur === "TEORİK").length;
-            const sCount = ALL_Q.filter(x => x.tur === "SÖZLÜ").length;
-            document.getElementById("statsBadge").innerText = `${tCount} Teorik • ${sCount} Sözlü`;
-            render();
-          }
-
-          function onSearch() {
-            SHOW_LIMIT = 60;
-            const val = document.getElementById("searchInput").value;
-            document.getElementById("clearBtn").style.display = val.length > 0 ? "block" : "none";
-            render();
-          }
-
-          function clearSearch() {
-            document.getElementById("searchInput").value = "";
-            document.getElementById("clearBtn").style.display = "none";
-            SHOW_LIMIT = 60;
-            render();
-          }
-
-          function findRelevantSlides(text) {
-            if (!SLAYT_TEXT) return "";
-            const words = text.toLowerCase().replace(/[^a-zçğıöşü\s]/g," ").split(/\s+/).filter(w => w.length > 3);
-            const parts = SLAYT_TEXT.split("=== KONU:").slice(1);
-            let scored = [];
-            parts.forEach(p => {
-              const low = p.toLowerCase();
-              let score = 0;
-              words.slice(0,12).forEach(w => { if (low.includes(w)) score++; });
-              if (score > 0) scored.push({ score, txt: p.slice(0, 2200) });
+            const chipBox = document.getElementById("chipBox");
+            TOPICS.forEach((t, i) => {
+              const btn = document.createElement("div");
+              btn.className = "chip" + (i === 0 ? " active" : "");
+              btn.innerText = t.label;
+              btn.onclick = () => {
+                document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+                btn.classList.add("active");
+                document.getElementById("topicInput").value = t.label.split("(")[0].trim();
+                fetchQuestions(false, t.keys);
+              };
+              chipBox.appendChild(btn);
             });
-            scored.sort((a,b) => b.score - a.score);
-            return scored.slice(0,2).map(x => x.txt).join("\n---\n");
+            document.getElementById("topicInput").value = "İnme";
+            fetchQuestions(false, TOPICS[0].keys);
+          }
+
+          function setMode(m) {
+            MODE = m;
+            ["tabTeorik","tabSozlu","tabAsk"].forEach(id => document.getElementById(id).classList.remove("active"));
+            if(m==="TEORİK") document.getElementById("tabTeorik").classList.add("active");
+            if(m==="SÖZLÜ") document.getElementById("tabSozlu").classList.add("active");
+            if(m==="ASK") document.getElementById("tabAsk").classList.add("active");
+
+            if (m === "ASK") {
+              document.getElementById("searchPanel").style.display = "none";
+              renderAskUI();
+            } else {
+              document.getElementById("searchPanel").style.display = "block";
+              if (CURRENT_QUERY) fetchQuestions(false);
+            }
           }
 
           async function getWorkingModel() {
@@ -243,9 +269,92 @@ jobs:
             return "llama-3.3-70b-versatile";
           }
 
-          async function callGroq(prompt, outEl, onSuccess) {
-            outEl.classList.add("open");
-            outEl.innerHTML = "⏳ <b>23 Slayt kaynağı inceleniyor ve detaylı açıklama hazırlanıyor...</b>";
+          function findRelevantChunks(keywords) {
+            const lines = CIKMIS_RAW.split("\n").filter(l => l.trim().length > 0);
+            const blocks = [];
+            let cur = "";
+            lines.forEach(l => {
+              if (cur.length + l.length > 5500) {
+                blocks.push(cur);
+                cur = l;
+              } else {
+                cur += "\n" + l;
+              }
+            });
+            if (cur) blocks.push(cur);
+
+            const scored = [];
+            blocks.forEach(b => {
+              const low = b.toLowerCase();
+              let score = 0;
+              keywords.forEach(k => {
+                const cnt = low.split(k.toLowerCase()).length - 1;
+                score += cnt;
+              });
+              if (score > 0) scored.push({ score, text: b });
+            });
+            scored.sort((a,b) => b.score - a.score);
+            return scored.map(x => x.text);
+          }
+
+          function findRelevantSlides(keywords) {
+            if (!SLAYT_RAW) return "";
+            const parts = SLAYT_RAW.split("=== KONU:").slice(1);
+            const scored = [];
+            parts.forEach(p => {
+              const low = p.toLowerCase();
+              let score = 0;
+              keywords.forEach(k => { score += (low.split(k.toLowerCase()).length - 1); });
+              if (score > 0) scored.push({ score, text: p.slice(0, 2800) });
+            });
+            scored.sort((a,b) => b.score - a.score);
+            return scored.slice(0, 2).map(x => x.text).join("\n---\n");
+          }
+
+          async function fetchQuestions(append = false, customKeys = null) {
+            const rawInput = document.getElementById("topicInput").value.trim();
+            if (!rawInput && !customKeys) return;
+
+            let keys = customKeys;
+            if (!keys) {
+              const matchedTopic = TOPICS.find(t => t.label.toLowerCase().includes(rawInput.toLowerCase()));
+              keys = matchedTopic ? matchedTopic.keys : rawInput.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+            }
+
+            if (!append) {
+              CURRENT_QUERY = rawInput || keys[0];
+              CHUNK_INDEX = 0;
+              LOADED_QUESTIONS = [];
+              RELEVANT_CHUNKS = findRelevantChunks(keys);
+            }
+
+            const area = document.getElementById("contentArea");
+            if (RELEVANT_CHUNKS.length === 0) {
+              area.innerHTML = `<div class="loader-box">Bu kelimeyle eşleşen çıkmış kaydı bulunamadı. Farklı bir kelime deneyin.</div>`;
+              return;
+            }
+
+            const batch = RELEVANT_CHUNKS.slice(CHUNK_INDEX, CHUNK_INDEX + 2).join("\n\n");
+            CHUNK_INDEX += 2;
+            const slideCtx = findRelevantSlides(keys);
+
+            const loadingHtml = `<div class="loader-box" id="loadingBox">
+              <div class="spinner"></div>
+              <div style="font-size:14.5px;font-weight:800;color:#60a5fa;margin-bottom:5px">"${CURRENT_QUERY}" için ${MODE === 'TEORİK' ? 'Teorik Test Soruları' : 'Sözlü Hoca Soruları'} Çekiliyor...</div>
+              <div style="font-size:12px;color:var(--muted)">248 sayfalık çıkmış havuzu ve 23 slayt kaynağı taranıyor (15-30 sn)...</div>
+            </div>`;
+
+            if (!append) area.innerHTML = loadingHtml;
+            else {
+              const oldMore = document.getElementById("moreBtn");
+              if (oldMore) oldMore.remove();
+              area.insertAdjacentHTML("beforeend", loadingHtml);
+            }
+
+            const sysPrompt = MODE === "TEORİK"
+              ? `Sen İnönü Tıp Dönem 5 Nöroloji TUS ve Staj soru motorusun. Sana verilen Çıkmış Havuzu metninden '${CURRENT_QUERY}' konusuyla ilgili TÜM çoktan seçmeli TEORİK soruları eksiksiz çıkar.\nKurallar:\n- Bozuk taranmış cümleleri tıbbi olarak tertemiz düzelt; şıkları eksik/silik olan çıkmışların şıklarını 5 şıkka (A, B, C, D, E) tamamla.\n- Her soru için verilen Ders Slaytı kaynağını kullanarak 'aciklama' kısmına: Doğru şıkkın fizyopatoloji/klinik mekanizmasını ve diğer şıkların neden yanlış olduğunu öğretici şekilde yaz.\n- SADECE saf JSON döndür:\n{"sorular":[{"soru":"Soru metni","siklar":["A) ...","B) ...","C) ...","D) ...","E) ..."],"dogru_harf":"A","aciklama":"Detaylı mekanizma ve slayt açıklaması"}]}`
+              : `Sen İnönü Tıp Dönem 5 Nöroloji Sözlü Sınav asistanısın. Sana verilen Çıkmış Havuzu metninden '${CURRENT_QUERY}' konusuyla ilgili TÜM SÖZLÜ / PRATİK hoca sorularını çıkar (varsa hoca adıyla, örn: '[Ahmet Adıgüzel] ...').\nKurallar:\n- Verilen Ders Slaytı kaynağını kullanarak her sözlü sorusuna hocanın tam puan vereceği maddeli, eksiksiz cevabı 'aciklama' alanına yaz.\n- SADECE saf JSON döndür:\n{"sorular":[{"soru":"[Hoca Adı] Sözlü sorusu","aciklama":"Hocanın duymak istediği maddeli cevap ve slayt kritik notu"}]}`;
+
             try {
               const modelName = await getWorkingModel();
               const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -254,158 +363,130 @@ jobs:
                 body: JSON.stringify({
                   model: modelName,
                   temperature: 0.15,
-                  max_tokens: 1000,
-                  messages: [{ role: "user", content: prompt }]
+                  max_tokens: 7500,
+                  response_format: { type: "json_object" },
+                  messages: [
+                    { role: "system", content: sysPrompt },
+                    { role: "user", content: `ÇIKMIŞ HAVUZU METNİ:\n${batch}\n\nİLGİLİ SLAYT KAYNAĞI:\n${slideCtx}` }
+                  ]
                 })
               });
               const data = await res.json();
-              if (!res.ok || !data.choices || !data.choices[0] || !data.choices[0].message) {
-                const errMsg = (data && data.error && data.error.message) ? data.error.message : ("HTTP " + res.status);
-                outEl.innerHTML = "⚠️ API Uyarısı: " + errMsg;
+              const lb = document.getElementById("loadingBox");
+              if (lb) lb.remove();
+
+              if (!res.ok || !data.choices || !data.choices[0]) {
+                const err = (data && data.error && data.error.message) ? data.error.message : ("HTTP " + res.status);
+                area.insertAdjacentHTML("beforeend", `<div class="loader-box" style="color:#fca5a5">⚠️ API Uyarısı: ${err}</div>`);
                 return;
               }
-              const ans = data.choices[0].message.content.trim();
-              outEl.innerText = ans;
-              if (onSuccess) onSuccess(ans);
-            } catch(e) {
-              outEl.innerHTML = "⚠️ İnternet bağlantısı hatası: " + e.message;
-            }
-          }
 
-          function handleOptionClick(idx, chosenLetter) {
-            const qObj = CURRENT_LIST[idx];
-            const cardEl = document.getElementById("qcard_" + idx);
-            const expEl = document.getElementById("exp_" + idx);
+              const rawJson = data.choices[0].message.content.replace(/```json|```/g, "").trim();
+              const parsed = JSON.parse(rawJson);
+              const newItems = parsed.sorular || [];
 
-            const markButtons = (correctLetter) => {
-              if (!correctLetter) return;
-              cardEl.querySelectorAll(".opt").forEach(b => {
-                const l = b.getAttribute("data-letter");
-                if (l === correctLetter) b.classList.add("correct");
-                else if (l === chosenLetter) b.classList.add("wrong");
+              // Tekrar edenleri filtrele
+              newItems.forEach(item => {
+                const key = (item.soru || "").toLowerCase().replace(/\W+/g, "").slice(0, 60);
+                if (key && !LOADED_QUESTIONS.some(x => (x.soru || "").toLowerCase().replace(/\W+/g, "").slice(0, 60) === key)) {
+                  LOADED_QUESTIONS.push(item);
+                }
               });
-            };
 
-            if (qObj.dogru_harf) markButtons(qObj.dogru_harf);
-
-            const cacheKey = "vip_v9_" + qObj.soru.slice(0,55);
-            const cached = localStorage.getItem(cacheKey);
-            if (cached) {
-              const m = cached.match(/DOĞRU\s*ŞIK\s*:\s*([A-E])/i);
-              markButtons(m ? m[1].toUpperCase() : qObj.dogru_harf);
-              expEl.classList.add("open");
-              expEl.innerText = cached;
-              return;
+              renderQuestions();
+            } catch(e) {
+              const lb = document.getElementById("loadingBox");
+              if (lb) lb.remove();
+              area.insertAdjacentHTML("beforeend", `<div class="loader-box" style="color:#fca5a5">⚠️ Bağlantı/Ayrıştırma hatası: ${e.message}</div>`);
             }
+          }
 
-            const slideCtx = findRelevantSlides(qObj.soru + " " + (qObj.siklar||[]).join(" "));
-            const prompt = `İnönü Tıp Dönem 5 Nöroloji çıkmış sorusunu slayt kaynağına göre çöz ve açıkla.\nSoru: ${qObj.soru}\nŞıklar: ${(qObj.siklar||[]).join(" | ")}\nİlgili Slayt Kaynağı:\n${slideCtx}\n\nİlk satıra SADECE 'DOĞRU ŞIK: X' (X yerine A/B/C/D/E) yaz. Ardından:\n✅ NEDEN DOĞRU (MEKANİZMA & SLAYT BİLGİSİ):\n❌ DİĞER ŞIKLAR NEDEN YANLIŞ:\nbaşlıklarıyla net, öğretici açıklama yaz.`;
-
-            callGroq(prompt, expEl, (ans) => {
-              localStorage.setItem(cacheKey, ans);
-              const m = ans.match(/DOĞRU\s*ŞIK\s*:\s*([A-E])/i);
-              markButtons(m ? m[1].toUpperCase() : qObj.dogru_harf);
+          function checkOpt(qIdx, chosen) {
+            const q = LOADED_QUESTIONS[qIdx];
+            const card = document.getElementById("qcard_" + qIdx);
+            const correct = (q.dogru_harf || "A").trim().charAt(0).toUpperCase();
+            card.querySelectorAll(".opt").forEach(b => {
+              const l = b.getAttribute("data-letter");
+              if (l === correct) b.classList.add("correct");
+              else if (l === chosen) b.classList.add("wrong");
             });
+            document.getElementById("exp_" + qIdx).classList.add("open");
           }
 
-          function handleSozluClick(idx) {
-            const qObj = CURRENT_LIST[idx];
-            const expEl = document.getElementById("exp_" + idx);
-            if (expEl.classList.contains("open")) {
-              expEl.classList.remove("open");
-              return;
-            }
-            const cacheKey = "vip_v9_s_" + qObj.soru.slice(0,55);
-            const cached = localStorage.getItem(cacheKey);
-            if (cached) {
-              expEl.classList.add("open");
-              expEl.innerText = cached;
-              return;
-            }
-            const slideCtx = findRelevantSlides(qObj.soru);
-            const prompt = `İnönü Tıp Dönem 5 Nöroloji sözlü sorusuna slayt kaynağına göre tam puanlık hoca cevabı ver.\nSoru: ${qObj.soru}\nİlgili Slayt Kaynağı:\n${slideCtx}\n\n👨‍⚕️ HOCANIN DUYMAK İSTEDİĞİ CEVAP:\n📌 SLAYTTAKİ KRİTİK DETAY & TUZAK:\nbaşlıklarıyla maddeli, net açıklama yap.`;
-
-            callGroq(prompt, expEl, (ans) => localStorage.setItem(cacheKey, ans));
+          function toggleSozlu(qIdx) {
+            document.getElementById("exp_" + qIdx).classList.toggle("open");
           }
 
-          function askCustomQuestion() {
-            const qText = document.getElementById("customQInput").value.trim();
-            if (!qText) return;
-            const outEl = document.getElementById("customQAns");
-            const slideCtx = findRelevantSlides(qText);
-            const prompt = `Sen İnönü Tıp Dönem 5 Nöroloji profesörüsün. Öğrencinin sorduğu soruya verilen ders slaytlarını da dikkate alarak net, mekanizmalı ve öğretici cevap ver.\n\nÖğrencinin Sorusu: ${qText}\n\nİlgili Ders Slaytları:\n${slideCtx}\n\n🎯 NET CEVAP:\n📌 MEKANİZMA VE SLAYT AÇIKLAMASI:\n⚠️ SINAV / SÖZLÜ İPUCU:\nbaşlıklarıyla açıkla.`;
-            callGroq(prompt, outEl, null);
-          }
-
-          function setMode(m) {
-            MODE = m;
-            SHOW_LIMIT = 60;
-            ["tabTeorik","tabSozlu","tabAsk"].forEach(id => document.getElementById(id).classList.remove("active"));
-            if(m==="TEORİK") document.getElementById("tabTeorik").classList.add("active");
-            if(m==="SÖZLÜ") document.getElementById("tabSozlu").classList.add("active");
-            if(m==="ASK") document.getElementById("tabAsk").classList.add("active");
-            document.getElementById("searchWrap").style.display = (m === "ASK") ? "none" : "block";
-            render();
-          }
-
-          function showMore() {
-            SHOW_LIMIT += 60;
-            render();
-          }
-
-          function render() {
-            const box = document.getElementById("mainContainer");
-
-            if (MODE === "ASK") {
-              box.innerHTML = `<div class="ask-box">
-                <div style="font-size:15px;font-weight:800;color:#60a5fa;margin-bottom:6px">💬 Nöroloji Slayt & TUS Asistanı</div>
-                <div style="font-size:12.5px;color:var(--muted);margin-bottom:12px">Aklına takılan soruyu veya çıkmış bir vakayı yaz; 23 slaydın tamamını tarayıp cevaplasın ve açıklasın.</div>
-                <textarea id="customQInput" class="ask-area" placeholder="Örn: İskemik inmede tPA kontrendikasyonları nelerdir? veya Babinski eşdeğerlerini mekanizmasıyla açıkla..."></textarea>
-                <button class="ask-submit" onclick="askCustomQuestion()">Soruma Cevap Ver ve Açıkla</button>
-                <div class="ans-panel" id="customQAns"></div>
-              </div>`;
+          function renderQuestions() {
+            const area = document.getElementById("contentArea");
+            if (LOADED_QUESTIONS.length === 0) {
+              area.innerHTML = `<div class="loader-box">Bu bölümde soru bulunamadı, "Daha Fazla Çek" veya farklı konu deneyin.</div>`;
               return;
             }
 
-            const query = document.getElementById("searchInput").value.trim().toLowerCase();
-            CURRENT_LIST = ALL_Q.filter(q => {
-              if (q.tur !== MODE) return false;
-              if (query.length > 0) {
-                const hay = (q.soru + " " + (q.siklar||[]).join(" ")).toLowerCase();
-                return hay.includes(query);
-              }
-              return true;
-            });
+            let html = `<div style="font-size:12.5px;color:var(--muted);margin-bottom:10px">"${CURRENT_QUERY}" — <b>${LOADED_QUESTIONS.length}</b> ${MODE.toLowerCase()} sorusu hazır</div>`;
 
-            if (CURRENT_LIST.length === 0) {
-              box.innerHTML = `<p style="color:var(--muted);text-align:center;margin-top:40px">Bu aramada ${MODE.toLowerCase()} sorusu bulunamadı.</p>`;
-              return;
-            }
-
-            const visible = CURRENT_LIST.slice(0, SHOW_LIMIT);
-            let html = `<div class="info-bar"><span>${query ? `"${query}" için ` : ''}Toplam <b>${CURRENT_LIST.length}</b> ${MODE.toLowerCase()} sorusu</span><span>Gösterilen: ${visible.length}</span></div>`;
-
-            visible.forEach((q, idx) => {
+            LOADED_QUESTIONS.forEach((q, idx) => {
               html += `<div class="q-card" id="qcard_${idx}">
-                <div class="q-stem">${idx+1}. ${q.soru}</div>`;
-
-              if (MODE === "TEORİK" && q.siklar && q.siklar.length > 0) {
+                <div class="q-stem">${idx + 1}. ${q.soru}</div>`;
+              if (MODE === "TEORİK" && Array.isArray(q.siklar)) {
                 q.siklar.forEach(opt => {
                   const letter = opt.trim().charAt(0).toUpperCase();
-                  html += `<button class="opt" data-letter="${letter}" onclick="handleOptionClick(${idx}, '${letter}')">${opt}</button>`;
+                  html += `<button class="opt" data-letter="${letter}" onclick="checkOpt(${idx}, '${letter}')">${opt}</button>`;
                 });
-                html += `<div class="ans-panel" id="exp_${idx}"></div>`;
+                html += `<div class="ans-panel" id="exp_${idx}">✅ <b>Doğru Cevap: ${q.dogru_harf}</b>\n\n${q.aciklama}</div>`;
               } else {
-                html += `<button class="ans-btn" onclick="handleSozluClick(${idx})">👨‍⚕️ Cevabı ve Açıklamayı Gör</button>
-                <div class="ans-panel" id="exp_${idx}" style="border-left-color:#f59e0b"></div>`;
+                html += `<button class="ans-btn" onclick="toggleSozlu(${idx})">👨‍⚕️ Hocanın Cevabını & Slayt Açıklamasını Gör</button>
+                <div class="ans-panel" id="exp_${idx}" style="border-left-color:#f59e0b">${q.aciklama}</div>`;
               }
               html += `</div>`;
             });
 
-            if (CURRENT_LIST.length > SHOW_LIMIT) {
-              html += `<button class="more-btn" onclick="showMore()">Daha Fazla Göster (${CURRENT_LIST.length - SHOW_LIMIT} soru daha var)</button>`;
+            if (CHUNK_INDEX < RELEVANT_CHUNKS.length) {
+              html += `<button class="more-btn" id="moreBtn" onclick="fetchQuestions(true)">⚡ Aynı Konudan Daha Fazla Soru Çek (${RELEVANT_CHUNKS.length - CHUNK_INDEX} blok daha var)</button>`;
             }
-            box.innerHTML = html;
+            area.innerHTML = html;
+          }
+
+          function renderAskUI() {
+            document.getElementById("contentArea").innerHTML = `<div class="control-card">
+              <div style="font-size:15px;font-weight:800;color:#60a5fa;margin-bottom:6px">💬 Nöroloji Slayt & TUS Asistanı</div>
+              <div style="font-size:12.5px;color:var(--muted);margin-bottom:12px">Sorunu yaz; 23 slaydın tamamını tarayıp mekanizmasıyla açıklasın.</div>
+              <textarea id="customQ" class="ask-area" placeholder="Örn: İskemik inmede tPA kontrendikasyonları nelerdir? veya Babinski eşdeğerlerini mekanizmasıyla anlat..."></textarea>
+              <button class="more-btn" onclick="askCustom()">Soruma Cevap Ver ve Açıkla</button>
+              <div class="ans-panel" id="customAns"></div>
+            </div>`;
+          }
+
+          async function askCustom() {
+            const q = document.getElementById("customQ").value.trim();
+            if (!q) return;
+            const out = document.getElementById("customAns");
+            out.classList.add("open");
+            out.innerHTML = "⏳ <b>23 Slayt kaynağı inceleniyor...</b>";
+            const keys = q.toLowerCase().replace(/[^a-zçğıöşü\s]/g," ").split(/\s+/).filter(w => w.length > 3);
+            const slideCtx = findRelevantSlides(keys);
+            try {
+              const modelName = await getWorkingModel();
+              const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                method: "POST",
+                headers: { "Authorization": "Bearer " + GROQ_KEY, "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  model: modelName,
+                  temperature: 0.15,
+                  max_tokens: 1100,
+                  messages: [{ role: "user", content: `Sen İnönü Tıp Dönem 5 Nöroloji profesörüsün. Öğrencinin sorusuna verilen ders slaytlarına dayanarak net, mekanizmalı ve öğretici cevap ver.\n\nSoru: ${q}\n\nİlgili Slaytlar:\n${slideCtx}` }]
+                })
+              });
+              const data = await res.json();
+              if (!res.ok || !data.choices || !data.choices[0]) {
+                out.innerHTML = "⚠️ API Hatası: " + ((data && data.error && data.error.message) || res.status);
+                return;
+              }
+              out.innerText = data.choices[0].message.content.trim();
+            } catch(e) {
+              out.innerHTML = "⚠️ Hata: " + e.message;
+            }
           }
 
           init();
@@ -418,10 +499,10 @@ jobs:
           import os, json
 
           groq_key = os.environ.get("GROQ_API_KEY", "").strip()
-          sorular = []
-          if os.path.isfile("cikmis_arsiv.json"):
-              with open("cikmis_arsiv.json", "r", encoding="utf-8", errors="ignore") as f:
-                  sorular = json.load(f).get("sorular", [])
+          cikmis_txt = ""
+          if os.path.isfile("noroloji_cikmis.txt"):
+              with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
+                  cikmis_txt = f.read()
 
           slayt_txt = ""
           if os.path.isfile("noroloji_kaynak.txt"):
@@ -432,13 +513,13 @@ jobs:
               html = f.read()
 
           html = html.replace("__GROQ_KEY_JSON__", json.dumps(groq_key))
-          html = html.replace("__ALL_Q_JSON__", json.dumps(sorular, ensure_ascii=False).replace("</script>", "<\\/script>"))
-          html = html.replace("__SLAYT_TEXT_JSON__", json.dumps(slayt_txt, ensure_ascii=False).replace("</script>", "<\\/script>"))
+          html = html.replace("__CIKMIS_RAW_JSON__", json.dumps(cikmis_txt, ensure_ascii=False).replace("</script>", "<\\/script>"))
+          html = html.replace("__SLAYT_RAW_JSON__", json.dumps(slayt_txt, ensure_ascii=False).replace("</script>", "<\\/script>"))
 
           with open("app/src/main/assets/index.html", "w", encoding="utf-8") as f:
               f.write(html)
 
-          print(f"v9 HTML hazir: {len(sorular)} soru gomuldu!")
+          print(f"v10 hazir: {len(cikmis_txt)} karakter cikmis + {len(slayt_txt)} karakter slayt gomuldu!")
           PYEOF
 
           gradle assembleDebug --no-daemon
@@ -446,5 +527,5 @@ jobs:
       - name: APK Dosyasini Yukle
         uses: actions/upload-artifact@v4
         with:
-          name: VIP-Noroloji-Cikmis-Master-v9
+          name: VIP-Noroloji-Cikmis-Master-v10
           path: app/build/outputs/apk/debug/app-debug.apk
