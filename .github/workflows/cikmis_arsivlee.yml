@@ -10,56 +10,95 @@ jobs:
       - name: Depoyu Al
         uses: actions/checkout@v4
 
-      - name: OCR ve Python Paketlerini Kur
+      - name: Gerekli Paketleri Kur
         run: |
-          sudo apt-get update && sudo apt-get install -y tesseract-ocr tesseract-ocr-tur
-          pip install requests gdown pymupdf pytesseract pillow
+          pip install requests gdown pymupdf
 
-      - name: Cikmis Kaynagini Tara ve Siniflandir
+      - name: Slaytlari ve Cikmis Grup PDFlerini Tara
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           cat << 'EOF' > arsivle.py
-          import os, re, json, time, subprocess, requests, fitz, pytesseract
-          from PIL import Image
-          import io
+          import os, re, json, time, subprocess, requests, fitz
 
           GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
+          SLAYT_KLASOR_ID = "1sphZMm2-OLog2IoWnZc8jXXEZOQ4oggV"
           CIKMIS_KLASOR_ID = "1qCju6jDTVNUT9Wj012UKOj3WWOZQTwbb"
 
-          ham_metin = ""
-          if os.path.isfile("noroloji_cikmis.txt"):
-              with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
-                  ham_metin = f.read().strip()
+          def klasor_idleri_bul(klasor_id, ziyaret=None):
+              if ziyaret is None:
+                  ziyaret = set()
+              if klasor_id in ziyaret:
+                  return []
+              ziyaret.add(klasor_id)
 
-          # Eger metin bos veya cok kisaysa Drive'dan tekrar cekip gerekirse OCR uygula
-          if len(ham_metin) < 500:
-              print("Metin kisa/bos, Drive'dan cekilip OCR ile taranacak...", flush=True)
-              os.makedirs("ham_cikmis", exist_ok=True)
-              subprocess.run(["gdown", "--folder", f"https://drive.google.com/drive/folders/{CIKMIS_KLASOR_ID}", "-O", "ham_cikmis", "--remaining-ok"], check=False)
-              pdfler = []
-              for kok, _, dosyalar in os.walk("ham_cikmis"):
-                  for d in sorted(dosyalar):
-                      if d.lower().endswith(".pdf"):
-                          pdfler.append(os.path.join(kok, d))
-              satirlar_ocr = []
-              for pdf_yol in pdfler:
-                  doc = fitz.open(pdf_yol)
-                  for s_no, sayfa in enumerate(doc, 1):
-                      txt = sayfa.get_text("text").strip()
-                      if len(txt) < 40:
-                          pix = sayfa.get_pixmap(dpi=200)
-                          img = Image.open(io.BytesIO(pix.tobytes("png")))
-                          txt = pytesseract.image_to_string(img, lang="tur+eng").strip()
-                      if txt:
-                          satirlar_ocr.append(f"[Sayfa {s_no}]\n{txt}")
-              ham_metin = "\n\n".join(satirlar_ocr)
-              with open("noroloji_cikmis.txt", "w", encoding="utf-8") as out_t:
-                  out_t.write(ham_metin)
+              url = f"https://drive.google.com/embeddedfolderview?id={klasor_id}#list"
+              r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
+              html = r.text
 
-          print(f"Toplam taranacak karakter: {len(ham_metin)}", flush=True)
+              # Alt klasorleri bul
+              alt_klasorler = re.findall(r'drive\.google\.com/drive/folders/([a-zA-Z0-9_-]{20,})', html)
+              dosyalar = []
+              # Dosya ID ve basliklarini bul
+              for m in re.finditer(r'id="entry-([a-zA-Z0-9_-]{20,})".*?flip-entry-title">(.*?)</div>', html, re.S):
+                  fid, ad = m.group(1), re.sub(r'<.*?>', '', m.group(2)).strip()
+                  if fid != klasor_id:
+                      dosyalar.append((fid, ad))
 
-          satirlar = [s.strip() for s in ham_metin.split("\n") if s.strip()]
+              if not dosyalar:
+                  for fid in set(re.findall(r'file/d/([a-zA-Z0-9_-]{20,})', html)):
+                      dosyalar.append((fid, f"dosya_{fid[:6]}.pdf"))
+
+              for ak in set(alt_klasorler):
+                  if ak not in ziyaret:
+                      dosyalar.extend(klasor_idleri_bul(ak, ziyaret))
+              return dosyalar
+
+          def pdf_klasor_oku(klasor_id, gecici_dir, maks_mb=35):
+              os.makedirs(gecici_dir, exist_ok=True)
+              liste = klasor_idleri_bul(klasor_id)
+              print(f"Klasorde bulunan oge sayisi: {len(liste)}", flush=True)
+              tum_metin = []
+              gorulen_id = set()
+              for fid, ad in liste:
+                  if fid in gorulen_id:
+                      continue
+                  gorulen_id.add(fid)
+                  if "toplu" in ad.lower() and maks_mb < 50:
+                      print(f"Atlandi (buyuk tarama): {ad}", flush=True)
+                      continue
+                  hedef_pdf = os.path.join(gecici_dir, f"{fid}.pdf")
+                  subprocess.run(["gdown", f"https://drive.google.com/uc?id={fid}", "-O", hedef_pdf, "-q"], check=False)
+                  if not os.path.isfile(hedef_pdf):
+                      continue
+                  boyut_mb = os.path.getsize(hedef_pdf) / (1024 * 1024)
+                  if boyut_mb > maks_mb or boyut_mb < 0.005:
+                      print(f"Atlandi boyut ({boyut_mb:.1f} MB): {ad}", flush=True)
+                      continue
+                  try:
+                      doc = fitz.open(hedef_pdf)
+                      sayfalar = [f"[Sayfa {i}] {s.get_text('text').strip()}" for i, s in enumerate(doc, 1) if s.get_text("text").strip()]
+                      icerik = "\n".join(sayfalar)
+                      print(f"Okundu: {ad} -> {len(icerik)} karakter", flush=True)
+                      if icerik:
+                          tum_metin.append(f"=== KAYNAK: {ad} ===\n{icerik}")
+                  except Exception as e:
+                      print(f"PDF okuma hatasi ({ad}): {e}", flush=True)
+              return "\n\n".join(tum_metin)
+
+          slayt_metin = pdf_klasor_oku(SLAYT_KLASOR_ID, "ham_slayt", maks_mb=45)
+          cikmis_metin = pdf_klasor_oku(CIKMIS_KLASOR_ID, "ham_cikmis", maks_mb=30)
+
+          if slayt_metin:
+              with open("noroloji_kaynak.txt", "w", encoding="utf-8") as f:
+                  f.write(slayt_metin)
+          if cikmis_metin:
+              with open("noroloji_cikmis.txt", "w", encoding="utf-8") as f:
+                  f.write(cikmis_metin)
+
+          print(f"TOPLAM Slayt: {len(slayt_metin)} karakter | Cikmis: {len(cikmis_metin)} karakter", flush=True)
+
+          satirlar = [s.strip() for s in cikmis_metin.split("\n") if s.strip()]
           parcalar = []
           aktif = ""
           for s in satirlar:
@@ -89,16 +128,16 @@ jobs:
           gorulen = set()
 
           for idx, parca in enumerate(parcalar, 1):
-              print(f"Parca {idx}/{len(parcalar)} isleniyor...", flush=True)
+              print(f"Parca {idx}/{len(parcalar)} siniflandiriliyor...", flush=True)
               sistem = (
-                  "Sen İnönü Tıp Dönem 5 Nöroloji arşiv uzmanısın. Sana verilen 'Çıkmış Nöroloji Föyü' metnindeki "
+                  "Sen İnönü Tıp Dönem 5 Nöroloji arşiv uzmanısın. Sana verilen 'Çıkmış Nöroloji Soruları' metnindeki "
                   "TÜM soruları eksiksiz ayıkla. KESİNLİKLE yeni soru uydurma, sadece metinde geçen çıkmış soruları çıkar! "
                   "Her soruyu şu 5 alana ayır:\n"
-                  "1. 'ana_baslik': Standart Nöroloji ana başlığı (Örn: Baş Ağrıları, Serebrovasküler Hastalıklar, Epilepsi, Hareket Bozuklukları, Demiyelinizan Hastalıklar, Nöromüsküler Hastalıklar, Bilinç Bozuklukları, Kraniyal Sinirler, SSS Enfeksiyonları, Demans ve Diğerleri)\n"
-                  "2. 'alt_baslik': Spesifik alt konu (Örn: Migren, Küme Baş Ağrısı, Wallenberg Sendromu, GBS, CIDP, Myastenia Gravis, Parkinson, Status Epileptikus vb.)\n"
-                  "3. 'tur': Çoktan seçmeli test sorusu ise 'TEORİK', açık uçlu / hoca sorusu / vaka sorusu ise 'SÖZLÜ'\n"
+                  "1. 'ana_baslik': Standart Nöroloji ana başlığı (Baş Ağrıları, Serebrovasküler Hastalıklar, Epilepsi, Hareket Bozuklukları, Demiyelinizan Hastalıklar, Nöromüsküler Hastalıklar, Bilinç Bozuklukları, Kraniyal Sinirler, Nörolojik Muayene, Demans ve Diğerleri)\n"
+                  "2. 'alt_baslik': Spesifik alt konu (Migren, Küme Baş Ağrısı, Gerilim Tipi Baş Ağrısı, İskemik İnme, Hemorajik İnme, GBS, CIDP, Myastenia Gravis, ALS, Parkinson, MS, Status Epileptikus, Trigeminal Nevralji, Alzheimer, Lewy Cisimcikli Demans vb.)\n"
+                  "3. 'tur': Çoktan seçmeli test sorusu ise 'TEORİK', sözlü / pratik / vaka hoca sorusu ise 'SÖZLÜ'\n"
                   "4. 'soru': Çıkmış sorunun metni (varsa şıklarıyla birlikte)\n"
-                  "5. 'cevap': Metinde cevabı varsa o cevap, yoksa tıbbi olarak kesin doğru cevabı ve 1 cümlelik açıklaması.\n"
+                  "5. 'cevap': Metinde yıldız (*) veya cevap anahtarıyla belirtilen doğru cevap; belirtilmemişse tıbbi olarak kesin doğru cevabı ve 1 cümlelik açıklaması.\n"
                   "Metin içinde asla çift tırnak (\") kullanma. Sadece saf JSON döndür: "
                   '{"sorular":[{"ana_baslik":"...","alt_baslik":"...","tur":"TEORİK veya SÖZLÜ","soru":"...","cevap":"..."}]}'
               )
@@ -137,12 +176,12 @@ jobs:
           print(f"TAMAMLANDI! Toplam {len(tum_sorular)} cikmis soru arsivlendi.")
           EOF
           python arsivle.py
-          rm -rf ham_cikmis arsivle.py
+          rm -rf ham_slayt ham_cikmis arsivle.py
 
       - name: Arsivi Depoya Kaydet
         run: |
           git config user.name "VIP-Noroloji-Bot"
           git config user.email "tus@vip.local"
-          git add cikmis_arsiv.json noroloji_cikmis.txt
-          git commit -m "Cikmis Noroloji Sorulari OCR ile Tarandi ve Basliklandirildi"
+          git add cikmis_arsiv.json noroloji_cikmis.txt noroloji_kaynak.txt
+          git commit -m "Embedded Folderview ile Tum Grup Cikmislari ve Slaytlar Eklendi"
           git push origin main
