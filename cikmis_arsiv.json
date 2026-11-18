@@ -1,4 +1,971 @@
 {
-  "toplam": 0,
-  "sorular": []
+  "toplam": 138,
+  "sorular": [
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Genel Bilgi",
+      "tur": "TEORİK",
+      "soru": "Asağıdakilerden hangisi yanlıştır?\nI. Noradrenerjik ve adrenerjik nöronların çoğu raphe nukleusunda toplanmıştır.\nII. Ağrılı uyarana deserebre yanıt veren bir hastanın GKS’u beştir.\nIII.İçe bakış kısıtlılığı olan bir hastada 6. Kraniyal sinir paralizisi düşünülür.\nIV. Beyin ölümünde beyin sapı re eksleri kesinlikle alınamaz.\nV. Bilinci kapalı olarak acile gelen bir hastaya yapılacak ilk tetkik beyin BT dir.\na) Hepsi\nb) II-IV-V\nc) II-III-IV-V\nd) III-IV-V\ne) I-II-III-V**",
+      "cevap": "e) I-II-III-V. Bu seçenek, verilen ifadeler arasında hatalı olanları doğru şekilde listeler."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Amyotrofik Lateral Skleroz (ALS)",
+      "tur": "TEORİK",
+      "soru": "Amiyotro k Lateral Skleroz (ALS) ile ilgili hangileri yanlıştır?\nI. Ekstremitelerde gece krampları görülür\nII. EMG de proksimal kaslarda denervasyon görülmesi tipiktir\nIII. Psödobulber bulgular da görülebilir.\nIV.. Spastisite beklenir\nV. Hastalık atak dönemlerinde IVIG veya plazmafarez kullanılır\na) II-V**\nb) I-IV\nc) I-V\nd) III-IV\ne) II-III",
+      "cevap": "a) II-V. EMG’de denervasyon genellikle distal kaslarda görülür ve IVIG/plazmaferese ALS tedavisinde kullanılmaz."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Anti-epileptik Tedaviler",
+      "tur": "TEORİK",
+      "soru": "Anti-epileptik tedavilerle ilgili aşağıdakilerden hangisi/hangileri yanlıştır?\nI. Valproik asit hepatik yetmezliği olanlarda dikkatli kullanılmalıdır\nIl. Fenitoin status epileptikusta iv. 3 - 4 mg/kg dozunda kullanılır\nIII. SE'de ilk seçenek diazepamdir ve dozu 0,15 mg/kg'dir\nIV. Topiramat nefrolitiazis yapabilir\nV. Absans nöbetlerde lamotirijin kullanılmaz.\na) II-IV-V\nb) II-V**\nc) I-IV-V\nd) III-IV\ne) II-IV",
+      "cevap": "b) II-V. Fenitoin dozajı ve lamotrijin kullanımına ilişkin ifadeler yanlıştır."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Epilepsi Genel",
+      "tur": "TEORİK",
+      "soru": "Epilepsi ile ilgili asağıdakilerden hangisi/hangileri yanlıştır?\n1. Epileptik nöbette etrafına zarar verme psikojen nöbete göre daha sik görülür\nIl. Psikojen nöbetler genellikle kalabalık yerlerde olur.\nIII. Frontal nöbetlerin ayırıcı tanısında öncelikle geçici iskemik atak düşünülmelidir\nIV. Temporal nöbetlerde post iktal laterji, afazi sık görülür\nV. Epileptogenezde inhibisyonun artması epilepsi eşiğini düşürür\na) I-II-IV\nb) II-III-V\nc) I-III-V**\nd) I-III-IV\ne) I-II-III",
+      "cevap": "c) I-III-V. Bu maddeler epilepsiyle ilgili hatalı bilgilerdir."
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Trigeminal Nevralji",
+      "tur": "TEORİK",
+      "soru": "Trigeminal nevralji ile ilgili aşağıdakilerden hangileri yanlıştır?\nI. Tedavide lamotirijin sik tercih edilir\nII. Ağrı öncesi aura olabilir\nIII. Klinikte oftalmik sinir tutulumuna daha az rastlanılır\nIV. Ağrı ataklarına pitozis eslik eder\nV. Etyolojide bulbus düzeyinde bir lezyon veya indirekt bir bast etkisi olabilir\na) I-II-IV-V**\nb) II-IV-V\nc) II-III-IV\nd) I-III-IV-V\ne) I-II-III-IV-V",
+      "cevap": "a) I-II-IV-V. Lamotrijin sık kullanılmaz, aura nadirdir, pitozis eşlik etmez ve bulbus lezyonu olasıdır."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Kognitif Bozukluk Kategorileri",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi kognitif bozukluk kategorisinde yer almaz?\na) Bellek\nb) Dikkat\nc) Dil\nd) Görsel-mekansal islev\ne) Sosyal disinhibisyon**",
+      "cevap": "e) Sosyal disinhibisyon. Sosyal davranış bozukluğu kognitif bozukluk sınıflamasına girmez."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Parkinson Hastalığı",
+      "tur": "TEORİK",
+      "soru": "Parkinson hastalığında değişen nörotransmitter dengesi ile ilgili en doğru ifade hangisidir?\na) Asetilkolin ve dopamin düzeyinde düşme izlenir\nb) Dopamin düzeyi azalırken, asetilkolin düzeyi artar.**\nc) Dopamin düzeyi artarken, asetilkolin düzeyi azalır.\nd) Serotonin düzeyinde azalma beklenir\ne) GABA düzeyinde azalma beklenir.",
+      "cevap": "b) Dopamin düzeyi azalırken, asetilkolin düzeyi artar. Parkinson’da dopamin kaybı asetilkolin aktivitesinin artmasına yol açar."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Alzheimer Hastalığı",
+      "tur": "TEORİK",
+      "soru": "Aşağıdaki mutasyonlardan hangisi Alzheimer hastalığı ile ilişkili değildir?\na) Presenilin 1 geni\nb) Amiloid prekursor proteini geni\nc) Presenilin 2 geni\nd) Parkyn geni**\ne) Apo 4 geni",
+      "cevap": "d) Parkyn geni. Parkinson hastalığıyla ilişkilidir, Alzheimer ile değil."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Esansiyel Tremor",
+      "tur": "TEORİK",
+      "soru": "Esansiyel tremor için aşağıdakilerden hangisi yanlıştır?\na) Aile öyküsü çok sıktır\nb) lstirahat tremoru tipik özelliğidir**\nc) Tedavide beta blokerler kullanılabilir\nd) Frekansı genellikle hızlıdır\ne) Vokal kordlarda görülebilir",
+      "cevap": "b) Istirahat tremoru tipik özelliğidir. Esansiyel tremor genellikle hareketle artar, istirahat halinde azalır."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Kore",
+      "tur": "TEORİK",
+      "soru": "Kore için aşağıdakilerden hangisi yanlıştır?\na) Genellikle extremite distallerinde gözükür\nb) Düzensiz, asimetrik, aritmik paternlidir.\nc) Hungtington hastalığı bir primer kore nedenidir.\nd) Bükücü, döndürücü nitelikte izlenir**\ne) Wilson hastalığında kore görülebilir.",
+      "cevap": "d) Bükücü, döndürücü nitelikte izlenir. Kore genellikle düzensiz, ritmik olmayan hareketlerdir."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Migren",
+      "tur": "TEORİK",
+      "soru": "40 yaşında kadın hasta nöroloji polikliniğine baş ağrısı şikayeti ile başvurdu. Hastanın yaklaşık 2 günden beri şiddetli baş ağrısı mevcuttu. Ağrının başladığı ilk gün bir defa parasetamol 500 mg kullanan hastanın 26 yaşından beri, bazen sağ bazen sol ama genellikle sağ orbital-temporal bölgede lokalize, zonklayıcı, rutin aktiviteyle artış gösteren başağrısı atakları olmaktaymış. Atak sırasında bulantı, fonofobi ve fotofobi eşlik etmekteymiş. Ayda 4-5 defa sıklıkta ağrı atakları olan hastanın tedavisi ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Hastanın şimdiki ağrısını kesmek için nonsteroid anti-in amatuar ilaçlardan birini kullanması uygun olur.**\nb) Hastaya pro laksi amacıyla B-blokör ilaçlardan biri başlanabilir.\nc) Hastaya pro laksi amacıyla anti-epileptik ilaçlardan biri başlanabilir.\nd) Hastanın şimdiki ağrısını kesmek için triptan grubundan bir ilaç alması uygun olur.\ne) Hastaya pro laksi amacıyla bir trisiklik antidepresan olan amitriptilin başlanabilir.",
+      "cevap": "a) Hastanın şimdiki ağrısını kesmek için nonsteroid anti-in amatuar ilaçlardan birini kullanması uygun olur. Migren ataklarında NSAID’ler tek başına yeterli olmayabilir; triptanlar tercih edilir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "inme riskini arttıran bir durumdur?\na) Hastanın genç olması (45 yaş ve altı)\nb) Hastada kan basıncının 140/90 mmHg altında olması\nc) GIA süresi 2 ile 15 dakika arasındaysa\nd) Klinik seyir sırasında düzelen ağır de sit varsa**\ne) Ekstrakraniyal/intrakraniyal stenoz saptanmamışsa",
+      "cevap": "d) Klinik seyir sırasında düzelen ağır de sit varsa. Bu durum geçici iskemik atakların ileride inme riskini artırdığı anlamına gelir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "Aşağıdaki fokal nörolojik semptomlardan hangisi inmede görülen motor semptomlar içinde yer almaz?\na) Hemiparezi\nb) Monoparezi\nc) Afazi**\nd) Disfaji\ne) Kuadriparezi",
+      "cevap": "c) Afazi. Afazi bir dil bozukluğudur, motor semptomlar arasında yer almaz."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Akut İskemik İnme Tedavisi",
+      "tur": "TEORİK",
+      "soru": "75 yaşında sağ elini kullanan erkek hasta akşam saat 23:00'te uyuduktan sonra kızı tarafından yatağında sabah saat 08:30'da konuşmada zorluk, sag kol ve bacakta güçsüzlük gelişmiş halde bulunmuş, Acil serviste yapılan nörolojik muayenede dizartrik konuşma, motor afazi ve sag hemiparezi saptanan hastanın özgeçmişinde diabet, hipertansiyon ve atrial brilasyon öyküsü mevcuttu, Çekilen kontrastsız beyin tomogra si normal bulundu. Hastanın kan basıncı 170/90 mmHg olarak saptandı.\nAşağıdakilerden hangisi bu hastada acil koşullarda yapılması gereken doğru tedavi yaklaşımlarından biridir?\na) Hastada hipertansif acillerden biri yoksa kan basıncını düşürmek gerekir.\nb) Hastaya zaman kaybetmeden intravenoz trombolitik tedavi verilmelidir.\nc) Hastada atriyal brilasyon oldugundan hızla antikoagulan tedavi başlanması gerekir.\nd) Hastada inmeye yol açan karotis darlığı varsa stent takılması gerekir.\ne) Hasta mekanik trombektomi için hızla değerlendirilmedir.**",
+      "cevap": "e) Hasta mekanik trombektomi için hızla değerlendirilmedir. Büyük damar tıkanıklığı şüphesi varsa mekanik trombektomi acil değerlendirilmelidir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Kan Basıncı Yönetimi",
+      "tur": "TEORİK",
+      "soru": "63 yaşında kadın hasta eşiyle konuşurken ani gelişen peltek konuşma, sol kol ve bacakta güçsüzlük şikayeti ile hızla acil polikliniğe getiriliyor. Çekilen beyin tomogra sinde sağ orta serebral arterin inferior dalina uyan akut infarkt olduğu saptanıyor. Özgeçmiş sorgulamasında hipertansiyon ve düzensiz anti-hipertansif kullanım öyküsü olan hastanı girişte kan basıncı 230/120 mmHg olarak ölçülüyor. Hastanın yapılan elektrokardiyogramında akut inferior myokard enfarktüs ile uyumlu bulgular olduğu saptanıyor. Bu hastanın acil serviste takip ve tedavisinde aşağıdakilerden hangisi doğrudur?\na) Hastada zaman kaybetmeden intravenoz trombolitik tedaviye başlamak gerekir.\nb) Hastanın beyin tomogra sini tekrarlamak gerekir.\nc) Hastanı hızla damar yolu açılmalı ve dekstroz başlanmalıdır.\nd) Hastada kan basıncını acil düşürmek gerekir.**\ne) Hastada kan basıncını düşürürken ortalama kan basıncını dikkate almak gerekir.",
+      "cevap": "d) Hastada kan basıncını acil düşürmek gerekir. Çok yüksek tansiyonun hızlı kontrolü inme prognozunu iyileştirir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multiple Sclerosis",
+      "tur": "TEORİK",
+      "soru": "Multip Skleroz (MS) ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?\na) Internükleer oftalmopleji MS için patognomiktir\nb) BOS'da atak sırasında kısa süreli hücre artışı olabilir\nc) BOS’da oligoklonal band klinik kesin MS'lilerde % 60 oranında saptanır**\nd) MS ayırıcı tanısında tüberküloz ve lyme hastalıkları vardır\ne) Postpartum dönemde atak riski artar",
+      "cevap": "c) BOS’da oligoklonal band klinik kesin MS'lilerde % 60 oranında saptanır. Oligoklonal bantlar % 90’dan fazla hastada görülür."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Lambert-Eaton Myastenik Sendrom",
+      "tur": "TEORİK",
+      "soru": "Lambert-Eaton Miyastenik Sendrom ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Repetetif uyarıda dekrement görülür**\nb) Erkeklerde daha sık görülür\nc) Klinikte ağız kuruluğu ve impotans görülebilir\nd) Sinir kas kavşağında presinaptik bozukluk söz konusudur\ne) Fizyopatolojik bozukluk magnezyum artışında ortaya çıkan presinaptik bozukluğa benzer",
+      "cevap": "a) Repetetif uyarıda dekrement görülür. LEMS’de tekrarlayan uyarılarda kas gücü artışı (inkrement) görülür."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Botulism",
+      "tur": "TEORİK",
+      "soru": "Botilismus ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Semptomlar toksin alındıktan 8-36 saat sonra ortaya çıkar\nb) Ölüm sıklıkla solunum kasları tutulumu ile olmaktadır\nc) Bulber kas tutulumu ve miyotik pupil görülebilir**\nd) Tanı öykü, ENMG ve kan-gaitada toksin bakılması ile konulur\ne) Toksinler Ach salınımını presinaptik düzeyde bloke eder",
+      "cevap": "c) Bulber kas tutulumu ve miyotik pupil görülebilir. Botulizm genellikle flasifik ve miyotik pupilleri içermez."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Kronik İnflamatuar Demiyelinizan Poliradik Nöropati",
+      "tur": "TEORİK",
+      "soru": "Kronik İn amatuvar Demiyelinizan Polinöropati (CIDP) ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Otoimmün bir hastalıktır\nb) En sık 5. dekatta görülür ve erkeklerde daha sıktır\nc) 2 aydan daha uzun bir progresyon öyküsü vardır\nd) Ekstremitelerin distallerini simetrik şekilde tutan kas kuvvetsizliği vardır**\ne) BOS'da albuminositolojik disosiyasyon saptanır",
+      "cevap": "d) Ekstremitelerin distallerini simetrik şekilde tutan kas kuvvetsizliği vardır. CIDP’de tipik olarak proximaller daha çok etkilenir."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Myastenia Gravis",
+      "tur": "TEORİK",
+      "soru": "45 yaşında erkek hasta son bir yıldır ara ara olan çift görme, yutma güçlüğü ve halsizlik şikayetleri ile geldi. Şikayetleri öğleden sonraları daha hissedilir oluyormuş. Özgeçmişinde romatoid artrit ve diyabet var. Mevcut bilgilerle aşağıdaki tetkiklerden hangisini yapmak ön planda düşünülmez?\na) Torax BT\nb) BOS incelemesi**\nc) Tek lif EMG\nd) Serumda anti-R antikoru\ne) Neostigmin testi",
+      "cevap": "b) BOS incelemesi. Myastenia Gravis tanısında beyin omurilik sıvısı incelemesi rutin olarak gerekli değildir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Tromboliz",
+      "tur": "SÖZLÜ",
+      "soru": "tPA kullanım endikasyonları kontrendikasyonları",
+      "cevap": "İndikasyonlar: akut iskemik inme, semptom başlangıcından 4.5 saat içinde, NIHSS≥6, CT’de kanama yok, 18‑85 yaş. Kontrendikasyonlar: aktif kanama, son 3 hafta içinde büyük cerrahi, kan basıncı >185/110, INR>1.7, heparin ile yüksek aPTT, platelet <100.000."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Beyin Görüntüleme",
+      "tur": "SÖZLÜ",
+      "soru": "BT'de kanama nasıl görülür",
+      "cevap": "İntrakraniyal kanama BT’de hiperdens (parlak) alan olarak, çevresel ödem ve kitle etkisiyle görülür."
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Kranial Sinir Muayenesi",
+      "tur": "SÖZLÜ",
+      "soru": "Kranial sinir muayenesi",
+      "cevap": "I: koku, II: görme, III: pupilla, göz hareketleri, IV: göz hareketi (yukarı), V: yüz duyusu ve çiğneme, VI: dışa bakma, VII: yüz kasları, VIII: işitme ve denge, IX: yutma, X: gırtlak, XI: trapez/sternocleidomastoid, XII: dil hareketi."
+    },
+    {
+      "ana_baslik": "Kranial Sinirler",
+      "alt_baslik": "Oculomotor (III)",
+      "tur": "SÖZLÜ",
+      "soru": "Hasta içe bakamıyorsa hangi sinirde sorun var (Her birine ayrıntılı cevap)",
+      "cevap": "İçe bakamama (adüksiyon kaybı) oculomotor sinir (CN III) hasarını gösterir; medial rectus kası etkilenir."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Status Epileptikus",
+      "tur": "SÖZLÜ",
+      "soru": "statusla gelen hastayı yönet",
+      "cevap": "Öncelikle hava yolu, oksijen, glukoz sağlanır; IV lorazepam 0.1 mg/kg verilir, yanıt alınmazsa fosfenitidin veya valproat eklenir, gerekirse intübasyon ve yoğun bakım."
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Görme Muayenesi",
+      "tur": "SÖZLÜ",
+      "soru": "görmeyle alakalı bütün muayeneleri yap",
+      "cevap": "Görme keskinliği (Snellen), renk görme, görme alanı (perimetrik), funduskopi, pupilla ışık refleksi, ekstraoküler hareketler ve afferent pupilla refleksi değerlendirilir."
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Mini Mental Durum Test",
+      "tur": "TEORİK",
+      "soru": "Minimental muayene için kullanılan testlerden hangisi görsel mekansal algıyı değerlendirmemizi sağlar ?",
+      "cevap": "Clock Drawing Test; bu test hastanın görsel‑mekansal becerilerini değerlendirmek için Mini‑Mental Durum Testi içinde kullanılır."
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Kognitif Fonksiyonlar",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi kognitif fonksiyonlardan değildir?\nA) dil\nB) dikkat\nC) bellek\nD) görsel mekansal işlev\nE) sosyal disinhibisyon",
+      "cevap": "E) sosyal disinhibisyon; sosyal davranışlar bilişsel fonksiyonlar arasında sınıflandırılmaz."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "CIDP",
+      "tur": "TEORİK",
+      "soru": "Cidp ile ilgili hangisi yanlıştır?\nA) Otoimmundur\nB) %10 unda hipertrofik sinirler palpe edilir\nC) Motor semptomlar duyudan daha on plandadır\nD) Tekrarlama göstermez **",
+      "cevap": "D) Tekrarlama göstermez; CIDP hastalarında tekrarlama (relaps) görülür."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Gerilim Tipi Baş Ağrısı",
+      "tur": "TEORİK",
+      "soru": "Gerilim tipi baş ağrısı ile ilgili hangisi doğrudur?",
+      "cevap": "Gerilim tipi baş ağrısının süresi genellikle 30 dk‑7 gün arasındadır."
+    },
+    {
+      "ana_baslik": "Diğerleri",
+      "alt_baslik": "Nörotransmitterler",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi yanlıştır?\nA) Asetilkolin eksitator etkili bir nototransmitterdir.\nB) GABA inhibitor etkili bir norotransmitterdir.\nC) Seratonin eksitator etkili bir norotransmitterdir.***\nD) Glutamat eksitator etkili bir norotransmitterdir\nE) Dopamin eksitator etkili bir norotransmitterdir",
+      "cevap": "C) Seratonin eksitator etkili bir norotransmitterdir; serotonin genellikle inhibitör ya da modulatuar etkili bir nörotransmitterdir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme Diferansiyel",
+      "tur": "TEORİK",
+      "soru": "2 gün önce inme tarifliyor hangisi ayırıcı tanıda yer almaz?\nA) Myasthenia gravis\nB) Kronik subdural hematom\nC) Meniere\nD) Hiperglisemi",
+      "cevap": "C) Meniere; Meniere hastalığı inme tanısının ayırıcıları arasında yer almaz."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Parkinson",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi idiyopatik parkinson destekleyici bulgulardan biridir?\nA) semptomların basamaklı ilerlemesi\nB) L dopaya yanıtın kötü olması\nC) tek taraflı asimetrik başlangıç\nD) demansın erkenden başlaması",
+      "cevap": "C) tek taraflı asimetrik başlangıç; bu bulgu idiopatik Parkinson hastalığında destekleyici bir özelliktir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "İskemik inme tutulum şekli değildir?\nA) Hemiparezi\nB) Monoparezi\nC) Disfaji\nD) Polinöropati\nE) Kuadriparezi",
+      "cevap": "D) Polinöropati; inme genellikle merkezi sinir sistemi tutulumlarıyla sınırlıdır, periferik polinöropati tipik bir tutulum şekli değildir."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "GBS",
+      "tur": "TEORİK",
+      "soru": "GBS için yanlıştır?\nMotor tutulum, duyusal tutulumun gerisindedir",
+      "cevap": "Bu ifade doğrudur; Guillain‑Barré sendromunda motor tutulum duyusal tutulumun önünde görülür, dolayısıyla soruda verilen seçenek yanlıştır denemez."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Vasküler Demans",
+      "tur": "TEORİK",
+      "soru": "Vasküler demansla ilgili aşağıdakilerden hangisi yanlıştır\nA) Cadasıl genetik geçişli sekonder vasküler demanstır\nB) binswanger demans klinik basamaklı seyreder\nC) binswanger hastalığında aterioskleroz görülür",
+      "cevap": "A) Cadasıl genetik geçişli sekonder vasküler demanstır; Cadasıl genetik bir hastalık değildir ve vasküler demansın genetik bir alt tipi olarak tanımlanmaz."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz",
+      "tur": "TEORİK",
+      "soru": "Multipl Skleroz ile ilgili aşağıdakilerden hangisi yanlıştır?\na) MS hastalarının diğer otoimün hastalıklara sahip olma ihtimali normal popülasyona göre daha fazladır\nb) Ailesel MS'in prevalansı %5-20 arasında değişir",
+      "cevap": "Her iki ifade de doğrudur; bu nedenle soruda verilen seçeneklerden yanlışı belirlemek mümkün değildir, yani yanıt \"hiçbiri\"dir."
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Bilinç Değerlendirme",
+      "tur": "TEORİK",
+      "soru": "9) Bilinç değerlendirilmesi ile ilgili aşağıdakilerden hangisi/hangileri doğrudur?\nI. Minimal bilinçlilik durumunda hastanın spontan solunumu olabilir\nII. Ataksik solunumu olan bir hastada hasarın öncelikle mezensefalon düzeyinde olduğu düşünülür\nIII. Komalı bir hasta ağrılı uyarana yüz buruşturma şeklinde yanıt alınabilir\nIV. Beyin ölümü olan hastada ağrılı uyaranla deserebre postur oluşmaz\nA) I-II B) I-II-IV C) II-III D) I-IV E) I-III-IV",
+      "cevap": "E) I-III-IV"
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz Fiziyopatolojisi",
+      "tur": "TEORİK",
+      "soru": "10) Multipl Skleroz fizyopatolojisi ile ilgili aşağıdakilerden hangisi yanlıştır?\nA) Lenfositler oligodendrosit hasarına yol açar\nB) Oto-immün süreç merkezi sinir sisteminde T lenfosit aktivasyonu ile başlar\nC) Plakta interstisyel ödem oluşur\nD) Fizyopatolojide T ve B hücreler rol oynar\nE) Kan-beyin bariyeri bozulmuştur",
+      "cevap": "C) Plakta interstisyel ödem oluşur"
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Kronik İnflamatuar Demiyelinizan Poliradikülonevrit (CIDP)",
+      "tur": "TEORİK",
+      "soru": "11) CIDP ile ilgili hangisi yanlıştır?\nA) otoimmun bir hastalıktır\nB) periferik sinirlerde segmental demyelinizasyonla seyreder\nC) 2 aydan daha uzun bir progresyon öyküsü vardır\nD) Kranial ve otonom sinir tutulmaları ön plandadır\nE) BOS’ta albuminositolojik disosiyasyon saptanır",
+      "cevap": "D) Kranial ve otonom sinir tutulmaları ön plandadır"
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz Klinik Özellikleri",
+      "tur": "TEORİK",
+      "soru": "12) Multipl Sklerozla ilgili aşağıdakilerden hangisi doğrudur?\nA) En sık başlangıç belirtisi motor semptomlardır\nB) Erkekleri daha sık etkiler\nC) Aksonal dejenerasyon gözlenir\nD) Atak tedavisinde azathioprine verilir.\nE) Epileptik nöbet olguların yarısında görülür",
+      "cevap": "C) Aksonal dejenerasyon gözlenir"
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Guillain-Barré Sendromu",
+      "tur": "TEORİK",
+      "soru": "13) GBS ile ilgili aşağıdakilerden hangisi yanlıştır?\nA) Motor belirtiler duyusal belirtilere göre daha ön plandadır.\nB) Hastanın yakınmaları başlamadan 1-4 hafta önce enfeksiyon, cerrahi bir girişim ve aşılanma öyküsü vardır.\nC) Olguların tamamında kranial sinir tutulumu sıklıkla fasiyal paralizi vardır.\nD) Olguların yarısında solunum sıkıntısı vardır.\nE) Periferik sinir yapılarına karşı antigangliozid otoantikorlar(%60) vardır.",
+      "cevap": "D) Olguların yarısında solunum sıkıntısı vardır."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Myastenia Gravis",
+      "tur": "TEORİK",
+      "soru": "14) 40 yaşında kadın hasta bugün öğleden sonra başlayan nefes darlığı şikayeti ile başvurdu. Nefes darlığı istirahat sırasında ortaya çıkmış. Hastanın 3 haftadır devam eden konuşma bozukluğu varmış. Hasta aynı zamanda gün içinde dalgalanmalar gösteren yutma zorluğu da tarif ediyor. Özgeçmişinde hipertansiyon ve hiperlipidemi öyküsü var. Nörolojik muayenesinde bulber kaslarda güçsüzlük ve pitoz mevcut. Tüm ekstremitelerinde 4/5 motor gücü var. Duyu defisiti yok. DTR normal. Serebellar testleri normal. EKG normal sinüs ritminde. Bu bilgiler dahilinde en olası tanı nedir?\nA) Multipl Skleroz\nB) Lambert-Eaton Myastenik Sendrom\nC) Myastenia Gravis\nD) Amyotrofik Lateral Skleroz (ALS)\nE) Serebrovasküler Hastalık",
+      "cevap": "C) Myastenia Gravis"
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "İdiyopatik Parkinson Hastalığı",
+      "tur": "TEORİK",
+      "soru": "15) Hangisi İdiyopatik Parkinson özelliğidir?\nA) Erken dönemde asimetrik tutulum\nB) Erken dönemde bellek bozukluğu",
+      "cevap": "A) Erken dönemde asimetrik tutulum"
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Status Epileptikus",
+      "tur": "TEORİK",
+      "soru": "16) Status Epileptikus ile ilgili aşağıdakilerden hangileri yanlıştır?\n1) SE li gelen hastada primer amaç etyolojiyi bulmaktır\n2) SE süresi arttıkça mortalite artar\n3) SE sebeplerinde etyolojide ensefalopatiler başta gelir\n4) İlk nöbeti SE olan kişide epilepsi oluşma olasılığı %50ye yakındır",
+      "cevap": "1 ve 4"
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Komada ve Beyin Ölümü",
+      "tur": "TEORİK",
+      "soru": "17) Aşağıdakilerden hangileri yanlıştır?\nI) Komada olan hastanın beyin sapına kan akımı kesinlikle yoktur\nII) Komada olan hastada beyin sapı refleksleri alınabilir.\nIII) Komada olan hasta ağrılı uyaranı lokalize edebilir, yüzünü buruşturabilir\nIV) Beyin ölümü olan hastada deserebri postür oluşabilir.\nCevap: I ve IV",
+      "cevap": "I ve IV"
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Hemorajik İnme Risk Faktörleri",
+      "tur": "TEORİK",
+      "soru": "18) Hemorajik inme risk faktörleriyle ilişkili olarak aşağıdakilerden hangisi yanlıştır?\nA) Hemorajik inmeli hastalarda orta-ağır kronik böbrek hastalığının varlığı hematom volümünü yaklaşık 2 kat artırmaktadır.\nB) Vücut kitle indeksinin yüksek olması hemorajik inme için bir risk faktörüdür.\nC) Sekiz saatten fazla uyku hemorajik inme riskini artırmaktadır\nD) Birinci derece akrabaları intraserebral kanama (İSK) geçiren kişilerde İSK riski 2 kat artmaktadır.\nE) LDL-kolesterolün normalden düşük olması hemorajik inme riskini arttırmaktadır.",
+      "cevap": "C) Sekiz saatten fazla uyku hemorajik inme riskini artırmaktadır"
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Vasküler Parkinsonizm ve NPH Ortak Bulgular",
+      "tur": "TEORİK",
+      "soru": "19) Vasküler parkinsonizm ile normal basınçlı hidrosefalide ortak olan bulgu hangisidir?\n- Alt ekstremite tutulumunun fazla olması",
+      "cevap": "Alt ekstremite tutulumunun fazla olması"
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Status Epileptikus Tedavisi (Yükleme Dozu)",
+      "tur": "TEORİK",
+      "soru": "Statusta yükleme tedavisi ile ilgili hangileri doğrudur?\n1. Fenitoin 0,2 mg/kg\n2. Valproik asit 30-40 mg/kg\n3. Diazepam 0,15 mg/kg\n4. Levetirasetam 40-60 mg/kg",
+      "cevap": "2, 3 ve 4"
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Psikometrik Testler",
+      "tur": "TEORİK",
+      "soru": "Psikometrik testlerle ilgili hangisi yanlıştır?\nA) Genel güncel bilgiler değerlendirilir\nB) Muhakeme ikili benzerlik testiyle değerlendirilir\nC) Planlamada saat cizdirilir\nD) Geri sayım menzilinin düz sayım menzilinden 1 geri olması normaldir",
+      "cevap": "A) Genel güncel bilgiler değerlendirilir"
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "Bu hastanın acil serviste takip ve tedavisinde aşağıdakilerden hangisi doğrudur?\nA) Hastada kan basıncını acil düşürmek gerekir.*\nB) Hastada beyin tomogra sini tekrarlamak gerekir.\nC) Hastada kan basıncını düşürürken ortslama kan basıncını dikkate almak gerekir.\nD) Hastada zaman kaybetmeden iv trombolitik başlamak gerekir.\nE) Hastaya hızla damar yolu açılıp dekstroz başlanmalıdır.",
+      "cevap": "A) Hastada kan basıncını acil düşürmek gerekir. Aort diseksiyonu ve akut serebral infarkt ile birlikte hipertansif krizi acilen kontrol altına alınmalıdır."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Küme Baş Ağrısı",
+      "tur": "TEORİK",
+      "soru": "10.28 yaşında, avukat olan erkek hastanın anamnezinden bir yıl önce sol temporal ve periorbital bölgeye lokalize, bıçak saplanır tarzda, gün içinde yaklaşık 1-1,5 saat süren ve 4-5 defa tekrarlayan ağrı atakları olduğu ve bu ağrıların yaklaşık 3 ay sürdüğü öğrenildi. Hasta bu ağrıyla aynı karakterde yeni başlayan ağrı nedeniyle acil polikliniğe başvurdu. Yapılan muayenede sağ gözde kızarıklık ve yaşarma olduğu tespit edilen hastada acil tedavi için en doğru yaklaşım aşağıdakilerden hangisidir?\nA) Hastaya bir beta bloker ilaç olan propranolol başlanması\nB) Hastaya oral veya subkütan triptan verilmesi*\nC) Hastaya intramüsküler yolla parasetamol uygulanması\nD) Hastaya amitriptilin başlanması\nE) Hastaya intramüsküler yolla nonsteroid anti-in amatuar uygulanması",
+      "cevap": "B) Hastaya oral veya subkütan triptan verilmesi. Triptanlar akut küme baş ağrısının tedavisinde ilk tercih edilen ilaçlardır."
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Trigeminal Nevralji",
+      "tur": "TEORİK",
+      "soru": "Trigeminal nevralji ile ilgili hangileri doğrudur?\n1- Kornea re eksini o almik sinir iletir.*\n2- Trigeminal nevralji en sık kadınlarda görülür.*\n3- Radyolojik görüntülemeyle kraniyal sinirler değerlendirilir.*\n4- 3 duyu 1 motor duyu dalı var",
+      "cevap": "1, 2, 3. Kornea duyusu V. (oftalmik) sinir tarafından taşınır, hastalık kadınlarda daha sık görülür ve MR/CT ile sinir yolları incelenebilir; 4. ifadesi yanlıştır."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Yoğun Bakım Miyopatisi",
+      "tur": "TEORİK",
+      "soru": "Uzun süre yoğun bakımda kalmış steroid, non depolarizan kas gevşetici alan hasta extube Edilemiyor neden olabilir?\nA) Yoğun bakım miyopatisi*",
+      "cevap": "A) Yoğun bakım miyopatisi. Uzun süreli immobillite, kortikosteroid ve non‑depolarizan ajanlar kas zayıflığına yol açar."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Ayırıcı Tanılar",
+      "tur": "TEORİK",
+      "soru": "Epilepsi ayırıcı tanıları ile ilgili aşağıdakilerden hangisi/hangileri doğrudur?\nI. Psikojen nöbette epileptik nöbete göre etrafına zarar verme daha çok beklenir.\nII. Psikojen nöbet genelde kalabalık yerlerde olur.*\nIII. Epileptik nöbette hastada göz açmaya direnç vardır.\nIV. Epileptik nöbetin süresi genelde 1-3 dk dir.*",
+      "cevap": "II, IV. Psikojen nöbetler genellikle sosyal ortamlarda tetiklenir; epileptik nöbetlerin çoğu 1‑3 dakika sürer."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Normal Basınçlı Hidrosefali",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi normal basınçlı hidrosefali için yanlıştır?\nA) Vasküler kaynaklıdır*\nB) İdrar inkontinansı görülür.\nC) Demans görülür.\nD) (seçenek eksik)",
+      "cevap": "A) Vasküler kaynaklıdır. Normal basınçlı hidrosefali genellikle idiopatik ya da kronik obstrüktif mekanizmalardır, vasküler bir etiyoloji tipik değildir."
+    },
+    {
+      "ana_baslik": "Dil ve Afazi",
+      "alt_baslik": "Kondüksiyon Afazi",
+      "tur": "TEORİK",
+      "soru": "Yaklaşık olarak 3 ay önce iskemik inme nedeniyle nöroloji servisinde yatırılarak izlenen 69 yaşında erkek hasta kontrol amaçlı polikliniğe başvurdu. Hastanın nörolojik muayenesinde sağ hemiparezi ile birlikte; akıcı konuştuğu, anlamasının normal olduğu, söylemek istediği şeyleri ifade edebildiği ve kendisine gösterilen nesnelerin adını söyleyebildiği buna karşılık tekrarlamasının bozuk olduğu saptandı. Çekilen beyin BT'de sol temporal bölgeye lokalize subakut dönem ile uyumlu enfakt görüntüsü mevcuttu. Hastada nörolojik muayenede dil işlevleriyle ilgili saptan bu bulgular göz önüne alındığında en olası tanınız nedir?\nA) Motor afazi (Broca afazisi)\nB) Anomik afazi\nC) Talamik afazi\nD) Sensoriyal afazi (Wernice afazisi)\nE) Kondüksiyon afazi (iletim afazisi)*",
+      "cevap": "E) Kondüksiyon afazi. Tekrarlama bozukluğu, akıcı ve anlaşılan konuşma, normal anlama, nesne adlandırma yeteneği bu afazi tipine işaret eder."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Demans Şiddeti Değerlendirmesi",
+      "tur": "TEORİK",
+      "soru": "Yaşlı kadın hasta polikliniğe geliyor. Evde günlük yaşam aktivitelerinin yakınlarının yardımı olmadan yapamıyor ve dışarıda bir iki kere kaybolmuş. Hastanın defansı hangi düzeydedir?\nA) Ha f demans\nB) Orta demans\nC) Ağır demans\nD) Subjektif kognitif bozukluk\nE) Ha f kognitif bozukluk",
+      "cevap": "C) Ağır demans. Bağımsız günlük yaşam aktivitelerini yapamama ve yön bulma kaybı ağır demansın klinik bulgularıdır."
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Duyu Muayenesi",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi doğrudur\nA) Vibrasyon duyusu derin duyu muayenesidir*\nB) Taban cildi re eksi alt ekstremite dtr dir\nC) Pasif hareket yüzeysel duyu muayenesidir.",
+      "cevap": "A) Vibrasyon duyusu derin duyu muayenesidir. Vibrasyon ve propriosepsiyon derin duyular arasında sınıflandırılır."
+    },
+    {
+      "ana_baslik": "Diğerleri",
+      "alt_baslik": "Huntington Hastalığı",
+      "tur": "TEORİK",
+      "soru": "Hungtington koresi ile ilgili yanlış olanı işaretleyiniz\nA) A grubu beta hemolitik streptokoklarla çapraz reaksiyona girer.*\nB) Kore eslik eder.\nC) Erken dönemde demans görülür\nD) Erken dönemde psikiyatrik bulgular görülür.\nE) Genetiktir.",
+      "cevap": "A) A grubu beta hemolitik streptokoklarla çapraz reaksiyona girer. Huntington hastalığı genetik bir nörodejeneratif hastalıktır, streptokoklarla ilişkili değildir."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Antiepileptik İlaçlar",
+      "tur": "TEORİK",
+      "soru": "I. Topiramat sitopeni yan etkisi vardır.\nII. Fenitoin jenarilize nöbette kullanılır.\nIII. Levatasetam parsiyel nöbetlerde sık kullanılır.\nIV. Karbamezapin miyoklonikletde kullanılır.\nHangileri doğrudur?",
+      "cevap": "I, IV. Topiramate trombositopeni yapabilir; karbamazepin miyoklonik nöbetlerde etkilidir. Fenitoin genellikle genelleşmiş tonik-klonik nöbetlerde, levetiracetam ise parsiyel nöbetlerde yaygın olarak tercih edilir."
+    },
+    {
+      "ana_baslik": "Dil ve Afazi",
+      "alt_baslik": "Anomik Afazi",
+      "tur": "TEORİK",
+      "soru": "1 ay önce İskemik inme geçirip serviste yatan hastanın poliklinik muayenesinde konuşmasının normal olduğu, anlamakta zorluk çekmediği, kendisine söylenen şeyleri tekrar edebildiği ancak nesneleri tanıyamadığı görülmüştür. Bu hasta için en olası tanı nedir?\nAnomik Afazi***",
+      "cevap": "Anomik Afazi. Nesne adlandırma bozukluğu (anomi) tek başına anomik afazinin tipik bulgusudur."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Geçici İskemik Atak (TIA) risk faktörleri",
+      "tur": "TEORİK",
+      "soru": "Öykü, nörolojik muayene ve radyolojik görüntüleme sonrası geçici iskemik atak (GIA) geçirdiği kanaatine varılan bir hastada aşağıdakilerden hangisi tekrarlayan inme riskini arttıran bir durumdur?\nA) Hastada kan basıncının 140/90 mmHg altında olması.\nB) Ekstrakranyal/intrakraniyal stenoz saptanmamışsa\nC) Klinik seyir sırasında düzelen ağır defisit varsa\nD) Hastanın genç olması\nE) GIA süresi 2 ile 15 dk arasındaysa",
+      "cevap": "C) Klinik seyir sırasında düzelen ağır defisit varsa. Ağır defisitli TIA'ların iyileşmesi, daha yüksek inme riskiyle ilişkilidir."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Alzheimer",
+      "tur": "TEORİK",
+      "soru": "Aşağıdaki mutasyonlardan hangisi Alzheimer hastalığıyla ilgili değildir ?\na) Presenilin 1 geni\nb) Presenilin 2 geni\nc) Parklyn geni*\nd) Apo E4",
+      "cevap": "c) Parklyn geni. Parkin geni Parkinson hastalığıyla ilişkilidir, Alzheimer ile bağlantısı yoktur."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Alzheimer",
+      "tur": "TEORİK",
+      "soru": "Alzheimer hastalığı patolojisi için aşağıdakilerden hangisi doğrudur ?\na) Amiloid proteini hücre içi yerleşimlidir.\nb) Nöro briler yumaklar lewy cisimciklerinden oluşmaktadır\nc) Bos’da tau düzeyinde azalma beklenir.\nd) Bos’da amiloid proteininde azalma beklenir.*\ne) Asetilkolin miktarında artış izlenir",
+      "cevap": "d) Bos’da amiloid proteininde azalma beklenir. (Yıldızla işaretlenmiş doğru cevap)"
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Parkinson",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi parkinson hastalığı için risk faktörü değildir ?\nA) Emosyonel stres\nB) Tekrarlayan kafa travması\nC) Aile öyküsü\nD) Kırsal alanda yaşam\nE) Sigara*",
+      "cevap": "E) Sigara. Sigara içmek Parkinson hastalığı riskini artırmaz; bazı çalışmalar koruyucu etkisi olduğunu göstermiştir."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Tardive Dyskinesia",
+      "tur": "TEORİK",
+      "soru": "Uzun yıllardır antipsikotik kullanımı mevcut olan 72 yaşındaki erkek hastanın son birkaç aydır ağız çevresinde istemsiz hareketleri başlamış. Bu hastanın olası tanısı ile ilgili olarak aşağıdakilerden hangisi doğrudur ?\na) Kullanılan antipsikotiğin hemen kesilmesi uygun değildir\nb) Üst ekstreminesinde düzensiz ritmik hareketlerinde eşlik etmesi beklenen bir bulgudur\nc) Hastanın mevcut hareket bozukluğu hipokinetik hareket bozukluklari sınıfına girer\nd) Alt ekstremitelerin sürekli hareket ettirme isteği olması beklenen bir bulgur değildir\ne) Agonist ve Antagonist kasları aynı anda kullanımı ile ortaya çıkar",
+      "cevap": "a) Kullanılan antipsikotiğin hemen kesilmesi uygun değildir. Tardive dyskinesia tedavisinde antipsikotik yavaşça azaltılmalı, ani kesilme semptomları kötüleştirebilir."
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Wernicke‑Korsakoff",
+      "tur": "TEORİK",
+      "soru": "Wernicke‑karsako için aşağıdakillerden hangisi yanlıştır?\na) Hastalarda çift görme olabilir\nb) En sık sebebi kronik alkolizmdir\nc) Obezite cerrahisi önemli bir risk faktörüdür\nd) Şüphelenilendiğinde beklenmeden tedaviye başlanmalıdır\ne) Konfüzyonel tablolar hastalığa özgüdür*",
+      "cevap": "e) Konfüzyonel tablolar hastalığa özgüdür. Wernicke sendromunda konfüzyon yaygındır ancak bu bulgu sadece bu hastalığa özgü değildir."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Migren",
+      "tur": "TEORİK",
+      "soru": "Sol elini kullanan, hemşire olarak çalışan 29 yaşında kadın hasta Nöroloji polikliniğine baş ağrısı şikayeti ile Başvurdu. Hastanın yaklaşık 2 günden beri şiddetli baş ağrısı mevcut. Ağrının başladığı ilk gün bir defa diklofenak içeren ilaç kullanan hastanın yaklaşık olarak 20 yaşından beri, genellikle sağ orbital‑temporal bölgede lokalize zonklayıcı, rutin aktivite ile artış gösteren baş ağrısı atakları olmaktaymış. Atak sırasında, bulantı, fonofobi ve fotofobi eşlik etmekteymiş. Ayda 4‑5 defa sıklıkta ağrı atakları olan hastanın tedavisi ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Hastanın şimdiki ağrısını kesmek için triptan grubundan bir ilaç alması uygun olar.\nb) Hastaya profilaksi amacıyla B‑bloker ilaçlardan biri başlanabilir\nc) Hastaya profilaksi amacıyla anti‑epileptik ilaçlardan biri başlanabilir\nd) Hastanın şimdiki ağrısını kesmek için nonsteroid anti‑inflamatuar ilaçlardan birini kullanması uygun olur.*\ne) Hastaya profilaksi amacıyla bir trisiklik antidepresan olan amitriptilin başlanabilir",
+      "cevap": "d) Hastanın şimdiki ağrısını kesmek için nonsteroid anti‑inflamatuar ilaçlardan birini kullanması uygun olur. (Yanlış) Migren ataklarında NSAID tek başına genellikle yeterli değildir; triptanlar tercih edilir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Hemorajik İnme risk faktörleri",
+      "tur": "TEORİK",
+      "soru": "Hemorajik inme risk faktörleriyle ilişkili olarak aşağıdakilerden hangisi yanlıştır?\na) Birinci derece akrabaların intraserebral katama (ISK) geçiren kişilerde ISK riski 2 kat artırmaktadır*\nb) Vücut kitle indeksi yüksek olması hemorajik inme için bir risk faktörüdür\nc) LDL‑kolesterolin normalden düşük olması hemorajik inme riskini artırmamaktadır.\nd) Sekiz saatten fazla uyku hemorajik inme riskini artırmaktadır.\ne) Hemorajik inmeli hastalarda orta‑ağır kronik böbrek hastalığının varlığı hematom volümünü yaklaşık 2 kat artırmaktadır.",
+      "cevap": "a) Birinci derece akrabaların intraserebral katama (ISK) geçiren kişilerde ISK riski 2 kat artırmaktadır. (Yanlış) Aile öyküsü intraserebral kanama riskini artırmaz."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Vasküler Demans",
+      "tur": "TEORİK",
+      "soru": "15) Aşağıdakilerden hangisi vasküler demans için yanlıştır?\na) Multiinfarkt demans hastalarının nörolojik muayenesinde fokal bulgular ve görüntülemelerinde bir ya da daha fazla enfarkt alanı tespit edilir.\nb) Medial talamus demans oluşturabilecek stratejik lokalizasyonlu infart bölgelerinden birisidir.\nc) Binswanger hastalığı klinğinde basamaksı gidiş izlenmesi tipiktir.\nd) CADASIL genetik geçişli bir vasküler demans sebebidir.\ne) Binswanger demansı için atreoskleroz bir risk faktörüdür.",
+      "cevap": "e) Binswanger demansı için atreoskleroz bir risk faktörüdür. Açıklama: Binswanger hastalığı esas olarak kronik hipertansiyon ve küçük damar lipohiyalinasyonu ile ilişkilidir, ateroskleroz büyük damar hastalığıdır."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Guillain-Barre Sendromu",
+      "tur": "TEORİK",
+      "soru": "16) Guillain-barre sendromu ile ilgili aşağıdakilerden hangisi yanlıştır?\na) GBS yakınmaları başlamadan 1-4 hafta önce üst solunum veya gastrointestinal enfeksiyon, cerrahi bir girişim, aşılama öyküsü vardır\nb) Kuvvetsizlik yükselen tarzdadır\nc) Motor belirtiler duysal yakınmalar göre daha geri plandadır\nd) Derin ven trombozu ve akciğer embolisi komplikasyonlar arasında sayılabilir\ne) Güçsüzlük progresyonu 4 haftadan uzun sürmez",
+      "cevap": "d) Derin ven trombozu ve akciğer embolisi komplikasyonlar arasında sayılabilir. Açıklama: GBS’nin tipik komplikasyonları arasında solunum yetmezliği ve otoreaktif kardiyak aritmiler bulunur; DVT/PE yaygın bir komplikasyon değildir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz",
+      "tur": "TEORİK",
+      "soru": "17) Multipl Skleroz (MS) ile ilgili aşağıdaki ifadelerden hangisi yanlıştır?\na) Önceki plakta demyelinizasyonun tekrar alevlenmesine yeni-aktif plak denir\nb) Beyaz ve gri cevherin tutulduğu kronik bir hastalıktır\nc) MS’e diğer otoimmün hastalıklar eşlik edebilir\nd) Akut, şiddetli MS’te aksonal hasar %80 oranında görülür\ne) En sık başlangıç belirtisi duyusal bulgulardır",
+      "cevap": "d) Akut, şiddetli MS’te aksonal hasar %80 oranında görülür. Açıklama: Aksonal kayıp MS’de görülür ancak %80 gibi yüksek bir oran genellikle kronik ilerleyişte görülür, akut atakta bu kadar yüksek değildir."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Myastenia Gravis",
+      "tur": "TEORİK",
+      "soru": "18) 45 yaşında erkek hasta son bir yıldır ara ara olan çift görme, yutma güçlüğü ve halsizlik şikayeleri ile geldi. Şikayetleri öğleden sonraları daha hissedilir oluyormuş. Özgeçmişinde romatoid artrit ve diyabet var. Mevcut bilgilerle aşağıdaki tetkiklerden hangisini yapmak ön planda düşünülmez?\na) Torax BT\nb) BOS incelemesi\nc) Tek lif EMG\nd) Serumda anti-R antikoru\ne) Neostigmin testi",
+      "cevap": "b) BOS incelemesi. Açıklama: Hastanın bulguları Myasthenia Gravis’e işaret eder; beyin omurilik sıvısı incelemesi rutin olarak gerekli değildir."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Yoğun Bakım Miyopatisi",
+      "tur": "TEORİK",
+      "soru": "19) 68 yaşında astım akut atak+pnömoni nedeniyle reanimasyon YB’da 55 gündür entübe olarak takip edilen hasta, primer hastalıkları kontrol altında olmasına rağmen extübasyonu tolere edememektedir. Nörolojik muayenesinde bilinç açık, tekli emirlere gözleriyle koopere olabiliyor ve kuadriplejik. Hastanın medikal tedavisinde antihipertansif, steroid ve non-depolarizan kas gevşeticiler var. Mevcut bulgularla hastada olası tanınız aşağıdakilerden hangisidir?\na) Miyoglobinüri-Rabdomiyoliz\nb) Toksik miyopati\nc) Polimiyozit\nd) Yoğun bakım miyopatisi\ne) İnfeksiyöz miyopati",
+      "cevap": "d) Yoğun bakım miyopatisi. Açıklama: Uzun süreli mekanik ventilasyon ve kortikosteroid kullanımı, kritikal bakım miyopatisi (ICU myopathy) gelişimine yol açar."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Kronik İnflamatuvar Demiyelinizan Polinöropati (CIDP)",
+      "tur": "TEORİK",
+      "soru": "20) Kronik Inflamatuvar Demiyelinizan Polinöropati (CIDP) ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Otoimmün mekanizma ile gelişir\nb) Duyu kusuru kas kuvvetsizliğine göre daha geri plandadır\nc) Periferik sinirlerde multifokal demiyelinizasyonla seyreder\nd) Hastalık genellikle tekrarlama eğilimi göstermez\ne) Hastaların %10 kadarında kalınlaşmış hipertrofik sinirler palpe edilebilir",
+      "cevap": "d) Hastalık genellikle tekrarlama eğilimi göstermez. Açıklama: CIDP kronik bir progresif ya da relaps-remitting seyir gösteren bir hastalıktır, tekrarlama eğilimi yaygındır."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "Soru 1 - Aşağıdakilerden hangisi iskemik inme fizyopatolojisi için yanlıştır?\na. İskemik inme kardiyak arrest sonrası hipoperfüzyona bağlı gelişebilir.\nb. Penumbra reperfüzyon sağlandığı takdirde kurtarılabilir nitelikte bir dokudur.\nc. Beyin için gerekli sabit oksijen ve glikozun karşılanması için beyin kan akımı 20-25 mL/100 g/dk olmalıdır.\nd. İskemi durumunda tedaviye yönelik herhangi bir müdahalede bulunulmaz ise beyin dokusu 1 dakika içinde yaklaşık 2 milyon nöron kaybına uğrar.\ne. Beyin kan akımı 10 ml/100 gr/dk altına düştüğünde hücre ölümü başlar.",
+      "cevap": "d. İskemi durumunda tedaviye yönelik herhangi bir müdahalede bulunulmaz ise beyin dokusu 1 dakika içinde yaklaşık 2 milyon nöron kaybına uğrar. Açıklama: Nöron kaybı dakikalar içinde gerçekleşir ancak 1 dakikada 2 milyon nöron ölümü aşırı yüksek bir tahmindir; gerçek oran daha düşüktür."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Myastenia Gravis",
+      "tur": "TEORİK",
+      "soru": "Soru 2 - Miyastenia Gravis fizyopatolojisi ile ilgili aşağıdakilerden hangisi yanlıştır?\na. Fizyopatolojisinde timüs önemli bir rol oynar\nb. Timik Miyojenik Hücreler yüzeylerinde AChR‘ lerini taşır\nc. Otoimmün bir hastalıktır\nd. Anti-AChR antikorları çizgili kaslarda postsinaptik AChR’lerine karşı oluşur\ne. Anti-AChR antikorları T lenfositleri tarafından yapılır",
+      "cevap": "e. Anti-AChR antikorları T lenfositleri tarafından yapılır. Açıklama: Anti‑AChR antikorları B hücreleri (plazma hücreleri) tarafından üretilir, T hücreleri sadece yardımcı olur."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Kümelenme Baş Ağrısı",
+      "tur": "TEORİK",
+      "soru": "Soru 3 - 28 yaşında, avukat olan erkek hastanın alınan anamnezinden bir yıl önce sol temporal ve periorbital bölgeye lokalize, bıçak saplanır tarzda, gün içinde yaklaşık 1-1,5 saat süren ve 4-5 defa tekrarlayan ağrı atakları olduğu ve bu ağrıların yaklaşık 3 ay sürdüğü öğrenildi. Hasta bu ağrıyla aynı karakterde yeni başlayan ağrı nedeniyle acil polikliniğe başvurdu. Yapılan muayenede sağ gözde kızarıklık ve yaşarma olduğu tespit edilen hastada acil tedavi için en doğru yaklaşım aşağıdakilerden hangisidir?\na. Hastaya bir beta bloker ilaç olan propranolol başlanması\nb. Hastaya oral veya subkütan triptan verilmesi\nc. Hastaya intramüsküler yolla parasetamol uygulanması\nd. Hastaya amitriptilin başlanması\ne. Hastaya intramüsküler yolla nonsteroid anti-inflamatuar uygulanması",
+      "cevap": "b. Hastaya oral veya subkütan triptan verilmesi. Açıklama: Kümelenme baş ağrısının akut ataklarında subkutan sumatriptan hızlı ve etkili bir tedavidir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz - Klinik Bulgular",
+      "tur": "TEORİK",
+      "soru": "Soru 15 - Aşağıdakilerden hangisi Multipl Skleroz düşündürmeyen klinik bir bulgudur?\na. Santral skotom\nb. Paraparezi\nc. Baş ağrısı ve meningismus\nd. Yukarı vuruşlu nistagmus\ne. Bir elde vibrasyon duyusu kaybı",
+      "cevap": "c. Baş ağrısı ve meningismus; çünkü baş ağrısı ve meningeal bulgular MS'nin tipik bir bulgusu değildir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz - Epidemiyoloji",
+      "tur": "TEORİK",
+      "soru": "Soru 16 - Multipl Skleroz ile ilgili aşağıdakilerden hangisi yanlıştır?\na. Erkeklerde daha sık görülür\nb. Risk faktörleri arasında D vitamini eksikliği vardır\nc. Ailesel MS’in prevalansı %5-20 arasında değişir\nd. MS hastalarının diğer otoimün hastalıklara sahip olma ihtimali normal popülasyona göre daha fazladır\ne. İnsidansı ve prevelansı coğrafi olarak değişir",
+      "cevap": "a. Erkeklerde daha sık görülür; MS kadınlarda daha yaygındır."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Anti‑epileptik İlaçlar",
+      "tur": "TEORİK",
+      "soru": "Soru 17 - Anti-epileptik tedavilerle ilgili aşağıdakilerden hangisi/hangileri yanlıştır?\nI. Karbamazepin tüm nöbet tiplerinde kullanılabilir\nII. Levetirasetam miyoklonik nöbetlerde de kullanılabilir\nIII. Topiramatın sadece absans nöbetlerde endikasyonu vardır\nIV. İlaca bağlı Parkinsonizm valproik asit kullananlarda görülebilir\na. III‑IV   b. I‑II‑III   c. I‑III   d. I‑II   e. II‑IV",
+      "cevap": "c. I‑III; Karbamazepin tüm nöbet tiplerinde kullanılmaz ve topiramat sadece absans nöbetlerde kullanılmaz."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Esansiyel Tremor",
+      "tur": "TEORİK",
+      "soru": "Soru 18 - Esansiyel tremor için aşağıdakilerden hangisi yanlıştır?\na. Tedavide beta blokerler kullanılabilir\nb. Vokal kordlarda görülebilir\nc. Frekansı genellikle hızlıdır\nd. Aile öyküsü çok sıktır\ne. İstirahat tremoru tipik özelliğidir",
+      "cevap": "e. İstirahat tremoru tipik özelliğidir; esansiyel tremor genellikle postüral ve hareketle ortaya çıkar, istirahat tremoru göstermez."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Parkinson Hastalığı - Destekleyici Kriterler",
+      "tur": "TEORİK",
+      "soru": "Soru 19 - Aşağıdakilerden hangisi Parkinson hastalığını destekleyici kriterlerden biri değildir?\na. Simetrik başlangıç\nb. Levodopa tedavisine iyi yanıt alınması\nc. İstirahat tremorunun varlığı\nd. 10 yıl ve daha uzun süreli klinik seyir\ne. Postural dengesizliğin hastalığın ileri evrelerinde ortaya çıkması",
+      "cevap": "a. Simetrik başlangıç; Parkinson hastalığı genellikle asimetrik başlangıç gösterir."
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Trigeminal Nevralji",
+      "tur": "TEORİK",
+      "soru": "Soru 20 - Trigeminal nevralji ile ilgili hangisi doğrudur?\na. Tedaviye öncelikle levetirasetam ile başlanır\nb. En sık trigeminal sinirin oftalmik dal tutulumu olur\nc. Erkeklerde sık görülür\nd. Ağrı, etkilenen yüz bölgesinde normalde zararsız bir uyaran tarafından tetiklenebilir\ne. Özellikle kadın hastalarda ağrı öncesi aura beklenir",
+      "cevap": "d. Ağrı, etkilenen yüz bölgesinde normalde zararsız bir uyaran tarafından tetiklenebilir; bu, trigeminal nevraljinin karakteristik özelliğidir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Hemorajik İnme - Risk Faktörleri",
+      "tur": "TEORİK",
+      "soru": "Soru 1 - Hemorajik inme risk faktörleriyle ilişkili olarak aşağıdakilerden hangisi doğrudur?\nA) Beden kitle indeksinin 30’un üzerinde olması hemorajik inme için bir risk faktörüdür.\nB) Anevrizmalar primer intraserebral kanamanın en sık nedenlerinden biridir.\nC) Sekiz saatten az uyku hemorajik inme riskini arttırmaktadır.\nD) Hemorajik inme siyah ırkta 2 kat daha yüksek oranda görülür.\nE) LDL-kolesterol’ün yüksek olması iskemik inmede olduğu gibi hemorajik inme riskini de arttırmaktadır.",
+      "cevap": "D) Hemorajik inme siyah ırkta 2 kat daha yüksek oranda görülür; afroamerikan popülasyonda kanama riski artmıştır."
+    },
+    {
+      "ana_baslik": "Diğerleri",
+      "alt_baslik": "Normal Basınçlı Hidrosefali",
+      "tur": "TEORİK",
+      "soru": "Soru 2 - Normal basınçlı hidrosefali hastasında beklenen klinik bulgulardan biri değildir?\nA) İdrar inkontinansı\nB) Demans\nC) Alt beden yarısı parkinsonizmi\nD) Koreiform hareketler\nE) Manyetik tarzda yürüyüş",
+      "cevap": "D) Koreiform hareketler; normal basınçlı hidrosefali tipik olarak manyetik yürüyüş, demans ve inkontinans gösterir, koreiform hareketler görülmez."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Kas Hastalıkları",
+      "tur": "TEORİK",
+      "soru": "Soru 3 - Aşağıdakilerden hangisi kas hastalıklarında görülebilen bulgulardan birisi değildir?\nA) Kontraktür\nB) Derin tendon reflekslerinde azalma\nC) Psodohipertrofi\nD) Distal kaslarda güçsüzlük\nE) Atrofi",
+      "cevap": "B) Derin tendon reflekslerinde azalma; kas hastalıklarında refleksler genellikle normal ya da artıktır, azalma daha çok sinir hastalıklarında görülür."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Lewy Body Demans",
+      "tur": "TEORİK",
+      "soru": "Soru 4 - Lewy body demans için aşağıdakilerden hangisi doğrudur?\nA) Tedavide tipik antipsikotik seçilmesi sakıncalıdır.\nB) Klinikte dalgalanma izlenmesi lewy body demanstan uzaklaştırır.\nC) Parkinson bulguları unutkanlık şikayetinden yıllar önce başlamış olmalıdır.\nD) İşitsel halüsinasyonların varlığı tanı koydurucudur.\nE) Bellek ile ilgili bozukluk ön plandadır.",
+      "cevap": "A) Tedavide tipik antipsikotik seçilmesi sakıncalıdır; tipik antipsikotikler parkinsonizm semptomlarını kötüleştirir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz - Klinik Formlar",
+      "tur": "TEORİK",
+      "soru": "Soru 5 - Multipl Skleroz’la ilgili aşağıdakilerden hangisi yanlıştır?\nA) Otoimmün süreç virüsler ile tetikleniyor olabilir\nB) Patogenezde T ve B lenfositler rol oynar\nC) En sık klinik formu sekonder progresif MS’dir\nD) Şiddetli MS’lerde aksonal hasar görülebilir\nE) İzole optik nöritlerde MS gelişme riski %50’dir",
+      "cevap": "C) En sık klinik formu sekonder progresif MS’dir; en yaygın form relapsing‑remitting (RRMS) formudur."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Epilepsi - Tanısal Diferansiyel",
+      "tur": "TEORİK",
+      "soru": "Soru 6 - Epilepsi ile ilgili aşağıdakilerden hangisi/hangileri doğrudur?\nI.        Frontal nöbetlerin ayırıcı tanısında migren ilk sırada gelir\nII.       Paryetal nöbetlerin ayırıcı tanısında geçici iskemik atak öncelikli düşünülmelidir\nIII.      Oksipital nöbette iktal körlük patognomoniktir\nIV.       Temporal nöbetlerde post iktal laterji, afazi sık görülür\nA) III‑IV\nB) I‑IV\nC) I‑II\nD) I‑II‑IV\nE) II‑III‑IV",
+      "cevap": "D) I‑II‑IV; Frontal nöbetlerde migren önemli bir ayırıcıdır, paryetal nöbetlerde TIA düşünülür ve temporal nöbetlerde post‑iktal afazi sık görülür."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Sinir‑Kas Kavşağı",
+      "tur": "TEORİK",
+      "soru": "Soru 7 - Sinir‑Kas kavşağı ile ilgili aşağıdaki bilgilerden hangisi yanlıştır?\nA) Kas membranı presinaptik bölgede, kıvrımlar yaparak özelleşmiş bir yapı halini almıştır\nB) Presinaptik veziküllerin her birinde 10.000 molekül Ach vardır\nC) Nöromüsküler kavşakta Agrin, LRP4, MuSK gibi proteinlerin de rolü vardır",
+      "cevap": "A) Kas membranı presinaptik bölgede, kıvrımlar yaparak özelleşmiş bir yapı halini almıştır; bu özellik post‑sinyaptik (kas) membranda bulunur, presinaptik değildir."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Küme Baş Ağrısı",
+      "tur": "TEORİK",
+      "soru": "SORU 18 - Aşağıdaki durumların hangisi bir hastada baş ağrısının acil ve tehlikeli olabileceğini düşündürmez?\nA) İlerleyici ve tedavi edilmeyen kusmanın olması\nB) Baş ağrısına bulantı ve kusmanın eşlik etmesi\nC) Hastanın nörolojik muayenesinde fokal nörolojik bulgu saptanması\nD) Ani başlayan baş ağrısının birkaç dakika içinde maksimum seviyeye ulaşması ve saatlerce devam etmesi\nE) Günler içinde progresif seyir izlemesi ve tedaviye yanıt vermemesi",
+      "cevap": "B) Baş ağrısına bulantı ve kusmanın eşlik etmesi; çünkü bulantı ve kusma tek başına migren gibi benign baş ağrılarının sık eşlik eden bulgularıdır, diğer seçenekler kırmızı bayrak niteliğindedir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "SORU 19 - Aşağıdakilerden hangisi iskemik inme için bir risk faktörü değildir?\nA) Asemptomatik karotis stenozu\nB) Obstrüktif uyku apne sendromu\nC) Hava kirliliği\nD) Metabolik sendrom\nE) Amiloid anjiopati",
+      "cevap": "E) Amiloid anjiopati; bu durum daha çok serebral amiloid anjiyopati (CAA) ile ilişkili olup, primer olarak hemorajik inme riskini artırır, iskemik inme risk faktörü değildir."
+    },
+    {
+      "ana_baslik": "Demans ve Diğerleri",
+      "alt_baslik": "Alzheimer",
+      "tur": "TEORİK",
+      "soru": "SORU 20 - Aşağıdakilerden hangisi Alzheimer hastalığı için koruyucu faktörlerden biridir?\nA) Akdeniz diyeti\nB) Yüksek kolesterol düzeyleri\nC) Down sendromu\nD) Apo e4 varlığı\nE) ",
+      "cevap": "A) Akdeniz diyeti; anti‑inflamatuar ve antioksidan içeriği sayesinde Alzheimer gelişme riskini azaltır."
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Refleksler",
+      "tur": "TEORİK",
+      "soru": "1 - Aşağıdakilerden hangisi yanlıştır?\nA ) Taban cildi refleksi patolojik olmayan koşullarda ayak tabanı çizildiğinde ayağın plantar fleksiyona gelmesidir\nB ) Hoffman refleksi patolojik reflekslerden biridir.\nC ) Biceps ve triceps refleksleri üst extremite derin tendon refleksleridir\nD ) Patella refleksi alt extremite derin tendon reflekslerinden biridir.\nE ) Yüzün mimik kaslarını trigeminal sinir innerve eder.",
+      "cevap": "E) Yüzün mimik kaslarını trigeminal sinir innerve eder; gerçek innervasyon facial sinir (VII) tarafından sağlanır."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Myastenia Gravis",
+      "tur": "TEORİK",
+      "soru": "2 - 45 yaşında erkek hasta son bir yıldır ara ara olan çift görme, yutma güçlüğü ve halsizlik şikayeleri ile geldi. Şikayetleri öğleden sonraları daha hissedilir oluyormuş. Özgeçmişinde romatoid artrit ve diyabet var. Mevcut bilgilerle aşağıdaki tetkiklerden hangisini yapmak ön planda düşünülmez?\nA ) Serumda anti-R antikoru\nB ) Neostigmin testi\nC ) Tek lif EMG\nD ) Torax BT\nE ) BOS incelemesi",
+      "cevap": "A) Serumda anti-R antikoru; romatoid artrit tanısı için kullanılabilir ancak Myasthenia Gravis tanısında öncelikli değildir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "3 - 60 yaşında sol elini kullanan kadın hasta akşam saat 23:00'te uyuduktan sonra kızı tarafından yatağında sabah saat 08:00'da konuşmada zorluk, sol kol ve bacakta güçsüzlük gelişmiş halde bulunmuş. Acil serviste yapılan nörolojik muayenede dizartrik konuşma, motor afazi ve sağ hemiparezi saptanan hastanın özgeçmişinde diabet, hipertansiyon ve atriyal fibrilasyon öyküsü mevcuttu. Çekilen kontrastsız beyin tomografisi normal bulundu. Hastanın kan basıncı 170/90 mm Hg olarak saptandı. Aşağıdakilerden hangisi bu hastada acil koşullarda yapılması gereken doğru tedavi yaklaşımlarından biridir?\nA ) Hastada inmeye yol açan karotis darlığı varsa stent takılması gerekir.\nB ) Hastaya zaman kaybetmeden intravenöz trombolitik tedavi verilmelidir.\nC ) Hastada atriyal fibirilasyon olduğundan hızla antikoagulan tedavi başlanması gerekir.\nD ) Hastada hipertansif acillerden biri yoksa kan basıncını düşürmek gerekir.\nE ) Hasta mekanik trombektomi için hızla değerlendirilmedir",
+      "cevap": "B) Hastaya zaman kaybetmeden intravenöz trombolitik tedavi verilmelidir; belirtilen zaman dilimi içinde (yaklaşık 9 saat) ve CT’de kanama yoksa IV tPA uygulanması standart acil tedavidir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "CIDP",
+      "tur": "TEORİK",
+      "soru": "4 - Kronik İnflamatuvar Demiyelinizan Polinöropati (CIDP) ile ilgili aşağıdakilerden hangisi yanlıştır?\nA ) Hastaların %10 kadarında kalınlaşmış hipertrofik sinirler palpe edilebilir\nB ) Tedavide steroid kullanılabilir\nC ) Duyu kusuru kas kuvvetsizliğine göre daha ön plandadır\nD ) Periferik sinirlerde multifokal demiyelinizasyonla seyreder\nE ) Otoimmün mekanizma ile gelişir",
+      "cevap": "C) Duyu kusuru kas kuvvetsizliğine göre daha ön plandadır; CIDP’de motor güçsüzlük genellikle duysal bulgulara göre daha belirgindir."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "Geçici İskemik Atak",
+      "tur": "TEORİK",
+      "soru": "5 - Öykü, nörolojik muayene ve radyolojik görüntüleme sonrası geçici iskemik atak (GIA) geçirdiği kanaatine varılan bir hastada aşağıdakilerden hangisi tekrarlayan inme riskini arttıran bir durumdur?\nA ) Hastada kan basıncının 140/90 mmHg altında olması\nB ) Ekstrakraniyal/intrakraniyal stenoz saptanmamışsa\nC ) Klinik seyir sırasında düzelen ağır defisit varsa\nD ) Hastanın genç olması (45 yaş ve altı)\nE ) GIA süresi 2 ile 15 dakika arasındaysa",
+      "cevap": "E) GIA süresi 2 ile 15 dakika arasındaysa; daha uzun süren TIA’lar, özellikle 10 dakikadan uzun olanlar, inme riskini artırır."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Guillain-Barre Sendromu",
+      "tur": "TEORİK",
+      "soru": "6 - Guillain-barre sendromu ile ilgili aşağıdakilerden hangisi yanlıştır?\nA ) Kuvvetsizlik yükselen tarzdadır\nB ) Güçsüzlük progresyonu 12 haftadan uzun sürmez\nC ) Motor belirtiler duysal yakınmalar göre daha ön plandadır\nD ) Şiddetli ağrı komplikasyonlar arasında sayılabilir\nE ) GBS yakınmaları başlamadan 1-4 hafta önce üst solunum veya gastrointestinal enfeksiyon, cerrahi bir girişim, aşılanma öyküsü vardır",
+      "cevap": "B) Güçsüzlük progresyonu 12 haftadan uzun sürmez; bazı GBS varyantlarında ilerleme 12 haftayı aşabilir, bu yüzden ifade yanlıştır."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Status Epileptikus",
+      "tur": "TEORİK",
+      "soru": "Status Epileptikus (SE) ilgili aşağıdakilerden hangisi/hangileri doğrudur?\nI. İlk müdahalede iv. diazepam 5 mg/dk olacak şekilde yapılmalıdır.\nII. SE yönetiminde primer amacımız etyolojiyi bulmaktır.\nIII. SE yükleme tedavisinde iv. 30-40 mg/kg olarak valproik asit kullanılabilir.\nIV. Fenitoin ilk müdahalede diazepama yanıtsız olanlarda im. 0.2 mg/kg dan uygulanmalıdır.\na. I-II\nb. I-III-IV\nc. I-II-IV.\nd. I-III\ne. Hepsi",
+      "cevap": "d. I-III Açıklama: Valproik asit 30‑40 mg/kg iv. yükleme dozu doğru iken, ilk müdahalede diazepam 0.2 mg/kg (yaklaşık 5‑10 mg) verilir; verilen ifade 5 mg/dk hatalıdır, ancak sınavda bu seçenek I‑III olarak kabul edilmiştir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Guillain‑Barré Sendromu",
+      "tur": "TEORİK",
+      "soru": "Guillian Barre Sendromu ile ilgili aşağıdakilerden hangisi yanlıştır?\na. Kuvvetsizlik asendan tarzdadır\nb. Duysal yakınmalar motor belirtilere göre daha geri plandadır\nc. Akut inflamatuvar polinöropatidir\nd. Genellikle yakınmalar başlamadan 1-4 hafta önce üst solunum veya gastrointestinal enfeksiyon, cerrahi bir girişim, aşılanma öyküsü vardır\ne. Miller Fisher varyantında oftalmopleji, ataksi, afazi kliniği vardır",
+      "cevap": "e. Miller Fisher varyantında oftalmopleji, ataksi, afazi kliniği vardır. Açıklama: Miller‑Fisher sendromunda triad oftalmopleji, ataksi ve arefleksi bulunur; afazi yer almaz."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Amiyotrofik Lateral Skleroz (ALS)",
+      "tur": "TEORİK",
+      "soru": "Amiyotrofik Lateral Skleroz (ALS) ile ilgili hangisi/hangileri doğrudur?\nI. ALS hastalarında duysal ve otonomik tutulum genelde beklenmez\nII. Okülomotor tutulum sık görülür\nIII. Bulber başlangıçlı hastalarda ilk yakınma genellikle dizartridir\nIV. Tedavide intravenöz immünglobuline (İVİg) yanıt alınır\na. I-III\nb. II-III\nc. II-IV\nd. Yalnız IV.\ne. I-II.",
+      "cevap": "a. I-III Açıklama: ALS’te duysal/otonom bulgular nadirdir ve bulbar başlangıçta ilk belirti genellikle dizartridir; okülomotor tutulum sık görülmez ve IVIG etkili değildir."
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Bilinç Değerlendirmesi",
+      "tur": "TEORİK",
+      "soru": "Bilinç ve bilinç değerlendirilmesi ile ilgili aşağıdakilerden hangisi/hangileri yanlıştır?\nI. Beyin ölümünde serebral kan akımı kesinlikle olmaz\nII. Locked-in sendromunda, bilateral talamik enfarkt bekleriz\nIII. Locked-in sendromunda hastanın horizontal göz hareketleri korunmuştur\nIV. Komada olan hastada ağrılı uyarana kesinlikle yanıt alınır\na. III-IV\nb. II-III-IV\nc. Hepsi\nd. II-III\ne. I-II-IV",
+      "cevap": "b. II-III-IV Açıklama: Locked‑in sendromu ventral pons lezyonundan kaynaklanır, talamik enfarkt ve horizontal göz hareketlerinin korunması yanlıştır; komada ağrılı uyarana yanıt alınması da kesin değildir."
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Yüz Duyusu",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi yanlıştır ?\na. Yüzün dokunma ve ağrı duyusu n. Facialis ile taşınır\nb. Papil ödem muayenesi n. Opticus ile ilgili bir muayenedir.\nc. 6. Kranial sinir gözün dışarı bakışını sağlar.\nd. N. Glossafaringeus uvula elevasyonunu sağlar\ne. Dokunma duyu muayenesi yumuşak uçlu pamuk yardımı ile yapılır",
+      "cevap": "a. Yüzün dokunma ve ağrı duyusu n. Facialis ile taşınır Açıklama: Yüz duyusu trigeminal (V) sinir tarafından taşınır; facial sinir motor ve tat duyusunu taşır."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Migren",
+      "tur": "TEORİK",
+      "soru": "Sağ elini kullanan, öğretmen olarak çalışan 34 yaşında kadın hasta nöroloji polikliniğine başağrısı şikayeti ile başvurdu. Hastanın yaklaşık 2.5 günden beri şiddetli başağrısı mevcuttu. Ağrının başladığı ilk gün bir defa diklofenak içeren ilaç kullanan hastanın yaklaşık olarak 19 yaşından beri, genellikle sağ orbital-tempral bölgede lokalize, zonklayıcı, rutin aktiviteyle artış gösteren başağrısı atakları olmaktaymış. Atak sırasında bulantı, fonofobi ve fotofobi eşlik etmekteymiş. Ayda 4-5 defa sıklıkta ağrı atakları olan hastanın tedavisi ile ilgili aşağıdakilerden hangisi yanlıştır?\na. Hastaya proflaksi amacıyla bir trisiklik antidepresan olan amitriptilin başlanabilir.\nb. Hastanın şimdiki ağrısını kesmek için triptan grubundan bir ilaç alması uygun olur.\nc. Hastaya proflaksi amacıyla B-blokör ilaçlardan biri başlanabilir.\nd. Hastaya proflaksi amacıyla anti-epileptik ilaçlardan biri başlanabilir.\ne. Hastanın şimdiki ağrısını kesmek için parasetamol tablet ve 1000 mg dozunda kullanması uygun olur.",
+      "cevap": "e. Hastanın şimdiki ağrısını kesmek için parasetamol tablet ve 1000 mg dozunda kullanması uygun olur Açıklama: Şiddetli migren ataklarında tek başına parasetamol genellikle yetersizdir; triptan veya NSAID tercih edilir, bu yüzden bu seçenek yanlıştır."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz Klinik Bulgular",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi Multipl Skleroz düşündürmeyen klinik bir bulgudur?\na. Santral skotom\nb. Paraparezi\nc. Baş ağrısı ve meningismus\nd. Yukarı vuruşlu nistagmus\ne. Bir elde vibrasyon duyusu kaybı",
+      "cevap": "c. Baş ağrısı ve meningismus Açıklama: MS tipik olarak optik nörit, motor ve duyusal bulgular üretir; baş ağrısı ve meningeal bulgular genellikle MS ile ilişkili değildir."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Migren",
+      "tur": "TEORİK",
+      "soru": "34 yaşında kadın hastada yaklaşık 19 yıldır sağ orbita‑temporal bölgede lokalize, zonklayıcı, fotofobi ve fonofobi eşlik eden başağrısı atakları vardır. Ataklar ayda 4‑5 kez görülmekte ve şiddetli olmaktadır. Aşağıdakilerden hangisi tedavisi ile ilgili yanlıştır?\na) Hastanın şimdiki ağrısını kesmek için parasetamol tablet ve 1000 mg dozunda kullanması uygun olur.*\nb) Hastaya profilaksi amacıyla β‑bloker ilaçlardan biri başlanabilir.\nc) Hastanın şimdiki ağrısını kesmek için triptan grubundan bir ilaç alması uygun olur.\nd) Hastaya profilaksi amacıyla bir trisiklik antidepresan olan amitriptilin başlanabilir.\ne) Hastaya profilaksi amacıyla antiepileptik ilaçlardan biri başlanabilir.",
+      "cevap": "a) Parasetamol tek başına migren ataklarını durdurmaz; profilaktik veya triptan tedavisi gereklidir."
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Kranial Nerve Fonksiyonları",
+      "tur": "TEORİK",
+      "soru": "Aşağıdakilerden hangisi yanlıştır?\na) Papilödem muayenesi n. Opticus ile ilgili bir muayenedir.\nb) 6. Kranial sinir gözün dışarı bakışını sağlar.\nc) Dokunma duyu muayenesi yumuşak uçlu pamuk yardımı ile yapılır.\nd) N. Glossopharyngeus uvula elevasyonunu sağlar.\ne) Yüzün dokunma ve ağrı duyusu n. Facialis ile taşınır.*",
+      "cevap": "e) Yüzün dokunma ve ağrı duyusu trigeminal sinir (n. V) tarafından taşınır; n. Facialis motor sinirdir."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Polimiyozit",
+      "tur": "TEORİK",
+      "soru": "46 yaşında kadın hastada bir ay önce yürümekte ve merdiven çıkmada güçlük, ilerleyen dönemde saç kurutma ve yüksekten bir şey alırken zorlanma şikayetleri ortaya çıkmıştır. Muayenede her iki alt ekstremite proksimalde 3/5, üst ekstremite proksimalde 4/5 güç, derin tendon refleksleri hafif azalmış, CK 2020 U/L, EMG’de spontan aktivite ve miyozit değişiklikleri görülmüştür. Aşağıdakilerden hangisi en olası tanıdır?\na) Polimiyozit*\nb) Dermatomiyozit\nc) İnklüzyon cisimcikli miyozit\nd) Miyotonik distrofi\ne) Guillain‑Barré sendromu",
+      "cevap": "a) Klinik, laboratuvar ve EMG bulguları polimiyoziti işaret eder; diğer seçeneklerde tipik bulgular bulunmaz."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Primer vs Sekonder Baş Ağrısı",
+      "tur": "TEORİK",
+      "soru": "Primer ile sekonder baş ağrısının ayırıcı tanısına katkısı en az olan tetkik aşağıdakilerden hangisidir?\na) Elektroensefalogram (EEG)*\nb) Lomber ponksiyon (LP)\nc) Beyin tomografisi (BT)\nd) Rutin kan biyokimyası, sedimentasyon, tiroid fonksiyon testleri\ne) Beyin manyetik rezonans (MR)",
+      "cevap": "a) EEG, baş ağrısının primer‑sekonder ayrımında sınırlı bilgi verir; görüntüleme ve laboratuvar testleri daha faydalıdır."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Myasthenia Gravis",
+      "tur": "TEORİK",
+      "soru": "45 yaşında erkek hastada ara ara görme bozukluğu, yutma güçlüğü ve halsizlik şikayetleri vardır; romatoid artrit ve diyabet öyküsü bulunur. Aşağıdaki tetkiklerden hangisi ön planda düşünülmez?\na) Serumda anti‑AChR antikoru\nb) Beyin omurilik sıvısı (BOS) incelemesi*\nc) Tek lif EMG\nd) Toraks BT\ne) Neostigmin testi",
+      "cevap": "b) BOS incelemesi Myasthenia gravis tanısında rutin olarak kullanılmaz; anti‑AChR, EMG ve neostigmin testi daha belirgindir."
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Bilinç Değerlendirme",
+      "tur": "TEORİK",
+      "soru": "Bilinç ve bilinç değerlendirmesi ile ilgili aşağıdakilerden hangisi yanlıştır?\nI. Beyin ölümünde serebral kan akımı kesinlikle olmaz\nII. Locked‑in sendromunda bilateral talamik enfarkt beklenir\nIII. Locked‑in sendromunda hastanın horizontal göz hareketleri korunmuştur\nIV. Komada olan hastada ağır uyarana kesinlikle yanıt alınır\n\na) II‑III‑IV\nb) I‑II‑IV\nc) II‑III\nd) III‑IV*\ne) I‑IV",
+      "cevap": "d) Locked‑in sendromunda hastanın sadece dikey göz hareketleri korunur; horizontal hareketler kaybedilir, ayrıca ağır uyarana yanıt alınmayabilir."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Parkinson Hastalığı",
+      "tur": "TEORİK",
+      "soru": "İdiopatik Parkinson hastalığı için aşağıdakilerden hangisi yanlıştır?\na) REM uyku davranış bozukluğu sıklıkla eşlik eder.\nb) İstirahat tremoru izlenir.\nc) Erken dönemde ağır demans görülebilir.*\nd) Levodopa cevabının iyi olması beklenir.\ne) Genellikle 50 yaş üzerinde sık görülür.",
+      "cevap": "c) Parkinson hastalığında demans genellikle hastalığın ileri evrelerinde ortaya çıkar; erken dönemde ağır demans nadirdir."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Kore",
+      "tur": "TEORİK",
+      "soru": "Kore ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Wilson hastalığında kore görülebilir.\nb) Genellikle ekstremite distallerinde gözükür.\nc) Düzensiz, asimetrik, aritmik paternlidir.\nd) Bükücü, döndürücü nitelikte izlenir.*\ne) Huntington hastalığı bir primer kore nedenidir.",
+      "cevap": "d) Kore genellikle düzensiz, akıcı ve istemsiz hareketlerdir; bükücü‑döndürücü (torsiyon) hareketler daha çok distoniye özgüdür."
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Guillain‑Barré Sendromu",
+      "tur": "TEORİK",
+      "soru": "Guillain‑Barré Sendromu ile ilgili aşağıdakilerden hangisi yanlıştır?\na) Akut inflamatuvar polinöropatidir.\nb) Genellikle semptom başlamadan 1‑4 hafta önce üst solunum veya gastrointestinal enfeksiyon, cerrahi girişim, aşı öyküsü vardır.\nc) Kuvvetsizlik asimetrik tarzdadır.\nd) Miller‑Fisher varyantında oculomotor palsi, ataksi, afazi klinikleri vardır.*\ne) Duysal semptomlar motor belirilere göre daha geridedir.",
+      "cevap": "d) Miller‑Fisher varyantı oculomotor palsi, ataksi ve arefleksi (refleks kaybı) ile karakterizedir; afazi tipik bir bulgu değildir."
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Bilinç ve solunum",
+      "tur": "TEORİK",
+      "soru": "1. Miminal bilinçlilik durumunda hastanın spontan solunumu olabilir\nII. Ataksik solunumu olan bir hastada hasarın öncelikle mesensefalon düzeyinde olduğu düşünülür\nIII. Komalı bir hasta ağrılı uyarana yüz buruşturma şeklinde yanıt alınabilir\nIV. Beyin ölümü olan hastada ağrılı uyaranla deserebre postur oluşmaz\na) I-II.\nb) I-II-IV\nc) II-III\nd) I-IV\ne) I-III-IV*",
+      "cevap": "e) I-III-IV"
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz Patofizyolojisi",
+      "tur": "TEORİK",
+      "soru": "23- Mul?pl Skleroz gzyopatolojisi ile ilgili aşağıdakilerden hangisi yanlışMr?\na) Lenfositler oligodendrosit hasarına yol açar\nb) Oto-immün süreç merkezi sinir sisteminde T lenfosit ak?vasyonu ile başlar*\nc) Plakta inters?syel ödem oluşur\nd) Fizyopatolojide T ve B hücreler rol oynar\ne) Kan-beyin bariyeri bozulmuştur",
+      "cevap": "b) Oto-immün süreç merkezi sinir sisteminde T lenfosit ak?vasyonu ile başlar"
+    },
+    {
+      "ana_baslik": "Nöromüsküler Hastalıklar",
+      "alt_baslik": "Rabdomiyoliz ve Miyoglobinüri",
+      "tur": "TEORİK",
+      "soru": "24-Rabdomiyoliz-Miyoglobinüri ile ilgili aşağıdakilerden hangisi yanlışMr?\na) Etyolojide, alkol, ilaçlar, travma, diğer kas hastalıklar, yüksek volt elektrige maruz kalma, nörolep?k malign sendrom, nöbetler, ağır gzik ak?vite, yanık ve enfeksiyonlar sayılabilir\nb) Miyoglobinüri ABY'ye yol açabilir ve yaşamı tehdit edebilir\nc) Koyu idrar rengi her vakada gözlenir *\nd) Bazı faktörlerin etkisi ile kas liRerinde çok yaygın nekroz ve bu süreç sonunda açığa çıkan miyoglobinin idrarla aMlması ile belirlenen durumdur\ne) lleri derecede CK yüksekliği tespit edilir",
+      "cevap": "c) Koyu idrar rengi her vakada gözlenir"
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Gerilim Tipi Baş Ağrısı",
+      "tur": "TEORİK",
+      "soru": "25- Gerilim ?pi baş ağrısı ile ilgili aşağıdakilerden hangisi doğrudur?\na) Gerilim ?pi baş ağrısında atak 4-72 saat sürebilir.\nb) Baş ağrısı ile beraber bulanM-kusma görülür.\nc) Proglak?k tedavide trisiklik an?depresanlar an?epilep?k ilaçlardan üstündür*\nd) Kronik gerilim ?pi baş ağrısı olan hastalarda proRakside beta blokerler kullanılır\ne) Kronik gerilim ?pi baş ağrısında ağrıyı kesmek için barbitürat ve benzodiazepin kullanmak parasetamol gibi basit analjezikleri kullanmaktan daha iyidir",
+      "cevap": "c) Proglak?k tedavide trisiklik an?depresanlar an?epilep?k ilaçlardan üstündür"
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Extrapiramidal Sistem",
+      "tur": "TEORİK",
+      "soru": "26-Aşağıdakilerden hangisi extrapiramidal sistem ile ilişkili yapılardan biri değildir?\na) Striatur\nb) Lateral ventrikül*\nc) Nuc len?formis\nd) Globus pallidus\ne) Subtalamik nucleus",
+      "cevap": "b) Lateral ventrikül"
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz",
+      "tur": "TEORİK",
+      "soru": "27-Mul?pl Sklerozla ilgili aşağıdakilerden hangisi doğrudur?\na) Epilep?k nöbet olguların yarısında görülür\nb) Aksonal dejenerasyon gözlenir*\nc) Atak tedavisinde azothioprine kullanılabilir\nd) Erkekleri daha sık etkiler\ne) En sık başlangıç belir?si motor semptomlardır",
+      "cevap": "b) Aksonal dejenerasyon gözlenir"
+    },
+    {
+      "ana_baslik": "Bilinç Bozuklukları",
+      "alt_baslik": "Bellek Bozuklukları",
+      "tur": "TEORİK",
+      "soru": "28-Aşağıdakilerden hangisi kogni?f alanlardan bellek bozukluğu ile ilişkili değildir?\na) Randevularını unutması\nb) Değerli eşyalarını kaybetmesi\nc) Bildiği yerlerde kaybolmaya başlaması*\nd) Konu-soru tekrarı yapması\ne) Sık sık ocakta yemek yakması",
+      "cevap": "c) Bildiği yerlerde kaybolmaya başlaması"
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Üst Motor Nöron Bulguları",
+      "tur": "TEORİK",
+      "soru": "29-Aşağıdakilerden hangisi I. motor nöron (üst motor nöron) bulgularından değildir?\na) Kas tonusunun artması (spas?site)\nb) Fasikülasyonun olmaması\nc) Patolojik reRekslerin (babinski, klonus gibi) varlığı\nd) Kaslarda atrog olması*\ne) Derin tendon reRekslerinin artması",
+      "cevap": "d) Kaslarda atrog olması"
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Guillain-Barré Sendromu",
+      "tur": "TEORİK",
+      "soru": "30- Guillian Barre Sendromu ile ilgili aşağıdakilerden hangisi yanlışMr?\na) Olguların tamamında kranial sinir tutulumu, sıklıkla fasiyal paralizi görülür\nb) En sık görülen varyanM akut inRamatuvar demyelinizan poliradikülonöropa?dir\nc) Motor yakınmalar duyusal belir?lere göre ön plandadır\nd) Periferik sinir yapılarına karşı an?gangliozid otoan?korlar %60 oranında görülür\ne) Genellikle semptomlar başlamadan 1-4 ha^a önce üst solunum veya gastrointes?nal enfeksiyon, cerrahi bir girişim, aşılanma öyküsü vardır",
+      "cevap": "a) Olguların tamamında kranial sinir tutulumu, sıklıkla fasiyal paralizi görülür"
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Trigeminal Nevralji",
+      "tur": "TEORİK",
+      "soru": "31- Trigeminal nevralji için verilen bilgilerden hangisi/hangileri doğrudur?\nI. Tedavide beta-bloker ilaçlarda kullanılabilir\nII. 5. Sinirin o^almik dal tutulumuna bağlı görme bozukluğu eşlik edebilir\nIII. Kadınlarda sık görülür\nIV. 20-30 yaş arası görülme sıklığı artar\na) Yalnız I\nb) Yalnız III*\nc) I-IV\nd) I-III\ne) III-IV",
+      "cevap": "b) Yalnız III"
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Praxis Muayenesi",
+      "tur": "TEORİK",
+      "soru": "32-Praksi muayenesi için aşağıdakilerden hangisi yanlışMr?\na) Minimental durum muayenesinde değerlendirilen becerilerden biridir.\nb) Yapılandırma becerisini değerlendirmek için kullanılır *\nc) Hem sağ hem sol hemisfer için ayrı ayrı değerlendirme yapılmalıdır\nd) Gerçek bir nesne yokken o nesneyi nasıl kullanacağını göstermesi istenilerek yapılır.\ne) Hastadan hayali bir eylem yapılması istenilerek değerlendirilir.",
+      "cevap": "b) Yapılandırma becerisini değerlendirmek için kullanılır"
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Kronik İnflamatuar Demiyelinizan Poliradikülonevropati (CIDP)",
+      "tur": "TEORİK",
+      "soru": "33-Kronik InRarnatuvar Demiyelinizan Polinöropa? (CIDP) ile ilgili aşağıdakilerden hangisi yanlışMr?\na) Periferik sinirlerde segmental demyelinizasyonla seyreder *\nb) 2 aydan daha uzun bir progresyon öyküsü vardır\nc) Otoimmün bir hastalıkMr\nd) BOS'da albuminositolojik disosiyasyon saptanır\ne) Kranial ve otonom sinir tutulmalar ön plandadır",
+      "cevap": "a) Periferik sinirlerde segmental demyelinizasyonla seyreder"
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İntrakraniyal Hemoraji",
+      "tur": "TEORİK",
+      "soru": "değerlendiriliyor. Beyin BT de hemoraji izleniyor. Bu hastada en olası lezyon yeri neresidir?\na) bulbus\nb) mezensefalon\nc) pons\nd) sol temporal bölge\ne) sol talamus",
+      "cevap": "e) sol talamus - hipertansif hastalarda talamus bölgesinde kanama sık görülür ve BT de tipik olarak bu bölgede lezyon görülür."
+    },
+    {
+      "ana_baslik": "Kraniyal Sinirler",
+      "alt_baslik": "Trigeminal Nevralji",
+      "tur": "TEORİK",
+      "soru": "52-Trigeminal nevralji ile ilgili aşağıdakilerden hangisi/hangileri yanlışMr?\nI. 5. Sinirin o^almik dalı tutulumuna bağlı görme kaybı olur\nII. Tedavide propranolol kullanılır\nIII. Kadınlarda daha sık görülür\nIV. Genellikle 20-30 yaş arasında görülme sıklığı artar\na) I-II-V\nb) I-III-V\nc) II-V\nd) I-II\ne) I-III",
+      "cevap": "d) I-II - I ve II yanlıştır; trigeminal nevraljide görme kaybı ve propranolol tedavisi yoktur."
+    },
+    {
+      "ana_baslik": "Nörolojik Muayene",
+      "alt_baslik": "Mini-Mental Test",
+      "tur": "TEORİK",
+      "soru": "53-Minimental muayenede kullanılan testlerle ilgili aşağıdakilerden hangisi doğrudur?\na) Saat çizme tes?; soyutlama ile ilgilidir.\nb) Benzerlik tes?; muhakeme yeteneği ile ilgilidir.\nc) Kısa süreli bellek tes? için hastaya 3 sayı söylenip, tekrarlaması istenir.\nd) Atasözü yorumlama, planlama becerisini değerlendirmeye yarar.\ne) Geri sayı menzili; çalışma belleği ile ilgilidir.",
+      "cevap": "c) Kısa süreli bellek tes? için hastaya 3 sayı söylenip, tekrarlaması istenir - bu, MMSE’deki kısa süreli bellek ölçümüdür."
+    },
+    {
+      "ana_baslik": "Hareket Bozuklukları",
+      "alt_baslik": "Kore",
+      "tur": "TEORİK",
+      "soru": "54-Kore izlenebilen hastalıklar için aşağıdakilerden hangisi yanlış?r?\na) Tedavide botulinium toksini kullanılabilir\nb) Wilson hastalığı primer kore sebebidir.\nc) Syndenham koresi çocukluk çağında görülen ve reversible seyredebilen bir koredir.\nd) Hung?ngton hastalığında CAG tekrar sayısında arMş beklenir.\ne) Extremite distalinde meydana gelen, asimetrik, aritmik bir hareket bozukluğudur",
+      "cevap": "a) Tedavide botulinium toksini kullanılabilir - botulinum toksini kore tedavisinde rutin olarak kullanılmaz."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz",
+      "tur": "TEORİK",
+      "soru": "55-Mul?pl Skleroz ile ilgili aşağıdakilerden hangisi yanlışMr?\na) MS hastalarının diğer otoimün hastalıklara sahip olma ih?mali normal popülasyona göre daha fazladır\nb) Ailesel MS'in prevalansı %70'dir\nc) Kadınlarda daha sık görülür\nd) İnsidansı ve prevelansı coğrag olarak değişir\ne) Risk faktörleri arasında D vitamini eksikliği vardır",
+      "cevap": "b) Ailesel MS'in prevalansı %70'dir - ailevi MS oranı çok daha düşüktür, %5-10 civarındadır."
+    },
+    {
+      "ana_baslik": "Baş Ağrıları",
+      "alt_baslik": "Migren",
+      "tur": "TEORİK",
+      "soru": "56-Sol elini kullanan, hemşire olarak çalışan 29 yaşında kadın hasta nöroloji polikliniğine başağrısı şikaye?\nile başvurdu. Hastanın yaklaşık 2 günden beri şiddetli başağrısı mevcuHu. Ağrının başladığı ilk gün bir defa\ndiklofenak içeren ilaç kullanan hastanın yaklaşık olarak 20 yaşından beri, genellikle sağ orbital-tempral\nbölgede lokalize, zonklayıcı, ru?n ak?viteyle arMş gösteren başağrısı atakları olmaktaymış. Atak sırasında\nbulanM, fonofobi ve fotofobi eşlik etmekteymiş. Ayda 4-5 defa sıklıkta ağrı atakları olan hastanın tedavisi\nile ilgili aşağıdakilerden hangisi yanlışMr?\na) Hastaya proRaksi amacıyla B-blokör ilaçlardan biri başlanabilir.\nb) Hastaya proRaksi amacıyla an?-epilep?k ilaçlardan biri başlanabilir.\nc) Hastanın şimdiki ağrısını kesmek için triptan grubundan bir ilaç alması uygun olur.\nd) Hastanın şimdiki ağrısını kesmek için nonsteroid an?-inRamatuar ilaçlardan birini kullanması\nuygun olur.\ne) Hastaya proRaksi amacıyla bir trisiklik an?depresan olan amitrip?lin başlanabilir.",
+      "cevap": "d) Hastanın şimdiki ağrısını kesmek için nonsteroid an?-inRamatuar ilaçlardan birini kullanması uygun olur - akut migren atağında NSAID zaten kullanılmıştır; tek başına yeterli olmayabilir ve soruda yanlış olarak işaretlenmiştir."
+    },
+    {
+      "ana_baslik": "Demiyelinizan Hastalıklar",
+      "alt_baslik": "Multipl Skleroz",
+      "tur": "TEORİK",
+      "soru": "57-Mul?pl Skleroz (MS) ile ilgili aşağıdaki ifadelerden hangisi yanlışMr?\na) Beyaz ve gri cevherin tutulduğu kronik bir hastalıkMr\nb) Önceki plakta demyelinizasyonun tekrar alevlenmesine yeni-ak?f plak denir\nc) MS'e diğer otoimmün hastalıklar eşlik edebilir\nd) Akut, şiddetli MS'te aksonal hasar %80 oranında görülür\ne) En sık başlangıç belir?si duyusal bulgulardır",
+      "cevap": "d) Akut, şiddetli MS'te aksonal hasar %80 oranında görülür - aksonal hasar genellikle daha düşük oranlarda görülür, bu ifade yanlıştır."
+    },
+    {
+      "ana_baslik": "Serebrovasküler Hastalıklar",
+      "alt_baslik": "İskemik İnme",
+      "tur": "TEORİK",
+      "soru": "58-Sağ elini kullanan 71 yaşında kadın hasta eşiyle konuşurken ani gelişen peltek konuşma, sol kol ve\nbacakta güçsüzlük şikaye? ile hızla acil polikliniğe ge?riliyor. Çekilen beyin tomogragsinde sağ orta\nserebral arterde geniş akut infarkt olduğu saptanıyor. Özgeçmiş sorgulamasında koroner arter hastalığı,\nhipertansiyon ve düzensiz an?-hipertansif kullanım öyküsü olan hastanın girişte kan basıncı 220/130\nmmHg olarak ölçülüyor. Hasta eş zamanlı göğüs ağrısı tariRediği için çekilen toraks BT'de aort diseksiyonu\nile uyumlu bulgular olduğu saptandı. Çekilen elektrokardiyogram (EKG) normal olduğu saptanıyor. Bu\nhastanın acil serviste takip ve tedavisinde aşağıdakilerden hangisi doğrudur?\na) Hastada kan basıncını düşürürken ortalama kan basıncını dikkate almak gerekir.\nb) Hastanın beyin tomogragsini tekrarlamak gerekir.\nc) Hastaya hızla damar yolu açılmalı ve dekstroz başlanmalıdır.\nd) Hastada zaman kaybetmeden intravenöz tromboli?k tedaviye başlamak gerekir.\ne) Hastada kan basıncını acil düşürmek gerekir.",
+      "cevap": "a) Hastada kan basıncını düşürürken ortalama kan basıncını dikkate almak gerekir - aort diseksiyonu ve hipertansif krizli inmede kan basıncını kontrollü şekilde düşürmek esastır."
+    },
+    {
+      "ana_baslik": "Epilepsi",
+      "alt_baslik": "Status Epileptikus",
+      "tur": "TEORİK",
+      "soru": "59-Status Epilep?kus (SE) ilgili aşağıdakilerden hangisi/hangileri doğrudur?\nI. İlk müdahalede iv. diazepam 5 mg/dk olacak şekilde yapılmalıdır.\nII. SE yöne?minde primer amacımız etyolojiyi bulmakMr.\nIII. SE yükleme tedavisinde iv. 30-40 mg/kg olarak valproik asit kullanılabilir.\nIV. Fenitoin ilk müdahalede diazepama yanıtsız olanlarda İM. 0.2 mg/kg dan uygulanmalıdır.\na) I-II-III\nb) l-III-IV\nc) Hepsi\nd) I-II-IV\ne) I-III",
+      "cevap": "e) I-III - İlk müdahalede iv. diazepam hızlı bolus (5 mg/dk) uygulanabilir ve valproik asit 30-40 mg/kg yükleme dozu SE’de kullanılabilir."
+    }
+  ]
 }
