@@ -21,18 +21,6 @@ jobs:
           mkdir -p app/src/main/java/com/vip/noromaster
           mkdir -p app/src/main/assets
 
-          if [ -f cikmis_arsiv.json ]; then
-            cp cikmis_arsiv.json app/src/main/assets/cikmis_arsiv.json
-          else
-            echo '{"toplam":0,"sorular":[]}' > app/src/main/assets/cikmis_arsiv.json
-          fi
-
-          if [ -f noroloji_kaynak.txt ]; then
-            cp noroloji_kaynak.txt app/src/main/assets/noroloji_kaynak.txt
-          else
-            echo '' > app/src/main/assets/noroloji_kaynak.txt
-          fi
-
           cat << 'EOF' > settings.gradle
           rootProject.name = "VIPNorolojiMaster"
           include ':app'
@@ -57,8 +45,8 @@ jobs:
                   applicationId "com.vip.noromaster"
                   minSdk 24
                   targetSdk 34
-                  versionCode 3
-                  versionName "3.0-CIKMIS-MASTER"
+                  versionCode 4
+                  versionName "4.0-CIKMIS-MASTER"
               }
               compileOptions {
                   sourceCompatibility JavaVersion.VERSION_17
@@ -99,8 +87,6 @@ jobs:
                   WebSettings ws = webView.getSettings();
                   ws.setJavaScriptEnabled(true);
                   ws.setDomStorageEnabled(true);
-                  ws.setAllowFileAccess(true);
-                  ws.setAllowUniversalAccessFromFileURLs(true);
                   webView.setWebViewClient(new WebViewClient());
                   setContentView(webView);
                   webView.loadUrl("file:///android_asset/index.html");
@@ -173,6 +159,7 @@ jobs:
             .hidden { display:none !important; }
             .durum { font-size:12px; color:var(--gold); margin-top:8px; text-align:center; }
           </style>
+          <script src="veri.js"></script>
           </head>
           <body>
 
@@ -236,28 +223,15 @@ jobs:
           </div>
 
           <script>
-          let TUM_SORULAR = [];
-          let SLAYT_METIN = "";
+          const TUM_SORULAR = (typeof GOMULU_ARSIV !== "undefined" && GOMULU_ARSIV.sorular) ? GOMULU_ARSIV.sorular : [];
+          const SLAYT_METIN = (typeof GOMULU_SLAYT !== "undefined") ? GOMULU_SLAYT : "";
           let seciliTur = "HEPSİ";
           let seciliAna = "TÜMÜ";
           let seciliAlt = "TÜMÜ";
           let topluAcik = false;
 
-          window.onload = async () => {
+          window.onload = () => {
             document.getElementById("groqKey").value = (localStorage.getItem("groq_key") || "").trim();
-            try {
-              const r = await fetch("cikmis_arsiv.json");
-              if (r.ok) {
-                const veri = await r.json();
-                TUM_SORULAR = veri.sorular || [];
-              }
-            } catch (e) {}
-
-            try {
-              const rs = await fetch("noroloji_kaynak.txt");
-              if (rs.ok) SLAYT_METIN = await rs.text();
-            } catch (e) {}
-
             document.getElementById("toplamRozet").innerText = `${TUM_SORULAR.length} ÇIKMIŞ`;
             anaBasliklariCiz();
             filtreleVeCiz();
@@ -482,6 +456,22 @@ jobs:
           </html>
           EOF
 
+          python3 -c '
+          import json, os
+          arsiv = {"toplam": 0, "sorular": []}
+          if os.path.isfile("cikmis_arsiv.json"):
+              with open("cikmis_arsiv.json", "r", encoding="utf-8") as f:
+                  arsiv = json.load(f)
+          slayt = ""
+          if os.path.isfile("noroloji_kaynak.txt"):
+              with open("noroloji_kaynak.txt", "r", encoding="utf-8") as f:
+                  slayt = f.read()
+          with open("app/src/main/assets/veri.js", "w", encoding="utf-8") as out:
+              out.write("const GOMULU_ARSIV = " + json.dumps(arsiv, ensure_ascii=False) + ";\n")
+              out.write("const GOMULU_SLAYT = " + json.dumps(slayt, ensure_ascii=False) + ";\n")
+          print("Gomulen cikmis soru sayisi:", len(arsiv.get("sorular", [])))
+          '
+
           cat << 'EOF' > gradlew
           #!/bin/sh
           exec gradle "$@"
@@ -494,5 +484,5 @@ jobs:
       - name: VIP Noroloji APK Yukle
         uses: actions/upload-artifact@v4
         with:
-          name: VIP-Noroloji-Cikmis-Master-v3
+          name: VIP-Noroloji-Cikmis-Master-v4
           path: app/build/outputs/apk/debug/app-debug.apk
