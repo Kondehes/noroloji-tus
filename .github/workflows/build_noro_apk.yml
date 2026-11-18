@@ -16,7 +16,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: VIP Noroloji Master APK Derle (Offline Gomulu Veri)
+      - name: VIP Noroloji v9 APK Derle
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
@@ -57,8 +57,8 @@ jobs:
                   applicationId "com.vip.noroloji.master"
                   minSdk 24
                   targetSdk 34
-                  versionCode 7
-                  versionName "7.0"
+                  versionCode 9
+                  versionName "9.0"
               }
               buildTypes {
                   release {
@@ -77,7 +77,7 @@ jobs:
           <manifest xmlns:android="http://schemas.android.com/apk/res/android">
               <uses-permission android:name="android.permission.INTERNET" />
               <application
-                  android:label="VIP Nöroloji Master"
+                  android:label="VIP Nöroloji"
                   android:usesCleartextTraffic="true"
                   android:theme="@android:style/Theme.Material.NoActionBar">
                   <activity
@@ -115,14 +115,6 @@ jobs:
                   setContentView(webView);
                   webView.loadUrl("file:///android_asset/index.html");
               }
-              @Override
-              public void onBackPressed() {
-                  if (webView != null && webView.canGoBack()) {
-                      webView.goBack();
-                  } else {
-                      super.onBackPressed();
-                  }
-              }
           }
           EOF
 
@@ -132,67 +124,69 @@ jobs:
           <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-          <title>VIP Nöroloji Master</title>
+          <title>VIP Nöroloji</title>
           <style>
-            :root { --bg:#0b1120; --card:#131c31; --card2:#1a2540; --accent:#38bdf8; --gold:#f59e0b; --green:#10b981; --red:#ef4444; --text:#f1f5f9; --muted:#94a3b8; }
-            * { box-sizing:border-box; margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
-            body { background:var(--bg); color:var(--text); padding-bottom:76px; }
-            .header { position:sticky; top:0; z-index:50; background:rgba(11,17,32,0.96); backdrop-filter:blur(10px); padding:12px 14px; border-bottom:1px solid #1e293b; }
-            .top-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-            .title { font-size:17px; font-weight:800; color:var(--accent); }
-            .badge { background:#1e293b; color:var(--gold); font-size:11px; font-weight:700; padding:4px 9px; border-radius:20px; border:1px solid #334155; }
-            .search-box { width:100%; background:var(--card); border:1px solid #334155; color:var(--text); padding:10px 13px; border-radius:12px; font-size:14px; outline:none; }
-            .search-box:focus { border-color:var(--accent); }
-            .tabs { display:flex; gap:8px; margin-top:10px; }
-            .tab { flex:1; text-align:center; padding:8px; border-radius:10px; background:var(--card); color:var(--muted); font-size:12px; font-weight:700; border:1px solid #1e293b; cursor:pointer; }
-            .tab.active { background:var(--accent); color:#0b1120; border-color:var(--accent); }
-            .container { padding:12px 14px; }
-            .slayt-grid { display:grid; grid-template-columns:1fr; gap:10px; }
-            .slayt-card { background:var(--card); border:1px solid #1e293b; border-radius:14px; padding:14px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
-            .slayt-name { font-size:14px; font-weight:700; color:var(--text); }
-            .slayt-counts { display:flex; gap:6px; margin-top:5px; }
-            .pill-t { background:rgba(56,189,248,0.15); color:var(--accent); font-size:11px; font-weight:700; padding:3px 8px; border-radius:8px; }
-            .pill-s { background:rgba(245,158,11,0.15); color:var(--gold); font-size:11px; font-weight:700; padding:3px 8px; border-radius:8px; }
-            .back-bar { display:flex; align-items:center; justify-content:space-between; background:var(--card2); padding:10px 12px; border-radius:12px; margin-bottom:12px; border:1px solid #334155; }
-            .back-btn { background:var(--accent); color:#0b1120; border:none; padding:6px 12px; border-radius:8px; font-weight:800; font-size:12px; cursor:pointer; }
-            .q-card { background:var(--card); border:1px solid #1e293b; border-radius:14px; padding:14px; margin-bottom:12px; }
-            .q-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:11px; color:var(--muted); }
-            .q-text { font-size:14px; line-height:1.55; font-weight:600; margin-bottom:12px; white-space:pre-line; }
-            .opt-btn { width:100%; text-align:left; background:var(--card2); color:var(--text); border:1px solid #334155; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:13px; line-height:1.4; cursor:pointer; }
-            .opt-btn.correct { background:rgba(16,185,129,0.22); border-color:var(--green); color:#a7f3d0; font-weight:700; }
-            .opt-btn.wrong { background:rgba(239,68,68,0.22); border-color:var(--red); color:#fecaca; }
-            .exp-box { display:none; margin-top:10px; background:#0f172a; border-left:3px solid var(--green); padding:11px 12px; border-radius:8px; font-size:13px; line-height:1.55; color:#e2e8f0; white-space:pre-line; }
-            .exp-box.show { display:block; }
-            .sozlu-btn { width:100%; background:rgba(245,158,11,0.18); color:var(--gold); border:1px solid var(--gold); padding:10px; border-radius:10px; font-weight:700; font-size:13px; cursor:pointer; }
-            .slayt-box { background:var(--card); border:1px solid #1e293b; border-radius:14px; padding:14px; margin-bottom:12px; }
-            .slayt-box h3 { color:var(--accent); font-size:14px; margin-bottom:8px; }
-            .slayt-box pre { white-space:pre-wrap; font-size:12.5px; line-height:1.5; color:#cbd5e1; max-height:260px; overflow-y:auto; }
+            :root {
+              --bg:#090d16; --card:#111827; --card2:#1e293b; --border:rgba(255,255,255,0.09);
+              --blue:#3b82f6; --gold:#f59e0b; --green:#10b981; --red:#ef4444; --text:#f8fafc; --muted:#94a3b8;
+            }
+            * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
+            body { background:var(--bg); color:var(--text); padding-bottom:40px; }
+            .topbar { position:sticky; top:0; z-index:99; background:rgba(9,13,22,0.95); backdrop-filter:blur(12px); padding:12px 14px; border-bottom:1px solid var(--border); }
+            .brand-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+            .brand { font-size:17px; font-weight:800; color:#60a5fa; }
+            .pill { background:var(--card2); padding:4px 10px; border-radius:20px; font-size:11.5px; font-weight:700; color:#e2e8f0; border:1px solid var(--border); }
+            .search-wrap { position:relative; margin-bottom:10px; }
+            .search-input { width:100%; background:var(--card); border:1px solid var(--border); color:var(--text); padding:11px 36px 11px 13px; border-radius:12px; font-size:14px; outline:none; }
+            .search-input:focus { border-color:var(--blue); }
+            .clear-btn { position:absolute; right:10px; top:50%; transform:translateY(-50%); background:var(--card2); color:var(--muted); border:none; width:22px; height:22px; border-radius:50%; font-size:12px; display:none; cursor:pointer; }
+            .tabs { display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:6px; background:var(--card); padding:4px; border-radius:12px; border:1px solid var(--border); }
+            .tab { text-align:center; padding:9px 4px; border-radius:9px; font-size:12.5px; font-weight:700; color:var(--muted); cursor:pointer; }
+            .tab.active { background:var(--blue); color:#fff; }
+            .page { padding:12px 14px; max-width:860px; margin:0 auto; }
+            .info-bar { font-size:12px; color:var(--muted); margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
+            .q-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:15px; margin-bottom:12px; }
+            .q-stem { font-size:14.5px; line-height:1.58; font-weight:600; color:var(--text); margin-bottom:12px; white-space:pre-line; }
+            .opt { width:100%; text-align:left; background:var(--card2); color:#e2e8f0; border:1px solid rgba(255,255,255,0.07); border-radius:11px; padding:11px 13px; margin-bottom:7px; font-size:13.5px; line-height:1.42; cursor:pointer; display:block; }
+            .opt.correct { background:rgba(16,185,129,0.2); border-color:var(--green); color:#6ee7b7; font-weight:700; }
+            .opt.wrong { background:rgba(239,68,68,0.2); border-color:var(--red); color:#fca5a5; }
+            .ans-btn { width:100%; background:rgba(245,158,11,0.16); color:#fbbf24; border:1px solid rgba(245,158,11,0.4); padding:10px; border-radius:11px; font-size:13px; font-weight:700; cursor:pointer; }
+            .ans-panel { display:none; margin-top:11px; background:#0b1120; border:1px solid rgba(59,130,246,0.25); border-left:4px solid var(--blue); padding:13px; border-radius:11px; font-size:13.5px; line-height:1.62; color:#e2e8f0; white-space:pre-line; }
+            .ans-panel.open { display:block; }
+            .ask-box { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:15px; }
+            .ask-area { width:100%; min-height:110px; background:#0b1120; border:1px solid var(--border); color:var(--text); border-radius:12px; padding:12px; font-size:14px; outline:none; margin-bottom:10px; resize:vertical; }
+            .ask-area:focus { border-color:var(--blue); }
+            .ask-submit { width:100%; background:var(--blue); color:#fff; border:none; padding:12px; border-radius:12px; font-size:14px; font-weight:800; cursor:pointer; }
+            .more-btn { width:100%; background:var(--card2); color:#60a5fa; border:1px solid var(--border); padding:12px; border-radius:12px; font-size:13.5px; font-weight:700; cursor:pointer; margin-top:6px; }
           </style>
           </head>
           <body>
-          <div class="header">
-            <div class="top-row">
-              <div class="title">🧠 VIP NÖROLOJİ MASTER</div>
-              <div class="badge" id="statsBadge">Yükleniyor...</div>
+          <div class="topbar">
+            <div class="brand-row">
+              <div class="brand">🧠 VIP NÖROLOJİ</div>
+              <div class="pill" id="statsBadge">Hazırlanıyor...</div>
             </div>
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Kelime ara (örn: inme, migren, trombolitik, Babinski)..." oninput="render()">
+            <div class="search-wrap" id="searchWrap">
+              <input type="text" id="searchInput" class="search-input" placeholder="🔍 Ara (örn: inme, migren, trombolitik, Babinski)..." oninput="onSearch()">
+              <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
+            </div>
             <div class="tabs">
-              <div class="tab active" id="tabAll" onclick="setMode('ALL')">Tümü</div>
-              <div class="tab" id="tabTeorik" onclick="setMode('TEORİK')">Teorik Quiz</div>
-              <div class="tab" id="tabSozlu" onclick="setMode('SÖZLÜ')">Sözlü Soruları</div>
-              <div class="tab" id="tabSlayt" onclick="setMode('SLAYT')">Slayt Özeti</div>
+              <div class="tab active" id="tabTeorik" onclick="setMode('TEORİK')">Teorik</div>
+              <div class="tab" id="tabSozlu" onclick="setMode('SÖZLÜ')">Sözlü</div>
+              <div class="tab" id="tabAsk" onclick="setMode('ASK')">Soruma Cevap Ver</div>
             </div>
           </div>
 
-          <div class="container" id="mainContainer"></div>
+          <div class="page" id="mainContainer"></div>
 
           <script>
           const GROQ_KEY = __GROQ_KEY_JSON__;
           const ALL_Q = __ALL_Q_JSON__;
           const SLAYT_TEXT = __SLAYT_TEXT_JSON__;
-          let MODE = "ALL";
-          let SELECTED_SLAYT = null;
+          let MODE = "TEORİK";
           let CURRENT_LIST = [];
+          let SHOW_LIMIT = 60;
+          let ACTIVE_MODEL = "";
 
           function init() {
             const tCount = ALL_Q.filter(x => x.tur === "TEORİK").length;
@@ -201,198 +195,217 @@ jobs:
             render();
           }
 
-          function findRelevantSlide(text) {
+          function onSearch() {
+            SHOW_LIMIT = 60;
+            const val = document.getElementById("searchInput").value;
+            document.getElementById("clearBtn").style.display = val.length > 0 ? "block" : "none";
+            render();
+          }
+
+          function clearSearch() {
+            document.getElementById("searchInput").value = "";
+            document.getElementById("clearBtn").style.display = "none";
+            SHOW_LIMIT = 60;
+            render();
+          }
+
+          function findRelevantSlides(text) {
             if (!SLAYT_TEXT) return "";
-            const words = text.toLowerCase().replace(/[^a-zçğıöşü\s]/g," ").split(/\s+/).filter(w => w.length > 4);
+            const words = text.toLowerCase().replace(/[^a-zçğıöşü\s]/g," ").split(/\s+/).filter(w => w.length > 3);
             const parts = SLAYT_TEXT.split("=== KONU:").slice(1);
-            let best = "", bestScore = 0;
+            let scored = [];
             parts.forEach(p => {
               const low = p.toLowerCase();
               let score = 0;
-              words.slice(0,8).forEach(w => { if (low.includes(w)) score++; });
-              if (score > bestScore) { bestScore = score; best = p.slice(0, 2600); }
+              words.slice(0,12).forEach(w => { if (low.includes(w)) score++; });
+              if (score > 0) scored.push({ score, txt: p.slice(0, 2200) });
             });
-            return best;
+            scored.sort((a,b) => b.score - a.score);
+            return scored.slice(0,2).map(x => x.txt).join("\n---\n");
           }
 
-          async function askGroqExplanation(qObj, chosenLetter, expEl, cardEl) {
-            const cacheKey = "vip_noro_exp_" + qObj.soru.slice(0,45);
-            const cached = localStorage.getItem(cacheKey);
-            if (cached) {
-              applyExplanation(qObj, chosenLetter, cached, expEl, cardEl);
-              return;
-            }
-            expEl.classList.add("show");
-            expEl.innerHTML = "⏳ <b>23 Slayt kaynağı taranıyor ve TUS/Hoca cevabı hazırlanıyor...</b>";
-            const slideCtx = findRelevantSlide(qObj.soru + " " + (qObj.siklar||[]).join(" "));
-            const prompt = qObj.tur === "TEORİK"
-              ? `İnönü Tıp Dönem 5 Nöroloji çıkmış sorusunu slayt kaynağına göre çöz.\nSoru: ${qObj.soru}\nŞıklar: ${(qObj.siklar||[]).join(" | ")}\nÖnceden işaretli harf: ${qObj.dogru_harf || 'Bilinmiyor'}\nİlgili Ders Slaytı:\n${slideCtx}\n\nİlk satıra SADECE 'DOĞRU ŞIK: X' (X yerine A/B/C/D/E) yaz. Ardından 'MEKANİZMA VE SLAYT NOTU:' ve 'SINAV TUZAĞI:' başlıklarıyla net, öğretici açıklama yaz.`
-              : `İnönü Tıp Dönem 5 Nöroloji sözlü/pratik hoca sorusuna slayt kaynağına göre tam puanlık cevap ver.\nSoru: ${qObj.soru}\nİlgili Ders Slaytı:\n${slideCtx}\n\n'HOCANIN DUYMAK İSTEDİĞİ MADDELER:' ve 'SLAYT KRİTİK NOTU:' başlıklarıyla maddeli, net açıklama yaz.`;
-
+          async function getWorkingModel() {
+            if (ACTIVE_MODEL) return ACTIVE_MODEL;
             try {
+              const r = await fetch("https://api.groq.com/openai/v1/models", {
+                headers: { "Authorization": "Bearer " + GROQ_KEY }
+              });
+              const d = await r.json();
+              if (d && Array.isArray(d.data)) {
+                const ids = d.data.map(m => m.id).filter(id => !id.includes("whisper") && !id.includes("guard") && !id.includes("tts"));
+                for (const pref of ["llama-3.3-70b-versatile", "qwen", "llama-3.1-70b", "deepseek", "70b", "8b"]) {
+                  const found = ids.find(id => id.includes(pref));
+                  if (found) { ACTIVE_MODEL = found; return found; }
+                }
+                if (ids.length > 0) { ACTIVE_MODEL = ids[0]; return ids[0]; }
+              }
+            } catch(e) {}
+            return "llama-3.3-70b-versatile";
+          }
+
+          async function callGroq(prompt, outEl, onSuccess) {
+            outEl.classList.add("open");
+            outEl.innerHTML = "⏳ <b>23 Slayt kaynağı inceleniyor ve detaylı açıklama hazırlanıyor...</b>";
+            try {
+              const modelName = await getWorkingModel();
               const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
                 method: "POST",
                 headers: { "Authorization": "Bearer " + GROQ_KEY, "Content-Type": "application/json" },
                 body: JSON.stringify({
-                  model: "llama-3.3-70b-versatile",
+                  model: modelName,
                   temperature: 0.15,
-                  max_tokens: 900,
+                  max_tokens: 1000,
                   messages: [{ role: "user", content: prompt }]
                 })
               });
               const data = await res.json();
-              const ans = data.choices[0].message.content.trim();
-              localStorage.setItem(cacheKey, ans);
-              applyExplanation(qObj, chosenLetter, ans, expEl, cardEl);
-            } catch(e) {
-              expEl.innerHTML = "⚠️ İnternet bağlantısı kontrol edilsin. (Hata: " + e.message + ")";
-            }
-          }
-
-          function applyExplanation(qObj, chosenLetter, ans, expEl, cardEl) {
-            if (qObj.tur === "TEORİK") {
-              const m = ans.match(/DOĞRU\s*ŞIK\s*:\s*([A-E])/i);
-              const correct = (m ? m[1].toUpperCase() : qObj.dogru_harf) || "";
-              if (cardEl && correct) {
-                cardEl.querySelectorAll(".opt-btn").forEach(b => {
-                  const l = b.getAttribute("data-letter");
-                  if (l === correct) b.classList.add("correct");
-                  else if (l === chosenLetter) b.classList.add("wrong");
-                });
+              if (!res.ok || !data.choices || !data.choices[0] || !data.choices[0].message) {
+                const errMsg = (data && data.error && data.error.message) ? data.error.message : ("HTTP " + res.status);
+                outEl.innerHTML = "⚠️ API Uyarısı: " + errMsg;
+                return;
               }
+              const ans = data.choices[0].message.content.trim();
+              outEl.innerText = ans;
+              if (onSuccess) onSuccess(ans);
+            } catch(e) {
+              outEl.innerHTML = "⚠️ İnternet bağlantısı hatası: " + e.message;
             }
-            expEl.classList.add("show");
-            expEl.innerText = ans;
           }
 
           function handleOptionClick(idx, chosenLetter) {
             const qObj = CURRENT_LIST[idx];
             const cardEl = document.getElementById("qcard_" + idx);
             const expEl = document.getElementById("exp_" + idx);
-            if (qObj.dogru_harf) {
-              cardEl.querySelectorAll(".opt-btn").forEach(b => {
+
+            const markButtons = (correctLetter) => {
+              if (!correctLetter) return;
+              cardEl.querySelectorAll(".opt").forEach(b => {
                 const l = b.getAttribute("data-letter");
-                if (l === qObj.dogru_harf) b.classList.add("correct");
+                if (l === correctLetter) b.classList.add("correct");
                 else if (l === chosenLetter) b.classList.add("wrong");
               });
+            };
+
+            if (qObj.dogru_harf) markButtons(qObj.dogru_harf);
+
+            const cacheKey = "vip_v9_" + qObj.soru.slice(0,55);
+            const cached = localStorage.getItem(cacheKey);
+            if (cached) {
+              const m = cached.match(/DOĞRU\s*ŞIK\s*:\s*([A-E])/i);
+              markButtons(m ? m[1].toUpperCase() : qObj.dogru_harf);
+              expEl.classList.add("open");
+              expEl.innerText = cached;
+              return;
             }
-            askGroqExplanation(qObj, chosenLetter, expEl, cardEl);
+
+            const slideCtx = findRelevantSlides(qObj.soru + " " + (qObj.siklar||[]).join(" "));
+            const prompt = `İnönü Tıp Dönem 5 Nöroloji çıkmış sorusunu slayt kaynağına göre çöz ve açıkla.\nSoru: ${qObj.soru}\nŞıklar: ${(qObj.siklar||[]).join(" | ")}\nİlgili Slayt Kaynağı:\n${slideCtx}\n\nİlk satıra SADECE 'DOĞRU ŞIK: X' (X yerine A/B/C/D/E) yaz. Ardından:\n✅ NEDEN DOĞRU (MEKANİZMA & SLAYT BİLGİSİ):\n❌ DİĞER ŞIKLAR NEDEN YANLIŞ:\nbaşlıklarıyla net, öğretici açıklama yaz.`;
+
+            callGroq(prompt, expEl, (ans) => {
+              localStorage.setItem(cacheKey, ans);
+              const m = ans.match(/DOĞRU\s*ŞIK\s*:\s*([A-E])/i);
+              markButtons(m ? m[1].toUpperCase() : qObj.dogru_harf);
+            });
           }
 
           function handleSozluClick(idx) {
             const qObj = CURRENT_LIST[idx];
             const expEl = document.getElementById("exp_" + idx);
-            if (expEl.classList.contains("show")) {
-              expEl.classList.remove("show");
-            } else {
-              askGroqExplanation(qObj, "", expEl, null);
+            if (expEl.classList.contains("open")) {
+              expEl.classList.remove("open");
+              return;
             }
+            const cacheKey = "vip_v9_s_" + qObj.soru.slice(0,55);
+            const cached = localStorage.getItem(cacheKey);
+            if (cached) {
+              expEl.classList.add("open");
+              expEl.innerText = cached;
+              return;
+            }
+            const slideCtx = findRelevantSlides(qObj.soru);
+            const prompt = `İnönü Tıp Dönem 5 Nöroloji sözlü sorusuna slayt kaynağına göre tam puanlık hoca cevabı ver.\nSoru: ${qObj.soru}\nİlgili Slayt Kaynağı:\n${slideCtx}\n\n👨‍⚕️ HOCANIN DUYMAK İSTEDİĞİ CEVAP:\n📌 SLAYTTAKİ KRİTİK DETAY & TUZAK:\nbaşlıklarıyla maddeli, net açıklama yap.`;
+
+            callGroq(prompt, expEl, (ans) => localStorage.setItem(cacheKey, ans));
+          }
+
+          function askCustomQuestion() {
+            const qText = document.getElementById("customQInput").value.trim();
+            if (!qText) return;
+            const outEl = document.getElementById("customQAns");
+            const slideCtx = findRelevantSlides(qText);
+            const prompt = `Sen İnönü Tıp Dönem 5 Nöroloji profesörüsün. Öğrencinin sorduğu soruya verilen ders slaytlarını da dikkate alarak net, mekanizmalı ve öğretici cevap ver.\n\nÖğrencinin Sorusu: ${qText}\n\nİlgili Ders Slaytları:\n${slideCtx}\n\n🎯 NET CEVAP:\n📌 MEKANİZMA VE SLAYT AÇIKLAMASI:\n⚠️ SINAV / SÖZLÜ İPUCU:\nbaşlıklarıyla açıkla.`;
+            callGroq(prompt, outEl, null);
           }
 
           function setMode(m) {
             MODE = m;
-            ["tabAll","tabTeorik","tabSozlu","tabSlayt"].forEach(id => document.getElementById(id).classList.remove("active"));
-            if(m==="ALL") document.getElementById("tabAll").classList.add("active");
+            SHOW_LIMIT = 60;
+            ["tabTeorik","tabSozlu","tabAsk"].forEach(id => document.getElementById(id).classList.remove("active"));
             if(m==="TEORİK") document.getElementById("tabTeorik").classList.add("active");
             if(m==="SÖZLÜ") document.getElementById("tabSozlu").classList.add("active");
-            if(m==="SLAYT") document.getElementById("tabSlayt").classList.add("active");
+            if(m==="ASK") document.getElementById("tabAsk").classList.add("active");
+            document.getElementById("searchWrap").style.display = (m === "ASK") ? "none" : "block";
             render();
           }
 
-          function openSlayt(name) { SELECTED_SLAYT = name; render(); window.scrollTo(0,0); }
-          function closeSlayt() { SELECTED_SLAYT = null; render(); }
+          function showMore() {
+            SHOW_LIMIT += 60;
+            render();
+          }
 
           function render() {
             const box = document.getElementById("mainContainer");
-            const query = document.getElementById("searchInput").value.trim().toLowerCase();
 
-            if (MODE === "SLAYT") {
-              const bolumler = SLAYT_TEXT.split("=== KONU:").slice(1);
-              let html = "";
-              bolumler.forEach(b => {
-                const lines = b.split("\n");
-                const baslik = lines[0].replace("===","").trim();
-                const icerik = lines.slice(1).join("\n").trim();
-                if (!query || baslik.toLowerCase().includes(query) || icerik.toLowerCase().includes(query)) {
-                  html += `<div class="slayt-box"><h3>📑 ${baslik}</h3><pre>${icerik.slice(0, 8000)}</pre></div>`;
-                }
-              });
-              box.innerHTML = html || "<p style='color:#94a3b8'>Slayt bulunamadı.</p>";
-              return;
-            }
-
-            if (query.length > 0 || SELECTED_SLAYT !== null) {
-              CURRENT_LIST = ALL_Q.filter(q => {
-                if (MODE !== "ALL" && q.tur !== MODE) return false;
-                if (SELECTED_SLAYT && query.length === 0 && q.slayt_baslik !== SELECTED_SLAYT) return false;
-                if (query.length > 0) {
-                  const hay = (q.slayt_baslik + " " + q.soru + " " + (q.siklar||[]).join(" ")).toLowerCase();
-                  return hay.includes(query);
-                }
-                return true;
-              });
-
-              let headerBar = "";
-              if (SELECTED_SLAYT && query.length === 0) {
-                headerBar = `<div class="back-bar"><div><div style="font-size:14px;font-weight:800;color:#38bdf8">${SELECTED_SLAYT}</div><div style="font-size:11px;color:#94a3b8">${CURRENT_LIST.length} soru listeleniyor</div></div><button class="back-btn" onclick="closeSlayt()">← Slaytlar</button></div>`;
-              } else if (query.length > 0) {
-                headerBar = `<div class="back-bar"><div style="font-size:13px;font-weight:700;color:#f59e0b">"${query}" araması için ${CURRENT_LIST.length} sonuç</div>${SELECTED_SLAYT ? '<button class="back-btn" onclick="closeSlayt()">← Slaytlar</button>' : ''}</div>`;
-              }
-
-              if (CURRENT_LIST.length === 0) {
-                box.innerHTML = headerBar + "<p style='color:#94a3b8;text-align:center;margin-top:30px'>Bu filtrede soru bulunamadı.</p>";
-                return;
-              }
-
-              let html = headerBar;
-              CURRENT_LIST.forEach((q, idx) => {
-                const isTeorik = q.tur === "TEORİK";
-                const badge = isTeorik ? `<span class="pill-t">TEORİK</span>` : `<span class="pill-s">SÖZLÜ</span>`;
-                html += `<div class="q-card" id="qcard_${idx}">
-                  <div class="q-meta"><span>📂 ${q.slayt_baslik}</span>${badge}</div>
-                  <div class="q-text">${idx+1}. ${q.soru}</div>`;
-
-                if (isTeorik && q.siklar && q.siklar.length > 0) {
-                  q.siklar.forEach(opt => {
-                    const letter = opt.trim().charAt(0).toUpperCase();
-                    html += `<button class="opt-btn" data-letter="${letter}" onclick="handleOptionClick(${idx}, '${letter}')">${opt}</button>`;
-                  });
-                  html += `<div class="exp-box" id="exp_${idx}"></div>`;
-                } else {
-                  html += `<button class="sozlu-btn" onclick="handleSozluClick(${idx})">👨‍⚕️ Hocanın Cevabını & Slayt Notunu Gör</button>
-                  <div class="exp-box" id="exp_${idx}" style="border-left-color:#f59e0b"></div>`;
-                }
-                html += `</div>`;
-              });
-              box.innerHTML = html;
-              return;
-            }
-
-            const groups = {};
-            ALL_Q.forEach(q => {
-              if (MODE !== "ALL" && q.tur !== MODE) return;
-              if (!groups[q.slayt_baslik]) groups[q.slayt_baslik] = { t:0, s:0 };
-              if (q.tur === "TEORİK") groups[q.slayt_baslik].t++;
-              else groups[q.slayt_baslik].s++;
-            });
-
-            const names = Object.keys(groups).sort((a,b) => (groups[b].t + groups[b].s) - (groups[a].t + groups[a].s));
-            let html = `<div class="slayt-grid">`;
-            names.forEach(name => {
-              const g = groups[name];
-              html += `<div class="slayt-card" onclick="openSlayt('${name.replace(/'/g,"\\'")}')">
-                <div>
-                  <div class="slayt-name">📑 ${name}</div>
-                  <div class="slayt-counts">
-                    ${g.t > 0 ? `<span class="pill-t">${g.t} Teorik</span>` : ''}
-                    ${g.s > 0 ? `<span class="pill-s">${g.s} Sözlü</span>` : ''}
-                  </div>
-                </div>
-                <div style="color:#38bdf8;font-size:18px;font-weight:800">›</div>
+            if (MODE === "ASK") {
+              box.innerHTML = `<div class="ask-box">
+                <div style="font-size:15px;font-weight:800;color:#60a5fa;margin-bottom:6px">💬 Nöroloji Slayt & TUS Asistanı</div>
+                <div style="font-size:12.5px;color:var(--muted);margin-bottom:12px">Aklına takılan soruyu veya çıkmış bir vakayı yaz; 23 slaydın tamamını tarayıp cevaplasın ve açıklasın.</div>
+                <textarea id="customQInput" class="ask-area" placeholder="Örn: İskemik inmede tPA kontrendikasyonları nelerdir? veya Babinski eşdeğerlerini mekanizmasıyla açıkla..."></textarea>
+                <button class="ask-submit" onclick="askCustomQuestion()">Soruma Cevap Ver ve Açıkla</button>
+                <div class="ans-panel" id="customQAns"></div>
               </div>`;
+              return;
+            }
+
+            const query = document.getElementById("searchInput").value.trim().toLowerCase();
+            CURRENT_LIST = ALL_Q.filter(q => {
+              if (q.tur !== MODE) return false;
+              if (query.length > 0) {
+                const hay = (q.soru + " " + (q.siklar||[]).join(" ")).toLowerCase();
+                return hay.includes(query);
+              }
+              return true;
             });
-            html += `</div>`;
-            box.innerHTML = html || "<p style='color:#94a3b8'>Arşiv henüz yüklenmedi.</p>";
+
+            if (CURRENT_LIST.length === 0) {
+              box.innerHTML = `<p style="color:var(--muted);text-align:center;margin-top:40px">Bu aramada ${MODE.toLowerCase()} sorusu bulunamadı.</p>`;
+              return;
+            }
+
+            const visible = CURRENT_LIST.slice(0, SHOW_LIMIT);
+            let html = `<div class="info-bar"><span>${query ? `"${query}" için ` : ''}Toplam <b>${CURRENT_LIST.length}</b> ${MODE.toLowerCase()} sorusu</span><span>Gösterilen: ${visible.length}</span></div>`;
+
+            visible.forEach((q, idx) => {
+              html += `<div class="q-card" id="qcard_${idx}">
+                <div class="q-stem">${idx+1}. ${q.soru}</div>`;
+
+              if (MODE === "TEORİK" && q.siklar && q.siklar.length > 0) {
+                q.siklar.forEach(opt => {
+                  const letter = opt.trim().charAt(0).toUpperCase();
+                  html += `<button class="opt" data-letter="${letter}" onclick="handleOptionClick(${idx}, '${letter}')">${opt}</button>`;
+                });
+                html += `<div class="ans-panel" id="exp_${idx}"></div>`;
+              } else {
+                html += `<button class="ans-btn" onclick="handleSozluClick(${idx})">👨‍⚕️ Cevabı ve Açıklamayı Gör</button>
+                <div class="ans-panel" id="exp_${idx}" style="border-left-color:#f59e0b"></div>`;
+              }
+              html += `</div>`;
+            });
+
+            if (CURRENT_LIST.length > SHOW_LIMIT) {
+              html += `<button class="more-btn" onclick="showMore()">Daha Fazla Göster (${CURRENT_LIST.length - SHOW_LIMIT} soru daha var)</button>`;
+            }
+            box.innerHTML = html;
           }
 
           init();
@@ -425,7 +438,7 @@ jobs:
           with open("app/src/main/assets/index.html", "w", encoding="utf-8") as f:
               f.write(html)
 
-          print(f"HTML icine {len(sorular)} soru ve {len(slayt_txt)} karakter slayt gomuldu!")
+          print(f"v9 HTML hazir: {len(sorular)} soru gomuldu!")
           PYEOF
 
           gradle assembleDebug --no-daemon
@@ -433,5 +446,5 @@ jobs:
       - name: APK Dosyasini Yukle
         uses: actions/upload-artifact@v4
         with:
-          name: VIP-Noroloji-Cikmis-Master-v7
+          name: VIP-Noroloji-Cikmis-Master-v9
           path: app/build/outputs/apk/debug/app-debug.apk
