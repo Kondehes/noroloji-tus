@@ -1,0 +1,358 @@
+{
+  "tip": "anki",
+  "konu": "Tüm Nöroloji",
+  "toplam_kart": 50,
+  "guncelleme": "18.11.2026 10:45",
+  "kartlar": [
+    {
+      "konu_etiketi": "İskemik İnme / Klinik",
+      "on": "Bir hastada ani sağ kol ve yüz asimetrisi, konuşma bozukluğu ve 2 saat içinde gelişen motor güç kaybı var. En olası lokalizasyon ve ilk müdahale nedir?",
+      "arka": "Sol orta serebral arter damarı tıkanması; hızlı CT taraması non‑kontrast ile kanama dışı doğrulanmalı, ardından IV tPA verilmesi değerlendirilir",
+      "spot": "İskemik inmede zaman beyin demektir",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Hemorajik İnme / Tanı",
+      "on": "Baş ağrısı, kusma ve bilinç kaybı sonrası CT’de parietal lobda hiper yoğunluk görülüyor. Bu bulgu hangi inme tipini işaret eder?",
+      "arka": "İntrakebral kanama; akut kanama alanı hiper yoğunluk olarak görülür",
+      "spot": "Kanama CT’de beyaz görünür",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Epilepsi / Türler",
+      "on": "Bir hasta aniden kol ve bacaklarda ritmik kasılmalarla 30 saniye süren bir olay yaşıyor, ardından tam iyileşme. EEG’de 3‑Hz spike‑and‑wave kompleksi var. Hangi epilepsi tipi muhtemeldir?",
+      "arka": "Genelize tonik‑klonik olmayan fokal nöbet; 3‑Hz spike‑and‑wave tipik olarak absans nöbetinde görülür",
+      "spot": "Absans nöbeti 3‑Hz spike‑and‑wave",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Migren / Aura",
+      "on": "Aura sonrası tek taraflı pulsatif baş ağrısı, fotofobi ve bulantı şikayetleri olan bir hastada hangi ilaç ilk tercih olmalıdır?",
+      "arka": "Triptan sınıfı ilaçlar; sumatriptan gibi subkutan enjeksiyon hızlı rahatlama sağlar",
+      "spot": "Migren tedavisinde triptan ilk tercih",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Multipl Skleroz / Tanı",
+      "on": "25 yaşında kadın hastada optik nörit, uyarı duyarlılığı artışı ve MRI’de periventriküler lezyonlar var. En uygun tanı kriteri nedir?",
+      "arka": "McDonald kriterleri; klinik atak ve MRI bulguları ile yaygın demiyelinizasyon ispatı",
+      "spot": "MS tanısında McDonald kriterleri",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Parkinson Hastalığı / Motor Belirtiler",
+      "on": "Tremor, rijidite, bradikinezi ve postural instabilite hangi hastalığın temel bulgularıdır ve hangi ilaç ilk tercih edilir?",
+      "arka": "Parkinson hastalığı; levodopa‑karbidopa kombinasyonu ilk satır tedavidir",
+      "spot": "Parkinson’da levodopa temel tedavi",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Kranial Sinir VII / Bell Felci",
+      "on": "Yüzde ani tek taraflı kas felci, tükürük ve gözyaşı akıntısında azalma var. En olası tanı ve tedavi nedir?",
+      "arka": "Bell felci; oral kortikosteroid 10‑14 gün tedavisi önerilir",
+      "spot": "Bell felci kortikosteroid",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Spinal Kord Kesiği / Lokalizasyon",
+      "on": "Bir hastada göğüs seviyesinden aşağı motor güç kaybı, hassasiyet kaybı ve refleks artışı var. Hangi spinal segment etkilenmiştir?",
+      "arka": "T4‑T6 seviyeleri; bu seviyelerden aşağı motor ve duyusal bulgular görülür",
+      "spot": "Göğüs bölgesi spinal kesik seviyeleri",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Myasthenia Gravis / Tanı",
+      "on": "Kuvvetli yorgunluk, göz kapağı düşüklüğü ve anti‑AChR antikoru pozitif. En uygun tanı testi ve tedavi yöntemi nedir?",
+      "arka": "Tensilon testi pozitif; asetilkolinesteraz inhibitörleri (pyridostigmine) ve immünmodülatör tedavi",
+      "spot": "Myasthenia’da anti‑AChR ve tensilon testi",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "ALS / Klinik",
+      "on": "İleri yaştaki bir hastada kas zayıflığı, fascikülasyon ve üst motor nöron bulguları var. Hangi hastalık düşünülür ve prognozu nasıldır?",
+      "arka": "Amyotrofik lateral skleroz; progresif ve ölümcül, solunum yetmezliği genellikle 3‑5 yıl içinde ortaya çıkar",
+      "spot": "ALS hızlı progresyon",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Guillain‑Barré Sendromu / Elektroliz",
+      "on": "İki haftalık ilerleyici bacak güçsüzlüğü, refleks kaybı ve CSF’de albumin‑citosis var. En uygun tedavi nedir?",
+      "arka": "IVIG veya plazmaferez; hastanın klinik durumuna göre tercih edilir",
+      "spot": "GBS tedavisinde IVIG plazmaferez",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Nörolojik Acil / Kernig ve Brudzinski",
+      "on": "Meningit şüphesi olan hastada Kernig ve Brudzinski pozitif. Bu bulgular hangi patofizyolojiye işaret eder?",
+      "arka": "Meningeal irritasyon; beyin ve omurilik zarlarının inflamasyonu ve hassasiyeti",
+      "spot": "Meningit meningeal irritasyon",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Optik Nöropati / Görme Kaybı",
+      "on": "Tek gözde ani renk körlüğü ve pupilla ışık refleksinde afferent pupilla defekti var. En olası neden nedir?",
+      "arka": "İzole optik nörit; demiyelinizasyon hastalıkları ve vasküler olaylar düşünülür",
+      "spot": "Optik nöritte afferent pupilla defekti",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Cerebellar Ataksi / Lokalizasyon",
+      "on": "Koordinasyon bozukluğu, titreme ve konuşma bozukluğu var. MRI’de vermis bölgesi lezyonu var. Hangi yapı etkilenmiştir?",
+      "arka": "Vermis; orta cerebellar yapı denge ve yürüyüş kontrolünden sorumludur",
+      "spot": "Vermis ataksi",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Nöropatik Ağrı / Tedavi",
+      "on": "Diyabetik hastada yanma ve karıncalanma şikayetleri var, gabapentin önerilir. Gabapentin hangi reseptörleri modüle eder?",
+      "arka": "Alfa‑2‑delta subunit of voltage‑gated calcium channels; nörotransmitter salınımını azaltır",
+      "spot": "Gabapentin kalsiyum kanalı modülatörü",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Kranial Sinir II / Görme Alanı Defekti",
+      "on": "Sağ üst kadran görme kaybı ve pupilla ışık refleksinde eşit yanıt var. Hangi lezyon lokalizasyonu düşünülür?",
+      "arka": "Sol temporal lobe ve optic radiation Meyer's loop hasarı; kadran görme kaybı tipik olarak bu bölgede görülür",
+      "spot": "Meyer's loop kadran kaybı",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "İskemik Stroke / Lokalizasyon",
+      "on": "Bir hastada aniden ortaya çıkan sağ kol ve yüz kaslarında zayıflık, konuşma bozukluğu ve sağ alt ekstremitede hafif his kaybı var. Hangi arterin trombozu en olasıdır?",
+      "arka": "Sol orta serebral arter trombozu. Sol MCA dağılımı motor korteksini etkiler, yüz ve kol güçsüzlüğü, Broca afazisi ve alt ekstremitede his değişikliği görülür.",
+      "spot": "MCA trombozu tipik olarak yüz ve kol güçsüzlüğü, konuşma bozukluğu ve alt ekstremitede hafif his kaybı verir",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Multipl Skleroz / Demiyelinizasyon",
+      "on": "Relaps ve remisyonlu bir hastada optik sinir inflamasyonu sonrası görme kaybı ve retrobulbar ağrı görülür. MRI de periventriküler Dawson fingers bulunur. Bu bulgular hangi hastalığı işaret eder?",
+      "arka": "Multipl skleroz. Optik nörit, periventriküler lezyonlar ve Dawson fingers tipik bulgulardır.",
+      "spot": "Periventriküler Dawson fingers multipl sklerozun ayırt edici MRI bulgusudur",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Myasthenia Gravis / Klinik",
+      "on": "Gün içinde artan kas yorgunluğu, göz kapağı düşüklüğü ve çift görme şikayeti olan bir hastada hangi antikor en sık bulunur?",
+      "arka": "Asetilkolin reseptör antikoru. Bu antikor kas-nerve bağlantısını bozar ve yorgunluk semptomlarına yol açar.",
+      "spot": "Asetilkolin reseptör antikoru myasthenia gravisin en yaygın serolojik göstergesidir",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Guillain-Barré Sendromu / Elektrofizyoloji",
+      "on": "İki haftalık ilerleyici bacak güçsüzlüğü ve refleks kaybı olan bir hastada EMG hangi bulguyu gösterir?",
+      "arka": "Düşük iletim hızı ve artmış F dalga latansı. Demiyelinizasyonlu periferik sinirlerde tipik elektrofizyolojik bulgular.",
+      "spot": "F dalga latansı artışı Guillain-Barré tanısında kritik elektrofizyolojik işarettir",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Epilepsi / Temporal Lobe",
+      "on": "Kısa süreli bilinç kaybı, otomatik hareketler ve ardından anterograd amnezi ile karakterize bir nöbet tipi nedir?",
+      "arka": "Temporal lob fokal bilinç kaybı nöbeti. Hipokampus ve amigdala tutulumlu otomatik davranışlar görülür.",
+      "spot": "Temporal lob fokal nöbetlerde otomatik hareketler ve anterograd amnezi tipiktir",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Periferik Nöropati / Diyabetik",
+      "on": "Diyabetik bir hastada ayaklarda yanma, karıncalanma ve sıcak-soğuk algı kaybı var. En çok etkilenen sinir hangisidir?",
+      "arka": "Peroneal sinir. Diyabetik mononeuropati genellikle peroneal dağılımda ağrı ve duyu kaybına yol açar.",
+      "spot": "Peroneal sinir diyabetik mononeuropatinin en sık görülen lokasyonudur",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Spinal Kord Sindromu / Anterior Kord",
+      "on": "Göğüs seviyesinden aşağı motor güç kaybı, ağrı duyusunun korunması ve refleks artışı olan bir hastada hangi spinal kord bölgesi etkilenmiştir?",
+      "arka": "Anterior kord. Motor ve ağrı dışı duyular kaybı, refleks artışı anterior kord lezyonunun tipik bulgusudur.",
+      "spot": "Anterior kord lezyonu motor ve ağrı dışı duyularda kayıp, refleks artışı verir",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Kafa Ağrısı / Migren Aura",
+      "on": "Üç gün süren görsel aura, ardından pulsatil baş ağrısı ve fotofobi şikayeti olan bir hastada ilk tedavi adımı nedir?",
+      "arka": "Triptan sınıfı ilaçların erken dönemde verilmesi. Aura sonrası migren ataklarında triptanlar etkilidir.",
+      "spot": "Migren atağında triptanların erken uygulanması ağrıyı kısaltır",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Klinik Nörolojik Muayene / Pupilla",
+      "on": "Tek gözde ani renk körlüğü ve ışığa yanıt vermeyen pupilla bulgusu hangi yapının hasarını gösterir?",
+      "arka": "Optik sinir. Akut optik nöritte renk körlüğü ve afferent pupilla refleks kaybı görülür.",
+      "spot": "Optik sinir hasarı renk körlüğü ve afferent pupilla refleks kaybına yol açar",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Beyin Tümörü / Glioblastoma",
+      "on": "Hızlı ilerleyen baş ağrısı, nöbet ve fokal nörolojik bulgularla seyreden bir hastada MRI de halkalı kontrast alma gösteren lezyon görülür. En olası tanı nedir?",
+      "arka": "Glioblastoma multiforme. Halkalı kontrast alma ve agresif klinik seyir tipiktir.",
+      "spot": "Halkalı kontrast alma glioblastoma multiformenin karakteristik görüntüsüdür",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "CSF Analizi / Enflamasyon",
+      "on": "Bakteriyel menenjit şüphesi olan hastada lumbal ponksiyon sonucunda polisitoz, düşük glukoz ve yüksek protein bulunur. Bu bulgular hangi hastalığı doğrular?",
+      "arka": "Bakteriyel menenjit. CSF de polisitoz, glukoz düşüklüğü ve protein yükselişi klasik bulgulardır.",
+      "spot": "Polisitoz, düşük glukoz ve yüksek protein bakteriyel menenjitin temel CSF bulgularıdır",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Nörolojik Acil Durum / Status Epilepticus",
+      "on": "10 dakikadan uzun süren konvülsif nöbeti olan hastada ilk acil tedavi adımı nedir?",
+      "arka": "İntravenöz benzodiazepin (örneğin lorazepam) uygulanması. Status epilepticusun ilk satır tedavisi benzodiazepindir.",
+      "spot": "Benzodiazepinler status epilepticusun ilk acil tedavisidir",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Nörolojik Hastalıklar / ALS",
+      "on": "İleri yaştaki bir hastada progresif kas zayıflığı, fascikülasyon ve üst motor nöron bulguları var. En olası tanı nedir?",
+      "arka": "Amyotrofik lateral skleroz. Alt ve üst motor nöron bulgularının kombinasyonu tipiktir.",
+      "spot": "ALS hem alt hem üst motor nöron bulgularını bir arada gösterir",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Nörolojik Görüntüleme / DWI",
+      "on": "Akut iskemik inme şüphesi olan hastada diffusion weighted imaging (DWI) neyi gösterir?",
+      "arka": "İskemik bölgeye ait artmış su molekülü difüzyonu. DWI erken dönemde inme tanısında yüksek duyarlıdır.",
+      "spot": "DWI akut iskemik lezyonu erken dönemde tespit eder",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Nörolojik Hastalıklar / Huntington",
+      "on": "Aile öyküsü, ilerleyici hareket bozuklukları, davranış değişiklikleri ve demans ile karakterize hastada genetik testte hangi gen mutasyonu bulunur?",
+      "arka": "HTT genindeki CAG tekrar genişlemesi. 36 veya daha fazla tekrar Huntington hastalığını belirler.",
+      "spot": "HTT genindeki CAG genişlemesi Huntington hastalığının moleküler temeli",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "İki haftalık ilerleyici bacak güçsüzlüğü",
+      "on": "İki haftalık ilerleyici bacak güçsüzlüğü",
+      "arka": "Acute ascending paralysis with areflexia typical of Guillain-Barré syndrome EMG shows demyelination",
+      "spot": "Acute ascending paralysis with areflexia",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Kısa süreli bilinç kaybı, otomatik harek",
+      "on": "Kısa süreli bilinç kaybı, otomatik harek",
+      "arka": "Epileptik nöbet kısa süreli bilinç kaybı otomatik hareket post-ictal confusion",
+      "spot": "Epileptik nöbetin kısa süreli bilinç kaybı ve otomatik hareketler",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Diyabetik ayak yanması",
+      "on": "Diyabetik bir hastada ayaklarda yanma",
+      "arka": "Distal symmetric sensorimotor neuropathy diabetic peripheral neuropathy burning feet",
+      "spot": "Distal symmetric sensorimotor neuropathy",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Göğüs seviyesinden aşağı motor güç kaybı",
+      "on": "Göğüs seviyesinden aşağı motor güç kaybı",
+      "arka": "Motor deficit below level of spinal cord lesion T1 or higher spinal cord compression",
+      "spot": "Motor deficit below level of lesion",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Üç gün süren görsel aura",
+      "on": "Üç gün süren görsel aura, ardından pulsa",
+      "arka": "Migraine with aura visual disturbances up to 24 hours followed by headache",
+      "spot": "Migraine aura",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Tek gözde ani renk körlüğü",
+      "on": "Tek gözde ani renk körlüğü ve ışığa yanı",
+      "arka": "Optic neuritis acute unilateral vision loss color desaturation pain on eye movement",
+      "spot": "Acute unilateral vision loss with pain",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Hızlı ilerleyen baş ağrısı, nöbet ve fok",
+      "on": "Hızlı ilerleyen baş ağrısı, nöbet ve fok",
+      "arka": "Brain tumor causing seizures and focal deficits progressive headache",
+      "spot": "Mass lesion in brain",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Bakteriyel menenjit şüphesi",
+      "on": "Bakteriyel menenjit şüphesi olan hastada",
+      "arka": "Fever neck stiffness photophobia altered mental status CSF neutrophilic pleocytosis low glucose",
+      "spot": "CSF neutrophilic pleocytosis",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "10 dakikadan uzun süren konvülsif nöbet",
+      "on": "10 dakikadan uzun süren konvülsif nöbeti",
+      "arka": "Status epilepticus seizure lasting more than 5 minutes requires emergency treatment",
+      "spot": "Seizure >5 minutes status epilepticus",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "İleri yaştaki progresif kas",
+      "on": "İleri yaştaki bir hastada progresif kas",
+      "arka": "Amyotrophic lateral sclerosis upper and lower motor neuron signs progressive weakness",
+      "spot": "Upper and lower motor neuron signs",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Akut iskemik inme şüphesi",
+      "on": "Akut iskemik inme şüphesi olan hastada",
+      "arka": "Sudden focal deficit CT negative treat with tPA within 4.5 hours",
+      "spot": "CT negative treat with tPA",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Aile öyküsü ilerleyici hareket bozukluk",
+      "on": "Aile öyküsü, ilerleyici hareket bozukluk",
+      "arka": "Huntington disease CAG repeat expansion HTT gene early onset chorea",
+      "spot": "CAG repeat expansion in HTT gene",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Optik neurit ve internuclear ophthalmoplegia",
+      "on": "Optik neurit ve internuclear ophthalmoplegia",
+      "arka": "Multiple sclerosis demyelinating plaques oligoclonal bands CSF",
+      "spot": "Oligoclonal bands in CSF",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Parkinson hastalığı",
+      "on": "Parkinson hastalığı",
+      "arka": "Resting tremor bradykinesia rigidity loss of dopaminergic neurons substantia nigra levodopa responsive",
+      "spot": "Levodopa responsiveness",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Myasthenia gravis",
+      "on": "Myasthenia gravis",
+      "arka": "Fatigable weakness ptosis diplopia antibodies to acetylcholine receptor edrophonium test positive",
+      "spot": "Edrophonium test positive",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Cerebral Small Vessel Disease",
+      "on": "What are the classic imaging findings and clinical syndromes associated with cerebral small vessel disease?",
+      "arka": "Cerebral small vessel disease is characterized by lacunar infarcts, white matter hyperintensities, microbleeds, and perivascular spaces on MRI. Clinically it presents with pure motor stroke, pure sensory stroke, ataxic hemiparesis, dysarthria, and vascular cognitive impairment. Risk factors include hypertension, diabetes, smoking, and aging.",
+      "spot": "Lacunar infarcts: pure motor, pure sensory, ataxic, dysarthric",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Subarachnoid Hemorrhage",
+      "on": "What is the classic presentation and key diagnostic imaging scale for subarachnoid hemorrhage?",
+      "arka": "Subarachnoid hemorrhage presents with sudden severe headache described as worst headache ever, neck stiffness, photophobia, and possible loss of consciousness. CT scan within 6 hours is highly sensitive; the Fisher scale grades amount of subarachnoid blood and predicts risk of vasospasm.",
+      "spot": "Worst headache ever",
+      "referans": "Çıkmış Föy"
+    },
+    {
+      "konu_etiketi": "Epilepsy Classification",
+      "on": "How does the ILAE classify seizures and what are the distinguishing features of focal versus generalized seizures?",
+      "arka": "ILAE classifies seizures into focal onset and generalized onset. Focal seizures may have an aura, automatisms, focal motor activity, or sensory changes. Generalized seizures include absence, myoclonic, tonic‑clonic, and atonic seizures, often with bilateral synchronous EEG patterns.",
+      "spot": "Focal seizures: aura, automatisms",
+      "referans": "Hoca Vurgusu"
+    },
+    {
+      "konu_etiketi": "Neurogenic Orthostatic Hypotension",
+      "on": "What defines neurogenic orthostatic hypotension and what is the diagnostic threshold?",
+      "arka": "Neurogenic orthostatic hypotension is a drop in systolic blood pressure of more than 20 mmHg or diastolic of more than 10 mmHg within 3 minutes of standing, due to autonomic failure. It presents with dizziness, syncope, and falls.",
+      "spot": "Drop in systolic >20 mmHg within 3 min",
+      "referans": "Çıkmış Föy"
+    }
+  ]
+}
