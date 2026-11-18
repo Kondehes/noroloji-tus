@@ -1,0 +1,37 @@
+name: VIP Noroloji Soru ve Anki Uretici
+
+on:
+  workflow_dispatch:
+    inputs:
+      mod:
+        description: 'Uretim Modu (soru veya anki)'
+        required: true
+        default: 'soru'
+      konu:
+        description: 'Slayt veya Konu Adi'
+        required: true
+        default: 'Tüm Nöroloji'
+      soru_sayisi:
+        description: 'Soru veya Kart Sayisi'
+        required: true
+        default: '30'
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu Cek
+        uses: actions/checkout@v4
+
+      - name: Python Paketlerini Kur
+        run: |
+          pip install requests
+
+      - name: VIP Noroloji Motorunu Calistir
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          TUS_MOD: ${{ github.event.inputs.mod }}
+          TUS_KONU: ${{ github.event.inputs.konu }}
+          SORU_SAYISI: ${{ github.event.inputs.soru_sayisi }}
+        run: |
+          python noro_bot.py
