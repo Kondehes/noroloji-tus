@@ -182,4 +182,514 @@ jobs:
             <div class="card" id="soruUretimPanel">
               <span class="sec-title">1. Nöroloji Slayt & Konu Butonları</span>
               <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;">
-                <input type="number" id="soruAdet" value="30" min="5" max="100" style="width:85px;margin:0;" placeholder="Ad
+                <input type="number" id="soruAdet" value="30" min="5" max="100" style="width:85px;margin:0;" placeholder="Adet">
+                <input type="text" id="ozelKonu" style="margin:0;" placeholder="Özel alt başlık (Örn: Wallenberg)">
+                <button class="btn btn-primary btn-sm" onclick="ozelSoruUret()">Üret</button>
+              </div>
+              <div id="konuButonAlani">Slaytlar yükleniyor...</div>
+              <div class="durum" id="soruDurum"></div>
+            </div>
+
+            <div class="card" id="soruPaketListesiKutu">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span class="sec-title" style="margin:0;">Son 4 Soru Paketi</span>
+                <button class="btn btn-primary btn-sm" onclick="paketleriYenile()">🔄 Yenile</button>
+              </div>
+              <div id="soruPaketListesi">Yükleniyor...</div>
+            </div>
+
+            <div class="card hidden" id="quizEkrani">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <button class="btn btn-primary btn-sm" onclick="quizKapat()">← Konulara Dön</button>
+                <span id="quizSayac" style="font-weight:700;color:var(--accent);font-size:13px;"></span>
+              </div>
+              <div id="quizEtiket" class="badge" style="display:inline-block;margin-top:10px;"></div>
+              <div id="quizSoru" class="soru-metni"></div>
+              <div id="quizSiklar"></div>
+              <div id="quizAciklama" class="aciklama-kutu hidden"></div>
+              <div style="display:flex;gap:8px;margin-top:12px;">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="soruDegis(-1)">← Önceki</button>
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="soruDegis(1)">Sonraki →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEKME 2: VURGULU SLAYT ANKİ KARTLARI -->
+          <div id="tab-anki" class="hidden">
+            <div class="card" id="ankiUretimPanel">
+              <span class="sec-title">🃏 Çoklu Slayt Seç & Vurgulu Spot Anki Üret</span>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Bir veya birden fazla slayt seçip hoca vurgularından + çıkmış föyden kart üret:</div>
+              <div class="chip-grid" id="ankiKonuSecici"></div>
+              <div style="display:flex;gap:8px;margin-top:10px;">
+                <input type="number" id="ankiAdet" value="25" min="10" max="100" style="width:90px;margin:0;">
+                <button class="btn btn-purple" onclick="ankiUret()">✨ Seçili Slaytlardan Anki Üret</button>
+              </div>
+              <div class="durum" id="ankiDurum"></div>
+            </div>
+
+            <div class="card" id="ankiListeKutu">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span class="sec-title" style="margin:0;">Son 4 Anki Destesi</span>
+                <button class="btn btn-purple btn-sm" onclick="paketleriYenile()">🔄 Yenile</button>
+              </div>
+              <div id="ankiPaketListesi">Yükleniyor...</div>
+            </div>
+
+            <div class="card hidden" id="ankiCalismaEkrani">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                <button class="btn btn-purple btn-sm" onclick="ankiKapat()">← Destelere Dön</button>
+                <span id="ankiSayac" style="font-weight:700;color:var(--purple);font-size:13px;"></span>
+              </div>
+              <div class="anki-kart" onclick="ankiCevir()">
+                <div id="ankiKonuRozet" class="badge" style="margin-bottom:12px;"></div>
+                <div id="ankiOnYuz" style="font-size:17px;font-weight:700;line-height:1.5;"></div>
+                <div id="ankiArkaYuz" class="hidden" style="margin-top:14px;padding-top:14px;border-top:1px dashed #6d28d9;width:100%;">
+                  <div id="ankiCevapMetin" style="font-size:15px;color:#e9d5ff;line-height:1.55;"></div>
+                  <div id="ankiSpotMetin" style="margin-top:10px;background:#0f172a;padding:8px;border-radius:8px;font-size:12px;color:var(--gold);"></div>
+                </div>
+                <div style="font-size:11px;color:var(--muted);margin-top:14px;">(Kartı çevirmek için dokun)</div>
+              </div>
+              <div style="display:flex;gap:10px;margin-top:12px;">
+                <button class="btn btn-red" style="flex:1;" onclick="ankiPuanla(false)">🔁 Tekrar Bak (Zor)</button>
+                <button class="btn btn-green" style="flex:1;" onclick="ankiPuanla(true)">✅ Öğrendim (Kolay)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEKME 3: TAKILDIĞIM YER (17 SLAYT VURGULARI + ÇIKMIŞ FÖY) -->
+          <div id="tab-sor" class="hidden">
+            <div class="card">
+              <span class="sec-title">💡 Aklıma Takılan Yer (Slayt Vurguları + Çıkmış Föy)</span>
+              <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Uzun detay yok — Slaytlardaki vurgulu hoca notu özeti + Çıkmış Föydeki gerçek soru:</div>
+              <textarea id="takilanSoru" rows="3" placeholder="Örn: Guillain Barre vs CIDP veya Bilinç Bozuklukları"></textarea>
+              <button class="btn btn-gold" onclick="danismanaSor()">⚡ Vurgulu Slayt Özeti + Çıkmış Soru Getir</button>
+              <div class="durum" id="danismanDurum"></div>
+              <div id="danismanCevap" class="cevap-kutu hidden"></div>
+            </div>
+
+            <div class="card">
+              <span class="sec-title">🔑 Bağlantı Anahtarları (1 Kez Kaydedilir)</span>
+              <input type="password" id="ghPat" placeholder="GitHub Token (ghp_...)">
+              <input type="password" id="groqKey" placeholder="Groq API Key (gsk_...)">
+              <button class="btn btn-primary" onclick="ayarlariKaydet()">💾 Anahtarları Kaydet</button>
+            </div>
+          </div>
+
+          <div class="nav">
+            <button class="nav-btn active" id="nav-soru" onclick="sekmeAc('soru')"><span>📝</span>17 Konu & Test</button>
+            <button class="nav-btn" id="nav-anki" onclick="sekmeAc('anki')"><span>🃏</span>Vurgulu Anki</button>
+            <button class="nav-btn" id="nav-sor" onclick="sekmeAc('sor')"><span>💡</span>Takıldığım Yer</button>
+          </div>
+
+          <script>
+          const REPO = "Kondehes/noroloji-tus";
+          const WORKFLOW = "noro_uret.yml";
+
+          let KONULAR = ["Tüm Nöroloji"];
+          let seciliAnkiKonular = new Set(["Tüm Nöroloji"]);
+          let slaytOnbellek = "";
+          let cikmisOnbellek = "";
+          let aktifQuiz = [], quizIdx = 0;
+          let aktifAnki = [], ankiIdx = 0;
+
+          function temizToken(k) {
+            return (localStorage.getItem(k) || "").replace(/[^\x20-\x7E]/g, "").trim();
+          }
+
+          window.onload = async () => {
+            document.getElementById("ghPat").value = temizToken("gh_pat");
+            document.getElementById("groqKey").value = temizToken("groq_key");
+            await konulariYukle();
+            paketleriYenile();
+            kaynaklariOnbellegeAl();
+          };
+
+          function sekmeAc(ad) {
+            ["soru","anki","sor"].forEach(s => {
+              document.getElementById("tab-"+s).classList.toggle("hidden", s !== ad);
+              document.getElementById("nav-"+s).classList.toggle("active", s === ad);
+            });
+          }
+
+          function ayarlariKaydet() {
+            const p = document.getElementById("ghPat").value.replace(/[^\x20-\x7E]/g, "").trim();
+            const g = document.getElementById("groqKey").value.replace(/[^\x20-\x7E]/g, "").trim();
+            localStorage.setItem("gh_pat", p);
+            localStorage.setItem("groq_key", g);
+            document.getElementById("ghPat").value = p;
+            document.getElementById("groqKey").value = g;
+            konulariYukle();
+            paketleriYenile();
+            kaynaklariOnbellegeAl();
+            alert("Anahtarlar kaydedildi Şef!");
+          }
+
+          async function konulariYukle() {
+            // 1. Once APK icindeki gomulu konular.json dosyasini yukle (aninda acilir)
+            try {
+              const localRes = await fetch("konular.json");
+              if (localRes.ok) {
+                const liste = await localRes.json();
+                if (Array.isArray(liste) && liste.length > 0) {
+                  KONULAR = ["Tüm Nöroloji", ...liste];
+                  seciliAnkiKonular = new Set([liste[0]]);
+                  document.getElementById("ustRozet").innerText = `${liste.length} SLAYT AKTİF`;
+                }
+              }
+            } catch (e) {}
+            konulariCiz();
+
+            // 2. Ardindan GitHub'dan guncel liste varsa cek
+            const pat = temizToken("gh_pat");
+            const headers = pat
+              ? { "Authorization": `Bearer ${pat}`, "Accept": "application/vnd.github.raw+json" }
+              : { "Accept": "application/vnd.github.raw+json" };
+            try {
+              const r = await fetch(`https://api.github.com/repos/${REPO}/contents/konular.json?t=${Date.now()}`, { headers });
+              if (r.ok) {
+                const liste = await r.json();
+                if (Array.isArray(liste) && liste.length > 0) {
+                  KONULAR = ["Tüm Nöroloji", ...liste];
+                  if (seciliAnkiKonular.has("Tüm Nöroloji")) seciliAnkiKonular = new Set([liste[0]]);
+                  document.getElementById("ustRozet").innerText = `${liste.length} SLAYT AKTİF`;
+                  konulariCiz();
+                }
+              }
+            } catch (e) {}
+          }
+
+          function konulariCiz() {
+            const alan = document.getElementById("konuButonAlani");
+            const chipAlan = document.getElementById("ankiKonuSecici");
+            alan.innerHTML = "";
+            chipAlan.innerHTML = "";
+
+            KONULAR.forEach((k, idx) => {
+              const tumMu = idx === 0;
+              const safeK = k.replace(/'/g, "\\'");
+              alan.innerHTML += `
+                <div class="konu-btn-row ${tumMu ? "tum-noro" : ""}">
+                  <div class="konu-ad">${tumMu ? "🌟 " + k + " (Karma Sınav)" : "📑 " + k}</div>
+                  <button class="btn ${tumMu ? "btn-gold" : "btn-primary"} btn-sm" onclick="workflowTetikle('soru','${safeK}', document.getElementById('soruAdet').value)">Soru Üret</button>
+                </div>`;
+
+              const c = document.createElement("div");
+              c.className = "chip" + (seciliAnkiKonular.has(k) ? " active" : "");
+              c.innerText = k;
+              c.onclick = () => {
+                if (seciliAnkiKonular.has(k)) seciliAnkiKonular.delete(k);
+                else seciliAnkiKonular.add(k);
+                konulariCiz();
+              };
+              chipAlan.appendChild(c);
+            });
+          }
+
+          function ozelSoruUret() {
+            const k = document.getElementById("ozelKonu").value.trim();
+            if (!k) return alert("Önce alt başlık yaz Şef!");
+            workflowTetikle("soru", k, document.getElementById("soruAdet").value);
+          }
+
+          function ankiUret() {
+            if (seciliAnkiKonular.size === 0) return alert("En az 1 slayt seç Şef!");
+            const birlesik = Array.from(seciliAnkiKonular).join(" + ");
+            workflowTetikle("anki", birlesik, document.getElementById("ankiAdet").value);
+          }
+
+          async function workflowTetikle(mod, konu, adet) {
+            const pat = temizToken("gh_pat");
+            if (!pat) { sekmeAc("sor"); return alert("Önce Takıldığım Yer sekmesinden GitHub Token gir Şef!"); }
+            const hedefEl = document.getElementById(mod === "anki" ? "ankiDurum" : "soruDurum");
+            hedefEl.innerText = `⏳ '${konu}' için ${adet} adet ${mod.toUpperCase()} üretimi başlatılıyor...`;
+            try {
+              const res = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW}/dispatches`, {
+                method: "POST",
+                headers: { "Authorization": `Bearer ${pat}`, "Accept": "application/vnd.github+json" },
+                body: JSON.stringify({ ref: "main", inputs: { mod: mod, konu: konu, soru_sayisi: String(adet) } })
+              });
+              if (res.status === 204) {
+                hedefEl.innerText = `🚀 Başlatıldı! '${konu}' (~45 sn sonra Yenile butonuna bas)`;
+              } else {
+                hedefEl.innerText = `❌ Hata kodu: ${res.status}`;
+              }
+            } catch (e) {
+              hedefEl.innerText = "❌ Bağlantı hatası: " + e.message;
+            }
+          }
+
+          async function paketleriYenile() {
+            const sListe = document.getElementById("soruPaketListesi");
+            const aListe = document.getElementById("ankiPaketListesi");
+            const pat = temizToken("gh_pat");
+            const headers = pat ? { "Authorization": `Bearer ${pat}`, "Accept": "application/vnd.github+json" } : {};
+            sListe.innerText = "⏳ Paketler çekiliyor...";
+            aListe.innerText = "⏳ Desteler çekiliyor...";
+            try {
+              const r = await fetch(`https://api.github.com/repos/${REPO}/contents/noro_bankasi?t=${Date.now()}`, { headers });
+              if (!r.ok) {
+                sListe.innerText = "Henüz soru paketi üretilmedi. Yukarıdan bir konuya bas!";
+                aListe.innerText = "Henüz Anki destesi üretilmedi.";
+                return;
+              }
+              const dosyalar = await r.json();
+              sListe.innerHTML = "";
+              aListe.innerHTML = "";
+              const jsonlar = Array.isArray(dosyalar) ? dosyalar.filter(d => d.name.endsWith(".json")).reverse() : [];
+              const ankiListe = jsonlar.filter(d => d.name.startsWith("ANKI__")).slice(0, 4);
+              const soruListe = jsonlar.filter(d => !d.name.startsWith("ANKI__")).slice(0, 4);
+
+              if (soruListe.length === 0) sListe.innerText = "Henüz soru paketi yok.";
+              if (ankiListe.length === 0) aListe.innerText = "Henüz Anki destesi yok.";
+
+              [...soruListe, ...ankiListe].forEach(d => {
+                const ankiMi = d.name.startsWith("ANKI__");
+                const temizAd = d.name.replace("ANKI__","").replace("Noroloji__","").replace(".json","").replace(/_/g," ");
+                const el = document.createElement("div");
+                el.className = "paket-item" + (ankiMi ? " anki" : "");
+                el.innerHTML = `
+                  <div style="flex:1;cursor:pointer;" onclick="paketAc('${d.path}', ${ankiMi})">
+                    <b>${ankiMi ? "🃏" : "🧠"} ${temizAd}</b>
+                    <div style="font-size:11px;color:var(--muted)">Dokun ve Başla</div>
+                  </div>
+                  <button class="btn btn-red btn-sm" style="padding:6px 9px;margin-left:8px;" onclick="paketSil('${d.path}','${d.sha}')">🗑️</button>`;
+                if (ankiMi) aListe.appendChild(el);
+                else sListe.appendChild(el);
+              });
+            } catch (e) {
+              sListe.innerText = "❌ Bağlantı hatası: " + e.message;
+            }
+          }
+
+          async function paketSil(yol, sha) {
+            const pat = temizToken("gh_pat");
+            if (!pat) return alert("Silmek için GitHub Token gerekli Şef!");
+            await fetch(`https://api.github.com/repos/${REPO}/contents/${yol}`, {
+              method: "DELETE",
+              headers: { "Authorization": `Bearer ${pat}`, "Accept": "application/vnd.github+json", "Content-Type": "application/json" },
+              body: JSON.stringify({ message: "Paket silindi", sha: sha })
+            });
+            paketleriYenile();
+          }
+
+          async function paketAc(dosyaYolu, ankiMi) {
+            const pat = temizToken("gh_pat");
+            const headers = pat
+              ? { "Authorization": `Bearer ${pat}`, "Accept": "application/vnd.github.raw+json" }
+              : { "Accept": "application/vnd.github.raw+json" };
+            const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${dosyaYolu}?t=${Date.now()}`, { headers });
+            const veri = await r.json();
+            if (ankiMi) {
+              aktifAnki = veri.kartlar || [];
+              ankiIdx = 0;
+              document.getElementById("ankiUretimPanel").classList.add("hidden");
+              document.getElementById("ankiListeKutu").classList.add("hidden");
+              document.getElementById("ankiCalismaEkrani").classList.remove("hidden");
+              ankiGoster();
+            } else {
+              aktifQuiz = veri.sorular || [];
+              quizIdx = 0;
+              document.getElementById("soruUretimPanel").classList.add("hidden");
+              document.getElementById("soruPaketListesiKutu").classList.add("hidden");
+              document.getElementById("quizEkrani").classList.remove("hidden");
+              soruGoster();
+            }
+          }
+
+          function quizKapat() {
+            document.getElementById("quizEkrani").classList.add("hidden");
+            document.getElementById("soruUretimPanel").classList.remove("hidden");
+            document.getElementById("soruPaketListesiKutu").classList.remove("hidden");
+          }
+
+          function soruGoster() {
+            const q = aktifQuiz[quizIdx];
+            if (!q) return;
+            document.getElementById("quizSayac").innerText = `${quizIdx + 1} / ${aktifQuiz.length}`;
+            document.getElementById("quizEtiket").innerText = q.etiket || "VURGULU SLAYT";
+            document.getElementById("quizSoru").innerText = q.soru;
+            const ac = document.getElementById("quizAciklama");
+            ac.classList.add("hidden");
+            const sikAlan = document.getElementById("quizSiklar");
+            sikAlan.innerHTML = "";
+            q.siklar.forEach((s, i) => {
+              const div = document.createElement("div");
+              div.className = "sik";
+              div.innerText = s;
+              div.onclick = () => {
+                document.querySelectorAll("#quizSiklar .sik").forEach((el, idx) => {
+                  if (idx === q.dogru_index) el.classList.add("dogru");
+                  else if (idx === i) el.classList.add("yanlis");
+                });
+                ac.innerHTML = `<b>💡 Açıklama:</b> ${q.aciklama}<br><br><b style="color:var(--gold)">⭐ Nöroloji Spotu:</b> ${q.spot || ""}<br><span style="font-size:11px;color:var(--muted)">📚 ${q.referans || "Slayt / Çıkmış Föy"}</span>`;
+                ac.classList.remove("hidden");
+              };
+              sikAlan.appendChild(div);
+            });
+          }
+
+          function soruDegis(yon) {
+            const yeni = quizIdx + yon;
+            if (yeni >= 0 && yeni < aktifQuiz.length) { quizIdx = yeni; soruGoster(); }
+          }
+
+          function ankiKapat() {
+            document.getElementById("ankiCalismaEkrani").classList.add("hidden");
+            document.getElementById("ankiUretimPanel").classList.remove("hidden");
+            document.getElementById("ankiListeKutu").classList.remove("hidden");
+          }
+
+          function ankiGoster() {
+            if (aktifAnki.length === 0) { alert("Tebrikler Şef, destedeki tüm kartları tamamladın! 🎉"); return ankiKapat(); }
+            const k = aktifAnki[ankiIdx % aktifAnki.length];
+            document.getElementById("ankiSayac").innerText = `Kalan Kart: ${aktifAnki.length}`;
+            document.getElementById("ankiKonuRozet").innerText = k.konu_etiketi || "VURGULU SPOT";
+            document.getElementById("ankiOnYuz").innerText = k.on;
+            document.getElementById("ankiArkaYuz").classList.add("hidden");
+            document.getElementById("ankiCevapMetin").innerText = k.arka;
+            document.getElementById("ankiSpotMetin").innerText = "⭐ " + (k.spot || "");
+          }
+
+          function ankiCevir() {
+            document.getElementById("ankiArkaYuz").classList.toggle("hidden");
+          }
+
+          function ankiPuanla(ogrendim) {
+            if (ogrendim) aktifAnki.splice(ankiIdx % aktifAnki.length, 1);
+            else ankiIdx++;
+            ankiGoster();
+          }
+
+          async function kaynaklariOnbellegeAl() {
+            const pat = temizToken("gh_pat");
+            const headers = pat
+              ? { "Authorization": `Bearer ${pat}`, "Accept": "application/vnd.github.raw+json" }
+              : { "Accept": "application/vnd.github.raw+json" };
+            try {
+              const r1 = await fetch(`https://api.github.com/repos/${REPO}/contents/noroloji_kaynak.txt`, { headers });
+              if (r1.ok) slaytOnbellek = await r1.text();
+            } catch (e) {}
+            try {
+              const r2 = await fetch(`https://api.github.com/repos/${REPO}/contents/noroloji_cikmis.txt`, { headers });
+              if (r2.ok) cikmisOnbellek = await r2.text();
+            } catch (e) {}
+          }
+
+          function markdownToTemizHtml(md) {
+            let temiz = md.replace(/<br\s*\/?>/gi, "\n");
+            let lines = temiz.split("\n");
+            let html = "";
+            let inList = false;
+
+            const fmt = (t) => t
+              .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+              .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+            for (let raw of lines) {
+              let line = raw.trim();
+              if (!line || line === "---") {
+                if (inList) { html += "</ul>"; inList = false; }
+                continue;
+              }
+              if (line.startsWith("###") || line.startsWith("##")) {
+                if (inList) { html += "</ul>"; inList = false; }
+                html += `<h3>${fmt(line.replace(/^#+\s*/, ""))}</h3>`;
+              } else if (line.includes("ALTIN SPOT")) {
+                if (inList) { html += "</ul>"; inList = false; }
+                html += `<div class="spot-banner">${fmt(line)}</div>`;
+              } else if (line.includes("ÇIKMIŞ FÖY")) {
+                if (inList) { html += "</ul>"; inList = false; }
+                html += `<div class="tus-cikmis-banner">${fmt(line)}</div>`;
+              } else if (line.startsWith("- ") || line.startsWith("* ")) {
+                if (!inList) { html += "<ul>"; inList = true; }
+                html += `<li>${fmt(line.slice(2))}</li>`;
+              } else {
+                if (inList) { html += "</ul>"; inList = false; }
+                html += `<p>${fmt(line)}</p>`;
+              }
+            }
+            if (inList) html += "</ul>";
+            return html;
+          }
+
+          async function danismanaSor() {
+            const soru = document.getElementById("takilanSoru").value.trim();
+            const groq = temizToken("groq_key");
+            if (!soru) return alert("Takıldığın konuyu yaz Şef!");
+            if (!groq) return alert("Canlı cevap için aşağıdan Groq API Key gir Şef (gsk_...)!");
+            const durum = document.getElementById("danismanDurum");
+            const cevapKutu = document.getElementById("danismanCevap");
+            durum.innerText = "🔍 17 Slayt vurguları ve Çıkmış Föy taranıyor...";
+            cevapKutu.classList.add("hidden");
+
+            const kelimeler = soru.toLowerCase().split(/\W+/).filter(w => w.length > 3);
+            let ilgiliSlayt = "";
+            if (slaytOnbellek) {
+              const satirlar = slaytOnbellek.split("\n").filter(s => kelimeler.some(k => s.toLowerCase().includes(k)));
+              const vurgulular = satirlar.filter(s => s.includes("VURGULU"));
+              ilgiliSlayt = [...vurgulular, ...satirlar].slice(0, 14).join("\n").slice(0, 2800);
+            }
+            let ilgiliCikmis = "";
+            if (cikmisOnbellek) {
+              const satirlar = cikmisOnbellek.split("\n").filter(s => kelimeler.some(k => s.toLowerCase().includes(k)));
+              ilgiliCikmis = satirlar.slice(0, 12).join("\n").slice(0, 2500);
+            }
+
+            try {
+              let secilenModel = "llama-3.1-8b-instant";
+              try {
+                const mr = await fetch("https://api.groq.com/openai/v1/models", { headers: { "Authorization": `Bearer ${groq}` } });
+                if (mr.ok) {
+                  const mdata = await mr.json();
+                  const ids = (mdata.data || []).map(x => x.id).filter(id => !id.includes("whisper") && !id.includes("guard") && !id.includes("tts"));
+                  secilenModel = ids.find(id => id.includes("70b") || id.includes("120b") || id.includes("qwen") || id.includes("gpt-oss")) || ids[0] || secilenModel;
+                }
+              } catch (me) {}
+
+              const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                method: "POST",
+                headers: { "Authorization": `Bearer ${groq}`, "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  model: secilenModel,
+                  temperature: 0.2,
+                  max_tokens: 650,
+                  messages: [
+                    {
+                      role: "system",
+                      content: "Sen İnönü Tıp Dönem 5 Nöroloji Stajı eğitmenisin. Uzun makale yazma; SADECE hocaların slaytlarda vurguladığı yerleri ve çıkmış föy sorusunu ver. ASLA tablo kullanma ve ASLA HTML etiketi (<br> vb.) yazma. Cevabın tamamı en fazla 140 kelime olsun ve sadece şu 3 kısa bölümden oluşsun:\n### 📌 Slaytlarda Vurgulananlar\n- (En fazla 4 kısa, net madde)\n### 🎯 ÇIKMIŞ FÖY SORUSU\n(Çıkmış Nöroloji Föyündeki ilgili soruyu ve doğru cevabını 2-3 cümlede özetle)\n⭐ ALTIN SPOT: (Tek cümlelik sınav kurtaran spot)"
+                    },
+                    { role: "user", content: `SORU: ${soru}\n\nSLAYT VURGULARI:\n${ilgiliSlayt}\n\nÇIKMIŞ NÖROLOJİ FÖYÜ:\n${ilgiliCikmis}` }
+                  ]
+                })
+              });
+              const data = await r.json();
+              if (data.choices && data.choices[0]) {
+                durum.innerText = "";
+                cevapKutu.innerHTML = markdownToTemizHtml(data.choices[0].message.content);
+                cevapKutu.classList.remove("hidden");
+              } else {
+                durum.innerText = "❌ Yanıt alınamadı (" + (data.error?.message || "Groq anahtarını kontrol et") + ").";
+              }
+            } catch (e) {
+              durum.innerText = "❌ Hata: " + e.message;
+            }
+          }
+          </script>
+          </body>
+          </html>
+          EOF
+
+          cat << 'EOF' > gradlew
+          #!/bin/sh
+          exec gradle "$@"
+          EOF
+          chmod +x gradlew
+
+      - name: APK Derle
+        run: gradle assembleDebug
+
+      - name: VIP Noroloji APK Yukle
+        uses: actions/upload-artifact@v4
+        with:
+          name: VIP-Noroloji-Master-v2-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
