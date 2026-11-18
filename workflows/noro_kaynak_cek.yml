@@ -1,0 +1,100 @@
+name: Drive Noroloji Kaynaklarini Cek (Alt Klasorsuz)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  kaynak-cek:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu Al
+        uses: actions/checkout@v4
+
+      - name: Python ve Gerekli Paketleri Kur
+        run: |
+          pip install gdown pymupdf
+
+      - name: Drive Klasorlerini Cek ve Vurgulari Ayikla
+        run: |
+          cat << 'EOF' > cek_ve_islet.py
+          import os, re, json, subprocess, fitz
+
+          SLAYT_KLASOR_ID = "1sphZMm2-OLog2IoWnZc8jXXEZOQ4oggV"
+          CIKMIS_KLASOR_ID = "1qCju6jDTVNUT9Wj012UKOj3WWOZQTwbb"
+
+          os.makedirs("ham_slayt", exist_ok=True)
+          os.makedirs("ham_cikmis", exist_ok=True)
+
+          subprocess.run(["gdown", "--folder", f"https://drive.google.com/drive/folders/{SLAYT_KLASOR_ID}", "-O", "ham_slayt", "--remaining-ok"], check=False)
+          subprocess.run(["gdown", "--folder", f"https://drive.google.com/drive/folders/{CIKMIS_KLASOR_ID}", "-O", "ham_cikmis", "--remaining-ok"], check=False)
+
+          def ana_dizin_dosyalari(kok):
+              altlar = [os.path.join(kok, d) for d in os.listdir(kok) if os.path.isdir(os.path.join(kok, d))]
+              hedef_dizin = altlar[0] if len(altlar) == 1 and not any(f.lower().endswith(".pdf") for f in os.listdir(kok)) else kok
+              dosyalar = [
+                  os.path.join(hedef_dizin, f)
+                  for f in os.listdir(hedef_dizin)
+                  if os.path.isfile(os.path.join(hedef_dizin, f)) and f.lower().endswith(".pdf")
+              ]
+              def dogal_sirala(yol):
+                  ad = os.path.basename(yol)
+                  m = re.match(r'^(\d+)', ad)
+                  return (int(m.group(1)) if m else 999, ad.lower())
+              return sorted(dosyalar, key=dogal_sirala)
+
+          def pdf_vurgulu_oku(pdf_yollari, cikis_txt, konu_listesi_kaydet=False):
+              satirlar = []
+              konular = []
+              for yol in pdf_yollari:
+                  ad = os.path.splitext(os.path.basename(yol))[0].strip()
+                  if konu_listesi_kaydet:
+                      konular.append(ad)
+                  doc = fitz.open(yol)
+                  satirlar.append(f"=== KONU: {ad} ===")
+                  for s_no, sayfa in enumerate(doc, 1):
+                      vurgulu_alanlar = []
+                      for annot in sayfa.annots() or []:
+                          vurgulu_alanlar.append(annot.rect)
+                      for path in sayfa.get_drawings():
+                          fill = path.get("fill")
+                          rect = path.get("rect")
+                          if fill and rect and rect.height < 65 and rect.width > 25:
+                              if fill != (1.0, 1.0, 1.0) and fill != (0.0, 0.0, 0.0):
+                                  vurgulu_alanlar.append(rect)
+
+                      kelimeler = sayfa.get_text("words")
+                      vurgulu_k, normal_k = [], []
+                      for w in kelimeler:
+                          w_rect = fitz.Rect(w[0], w[1], w[2], w[3])
+                          if any(w_rect.intersects(v) for v in vurgulu_alanlar):
+                              vurgulu_k.append(w[4])
+                          else:
+                              normal_k.append(w[4])
+
+                      if vurgulu_k:
+                          satirlar.append(f"[Slayt {s_no} VURGULU]: " + " ".join(vurgulu_k))
+                      if normal_k:
+                          satirlar.append(f"[Slayt {s_no}]: " + " ".join(normal_k))
+
+              with open(cikis_txt, "w", encoding="utf-8") as f:
+                  f.write("\n".join(satirlar))
+              if konu_listesi_kaydet:
+                  with open("konular.json", "w", encoding="utf-8") as kf:
+                      json.dump(konular, kf, ensure_ascii=False, indent=2)
+
+          slayt_pdfler = ana_dizin_dosyalari("ham_slayt")
+          cikmis_pdfler = ana_dizin_dosyalari("ham_cikmis")
+
+          pdf_vurgulu_oku(slayt_pdfler, "noroloji_kaynak.txt", konu_listesi_kaydet=True)
+          pdf_vurgulu_oku(cikmis_pdfler, "noroloji_cikmis.txt", konu_listesi_kaydet=False)
+          EOF
+          python cek_ve_islet.py
+          rm -rf ham_slayt ham_cikmis cek_ve_islet.py
+
+      - name: Dosyalari Depoya Kaydet
+        run: |
+          git config user.name "VIP-Noroloji-Bot"
+          git config user.email "tus@vip.local"
+          git add noroloji_kaynak.txt noroloji_cikmis.txt konular.json
+          git commit -m "17 Noroloji Slayti ve Cikmis Foy Eklendi"
+          git push origin main
