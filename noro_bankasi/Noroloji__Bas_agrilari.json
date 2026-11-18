@@ -1,0 +1,758 @@
+{
+  "ders": "Nöroloji",
+  "konu": "Baş ağrıları",
+  "toplam_soru": 50,
+  "guncelleme": "18.11.2026 10:45",
+  "sorular": [
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Ateş, ense sertliği ve fotofobi ile başvuran 35 yaşında bir hastada lomber ponksiyon yapıldı. CSF incelemesinde pleositoz, yüksek protein ve düşük glikoz saptandı. Bu bulgularla en olası tanı aşağıdakilerden hangisidir?",
+      "siklar": [
+        "A) Viral menenjit",
+        "B) Bakteriyel menenjit",
+        "C) Subaraknoid kanama",
+        "D) Migren",
+        "E) Tansiyon baş ağrısı"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Ateş, meningeal irritasyon bulguları (ense sertliği, fotofobi) ve CSF'de yüksek protein, düşük glikoz ile birlikte nötrofil ağırlıklı pleositoz bakteriyel menenjiti düşündürür. Viral menenjitte glikoz genellikle normaldir ve lenfosit ağırlıklıdır. Subaraknoid kanamada CSF ksanokromi veya eritrosit görülür, glikoz normaldir.",
+      "spot": "Bakteriyel menenjitte CSF glikozu düşük, proteini yüksektir; viral menenjitte glikoz normaldir.",
+      "referans": "Çıkmış Nöroloji Föyü - Menenjitler"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Yavaş başlangıçlı, tüm kafa içini saran, bant gibi saran ve aktiviteyle artan baş ağrısı şikayeti olan hastada fizik muayenede temporal arterlerde hassasiyet ve kalınlık saptanmıştır. Bu hastada en olası tanı ve ilk tercih edilecek tedavi hangisidir?",
+      "siklar": [
+        "A) Migren - Triptan",
+        "B) Küme baş ağrısı - Oksijen",
+        "C) Dev arterit - Kortikosteroid",
+        "D) Tansiyon baş ağrısı - Antihipertansif",
+        "E) Tense tip baş ağrısı - NSAİİ"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Temporal arterlerde hassasiyet, kalınlık ve yaşlı hastada görülen yeni başlangıçlı baş ağrısı dev arterit (Giant Cell Arteritis) için tipiktir. Tedavisi yüksek doz kortikosteroiddir. Görme kaybı riski nedeniyle acil tedavi başlanmalıdır. Migren ve küme baş ağrısı farklı klinik tablolardır.",
+      "spot": "Dev arteritte temporal arter palpasyonunda hassasiyet ve kalınlık vardır; tedavi kortikosteroiddir.",
+      "referans": "Çıkmış Nöroloji Föyü - Sekonder Baş Ağrıları"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Tek taraflı, orbita çevresinde, şiddetli, 15-180 dakika süren ve ataklar halinde gelen baş ağrısı şikayeti olan hastada ipsilateral konjunktival enjeksiyon, lakrimasyon ve nazal konjesyon saptanmıştır. Bu hastada en olası tanı nedir?",
+      "siklar": [
+        "A) Migren",
+        "B) Tense tip baş ağrısı",
+        "C) Küme baş ağrısı",
+        "D) Paroksismal ağrılı perineural nöralji",
+        "E) Hemi-kranial paroksizmal ağrı"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Küme baş ağrısı (Cluster Headache) erkeklerde daha sık görülür. Tek taraflı, orbita çevresinde, şiddetli, kısa süreli (15-180 dk) ataklar halinde gelir. Otonom bulgular (konjunktival enjeksiyon, lakrimasyon, nazal konjesyon) eşlik eder. Migren daha uzun sürer ve aura olabilir. Tense tip baş ağrısı bant gibidir.",
+      "spot": "Küme baş ağrısında otonom bulgular (gözyaşı, burun tıkanıklığı) ve kısa süreli şiddetli ataklar görülür.",
+      "referans": "Çıkmış Nöroloji Föyü - Primer Baş Ağrıları"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Ateş, ense sertliği ve fotofobi ile başvuran hastada lomber ponksiyon yapıldı. CSF incelemesinde lenfosit ağırlıklı pleositoz, normal glikoz ve hafif yüksek protein saptandı. Bu bulgularla en olası tanı aşağıdakilerden hangisidir?",
+      "siklar": [
+        "A) Bakteriyel menenjit",
+        "B) Viral menenjit",
+        "C) Subaraknoid kanama",
+        "D) Tüberküloz menenjit",
+        "E) Kriptokokal menenjit"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Viral menenjitte CSF'de lenfosit ağırlıklı pleositoz, normal glikoz ve hafif yüksek protein görülür. Bakteriyel menenjitte nötrofil ağırlıklı, glikoz düşük, protein çok yüksektir. Tüberküloz menenjitte glikoz düşük, protein çok yüksek, lenfosit ağırlıklıdır. Subaraknoid kanamada eritrosit veya ksanokromi görülür.",
+      "spot": "Viral menenjitte CSF glikozu normaldir, hücre tipi lenfosit ağırlıklıdır.",
+      "referans": "Çıkmış Nöroloji Föyü - Menenjitler"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Yeni başlayan, şiddetli, 'hayatımda gördüğüm en kötü baş ağrısı' şeklinde tarif edilen ve ani gelişen bir hastada en olası patoloji ve tanısal yöntem hangisidir?",
+      "siklar": [
+        "A) Migren - MR Beyin",
+        "B) Subaraknoid kanama - BT Beyin",
+        "C) Küme baş ağrısı - MR Beyin",
+        "D) Tense tip baş ağrısı - EEG",
+        "E) Dev arterit - Temporal arter biyopsisi"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Ani gelişen, şiddetli, 'hayatımda gördüğüm en kötü baş ağrısı' (thunderclap headache) subaraknoid kanamayı düşündürür. Acil BT beyin yapılmalıdır. BT negatifse lomber ponksiyon ile ksanokromi aranır. Migren ve küme baş ağrısı daha yavaş başlar. Dev arterit yaşlılarda görülür.",
+      "spot": "Thunderclap baş ağrısı subaraknoid kanama için acil BT gerektirir.",
+      "referans": "Çıkmış Nöroloji Föyü - Sekonder Baş Ağrıları"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Yeni başlayan, şiddetli tek taraflı baş ağrısı, gözyaşı ve burun akıntısı eşlik ediyorsa en olası tanı nedir?",
+      "siklar": [
+        "A) Migren",
+        "B) Tansiyon tipi baş ağrısı",
+        "C) Kümelenme baş ağrısı",
+        "D) Subaraknoid kanama",
+        "E) Sinüzit"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Kümelenme baş ağrısı karakteristik olarak tek taraflı, göz çevresinde şiddetli ağrı, gözyaşı ve burun akıntısı ile seyreder.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 3"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Ateş, ense sertliği ve fotofobi ile başvuran hastada ilk yapılması gereken tetkik nedir?",
+      "siklar": [
+        "A) Beyin MR",
+        "B) Bilgisayarlı tomografi",
+        "C) Lomber ponksiyon",
+        "D) EEG",
+        "E) Kan kültürü"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Entefalit ve menenjit şüphesi olduğunda lomber ponksiyon ile beyin omurilik sıvısı analizi ilk adımdır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 5"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Yavaş başlangıçlı, tüm kafa içini saran, bant gibi hissedilen baş ağrısı tipik olarak hangi baş ağrısı kategorisine girer?",
+      "siklar": [
+        "A) Migren",
+        "B) Tansiyon tipi baş ağrısı",
+        "C) Kümelenme baş ağrısı",
+        "D) Trigeminal nevralji",
+        "E) Subaraknoid kanama"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Tansiyon tipi baş ağrısı genellikle baskılayıcı, bant gibi tanımlanır ve yavaş başlangıçlıdır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 2"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Migren atağında aura görülme olasılığı en yüksek hangi yüzde aralığındadır?",
+      "siklar": [
+        "A) %10-20",
+        "B) %30-40",
+        "C) %50-60",
+        "D) %70-80",
+        "E) %90-100"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Migren hastalarının yaklaşık %30-40'ı aura deneyimler.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 7"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Kümeleme baş ağrısının tipik süresi ve sıklığı aşağıdakilerden hangisinde doğrudur?",
+      "siklar": [
+        "A) 5-15 dk, haftada bir",
+        "B) 30-60 dk, ayda birkaç",
+        "C) 15-180 dk, günde birden fazla",
+        "D) 1-2 saat, ayda bir",
+        "E) 10-30 dk, yılda bir"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Kümeleme baş ağrısı 15-180 dk sürer ve aynı gün içinde birden fazla atak olabilir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 9"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Hayatımda gördüğüm en şiddetli baş ağrısı, ani başlangıçlı ve bilinç kaybına yol açtıysa hangi acil durum düşünülür?",
+      "siklar": [
+        "A) Migren",
+        "B) Subaraknoid kanama",
+        "C) Tansiyon tipi baş ağrısı",
+        "D) Kümelenme baş ağrısı",
+        "E) Sinüzit"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Ani, şiddetli baş ağrısı ve bilinç kaybı subaraknoid kanama belirtisidir ve acil müdahale gerekir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 12"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Baş ağrısı ile birlikte görme bulanıklığı ve çift görme şikayeti hangi nörolojik durumun işareti olabilir?",
+      "siklar": [
+        "A) Migren aura",
+        "B) Göz tansiyonu",
+        "C) Optik nörit",
+        "D) Beyin tümörü",
+        "E) Hipertansif krizi"
+      ],
+      "dogru_index": 4,
+      "aciklama": "Hipertansif krizi akut baş ağrısı, görme bozuklukları ve papilledema ile seyreder.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 8"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Kafatası travması sonrası 2 hafta içinde başlayan baş ağrısı ve nörolojik bulgular hangi komplikasyonu düşündürür?",
+      "siklar": [
+        "A) Migren",
+        "B) Posttravmatik baş ağrısı",
+        "C) Subdural hematom",
+        "D) Kümelenme baş ağrısı",
+        "E) Sinüzit"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Travma sonrası gecikmeli subdural hematom baş ağrısı ve nörolojik bulgulara yol açar.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 15"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Migren atağında bulantı ve kusma görülme sıklığı aşağıdakilerden hangisinde en yüksektir?",
+      "siklar": [
+        "A) %20",
+        "B) %40",
+        "C) %60",
+        "D) %80",
+        "E) %100"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Migren hastalarının yaklaşık %80'i bulantı ve kusma yaşar.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 11"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Kümeleme baş ağrısının tipik olarak hangi mevsimde artış gösterdiği bilinir?",
+      "siklar": [
+        "A) Kış",
+        "B) İlkbahar",
+        "C) Yaz",
+        "D) Sonbahar",
+        "E) Tüm yıl eşit"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Kümeleme baş ağrısı yaz aylarında, özellikle geceleri artış gösterir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 13"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Baş ağrısı, boyun sertliği ve yüksek ateşle birlikte menenjit tanısı konulmadan önce hangi bulgu dışlanmalıdır?",
+      "siklar": [
+        "A) Kafa travması",
+        "B) Derin ven trombozu",
+        "C) Hipoglisemi",
+        "D) Hiperkalsemi",
+        "E) Anemi"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Kafa travması sonrası menenjit bulguları farklı yönetim gerektirir; bu nedenle travma dışlanmalıdır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 20"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Tansiyon tipi baş ağrısının tetikleyicileri arasında aşağıdakilerden hangisi yer almaz?",
+      "siklar": [
+        "A) Uzun süreli bilgisayar kullanımı",
+        "B) Stres",
+        "C) Kafein alımı",
+        "D) Alkol tüketimi",
+        "E) Uyku eksikliği"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Alkol tüketimi genellikle migreni tetikler; tansiyon tipi baş ağrısında tipik tetikleyici değildir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 25"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "45 yasindaki bir erkek hastada ani, maksimum 1 dakikada zirveye ulasan, boyun sertligi ve fotofobi ile birlikte sirali bir bas agrisi var. En olasi lezyon yeri nedir?",
+      "siklar": [
+        "A) Subaraknoid kanama",
+        "B) Migren",
+        "C) Sinusitis",
+        "D) Tansiyon tipi bas agrisi",
+        "E) Trigeminal nevralji"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Sirali, ani zirveye ulasan bas agrisi, boyun sertligi ve fotofobi subaraknoid kanamanin tipik bulgularidir. Acil beyin tomografisi ve lumbal ponksiyon gereklidir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 5"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "30 yasindaki bir kadinda gunun belirli saatlerinde, bir saatten az surede, tek tarafli, yanik ve lacivert gozyaşları, burun akintisi ve konjunktival eritma ile birlikte bas agrisi var. En çok iliskili sinir hangisidir?",
+      "siklar": [
+        "A) Oksipital sinir",
+        "B) Trigeminal ganglion",
+        "C) Fazial sinir",
+        "D) Otonomik ganglion",
+        "E) Vestibuler sinir"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Bu bulgular trigeminal autonomik cephalalgia olan kümeleme bas agrisinin karakteristikleridir ve trigeminal ganglionun parasempatik baglantilari etkilenir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 8"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "55 yasindaki bir erkek hastada haftada 2-3 kez, 30 dakikayi gecmeyen, tek tarafli, pulsatile, fotofobi ve bulantili bas agrisi görülur. Aura yoktur. En olasi tanı nedir?",
+      "siklar": [
+        "A) Migren",
+        "B) Tansiyon tipi bas agrisi",
+        "C) Subaraknoid kanama",
+        "D) Sinusitis",
+        "E) Temporal arterit"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Tek tarafli pulsatile bas agrisi, fotofobi ve bulantili atak migrenin tipik bulgularidir. Aura olmamasi migrenin sansuratif tipine isaret eder.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 12"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "22 yasindaki bir ogrencide, stresli sinav doneminde, iki gunluk sureyle, baskili bir bant gibi bas agrisi, musluk sesi gibi ses duyulmasi ve musluk sesi ile artan agrinin sabahleri dusmesi var. En muhtemel lezyon yeri neredir?",
+      "siklar": [
+        "A) Bilateral tensiyon tipi",
+        "B) Migren",
+        "C) Subaraknoid kanama",
+        "D) Trigeminal nevralji",
+        "E) Kafa travmasi"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Bant gibi, musluk sesi ile artan, stresle iliskili bulgular tensiyon tipi bas agrisinin tipik özellikleridir ve genellikle kas gerilimi nedeniyle subkortikal kaslarda kaynaklanir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 3"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "68 yasindaki bir kadinda sabahleyin yataktan kalkarken bas agrisi artar, bulgulara ek olarak alti cene kasinda yorgunluk ve yeme sırasında çene acisi var. En olasi hastalik hangisidir?",
+      "siklar": [
+        "A) Temporal arterit",
+        "B) Migren",
+        "C) Sinusitis",
+        "D) Trigeminal nevralji",
+        "E) Kafa travmasi"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Sabahleyin agrinin artmasi, skalp hassasiyeti, çene kasinda yorgunluk ve çene claudication temporal arteritin klasik bulgularidir. ESR ve CRP kontrolu gerekir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 7"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "25 yasindaki bir kadinda, iki hafta önce bas basina travma sonrası, iki hafta içinde agrinin sabahleyin artmasi, bulantili ve kusma ile birlikte. En olasi tanı nedir?",
+      "siklar": [
+        "A) Post travma bas agrisi",
+        "B) Migren",
+        "C) Subaraknoid kanama",
+        "D) Sinusitis",
+        "E) Temporal arterit"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Travma sonrası iki hafta içinde agrinin sabahleyin artmasi ve bulantili bulgular post travma bas agrisinin tipik seyridir. MRI ile değerlendirme gerekir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 3"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "50 yasindaki bir erkek hastada, gece yarisi aniden başlayan, 10 dakikayi gecmeyen, tek tarafli, gözyaşi ve burun akintisi ile birlikte bas agrisi var. En çok iliskili arter hangisidir?",
+      "siklar": [
+        "A) Internal karotid",
+        "B) Vertebral",
+        "C) Basilar",
+        "D) Posterior communicating",
+        "E) Ophthalmic"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Kümeleme bas agrisi gece yarisi aniden baslar ve otonomik semptomlarla birlikte tek tarafli agrı internal karotid sinirinin parasempatik baglantilarindan kaynaklanir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 9"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "60 yasindaki bir kadinda, sabahleyin yataktan kalkarken bas agrisi artar, bulgulara ek olarak gözde bulaniklama ve çift görme var. En olasi lezyon yeri neredir?",
+      "siklar": [
+        "A) Posterior fossa tümörü",
+        "B) Migren",
+        "C) Sinusitis",
+        "D) Trigeminal nevralji",
+        "E) Temporal arterit"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Sabahleyin agrinin artmasi, papilledema belirtileri ve çift görme posterior fossa tümosu gibi intrakranial basinc artisina işaret eder.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 9"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "35 yasindaki bir erkek hastada, bir haftalik, tek tarafli, gözyaşi, burun akintisi, konjunktival eritma ve 15-20 dk sureli agrilar var. En çok iliskili sinir hangisidir?",
+      "siklar": [
+        "A) Oksipital sinir",
+        "B) Trigeminal ganglion",
+        "C) Fazial sinir",
+        "D) Otonomik ganglion",
+        "E) Vestibuler sinir"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Kümeleme bas agrisinin tipik atakları trigeminal ganglionun parasempatik baglantilarini etkiler ve bu semptomlar bu sinirin iliskisini gösterir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 11"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "28 yasindaki bir kadinda, uzun süren, iki haftalik, sabahleyin agrinin artmasi, kusma ve bulantili ataklar var. En olasi tanı nedir?",
+      "siklar": [
+        "A) Migren",
+        "B) Tansiyon tipi bas agrisi",
+        "C) Subaraknoid kanama",
+        "D) Sinusitis",
+        "E) Temporal arterit"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Uzun süren, sabahleyin agrinin artmasi ve bulantili ataklar migrenin kronik formuna işaret eder. Prophylaktik tedavi gereklidir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Föy 15"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "45 yasindaki bir erkek hastada, iki gunluk sürede, tek tarafli, yanik, gözyaşi ve burun akintisi ile birlikte, agrinin 30 dk içinde zirveye ulasmasi var. En olasi lezyon yeri neredir?",
+      "siklar": [
+        "A) Trigeminal autonomik cephalalgia",
+        "B) Migren",
+        "C) Tansiyon tipi bas agrisi",
+        "D) Subaraknoid kanama",
+        "E) Sinusitis"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Kümeleme bas agrisi tipik olarak tek tarafli yanik agrı, otonomik semptomlar ve kisa sürede zirveye ulasir, bu da trigeminal autonomik cephalalgia olarak adlandırilir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 14"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Aşırı migren atağı (status migrainosus) tedavisinde, hastanın 24 saat içinde yeterli yanıt vermemesi durumunda intravenöz yoldan tercih edilen ilk basamak tedavi ajanı hangisidir?",
+      "siklar": [
+        "A) Metoklopramid",
+        "B) Diklofenak",
+        "C) Sumatriptan",
+        "D) Deksametazon",
+        "E) Magnezyum sülfat"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Status migrainosus tedavisinde ilk basamak genellikle IV NSAİİ (Diklofenak veya Ketorolak) ve antiemetiklerdir. IV Diklofenak, hızlı etki gösteren ve yaygın olarak kullanılan bir ajandır. Metoklopramid antiemetik ve prokinetik olarak adjuvan kullanılır ancak tek başına analjezik değildir. Sumatriptan IV formu mevcuttur ancak NSAİİ'ler genellikle ilk tercih olarak kabul edilir veya eş zamanlı kullanılabilir; ancak standart protokollerde IV NSAİİ ön plandadır. Deksametazon steroid, tekrarlayan atakları önlemek için adjuvan olarak eklenir. Magnezyum sülfat adjuvan bir tedavidir.",
+      "spot": "Status migrainosus'ta IV Diklofenak ilk basamak analjeziktir.",
+      "referans": "Slayt No: 45"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Kronik migren tanısı konulmuş ve profilaktik tedaviye başlanacak bir hastada, hastanın kontrolsüz hipertansiyonu ve ciddi koroner arter hastalığı olması durumunda aşağıdaki profilaktik ajanlardan hangisi KONTRENDİKASYONDUR?",
+      "siklar": [
+        "A) Propranolol",
+        "B) Amitriptilin",
+        "C) Topiramat",
+        "D) Valproik asit",
+        "E) Sarpaglitin"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Beta blokerler (Propranolol, Metoprolol vb.) kronik migren profilaksisinde etkilidir. Ancak ciddi koroner arter hastalığı, periferik arter hastalığı, dekompanse kalp yetmezliği ve astım (non-selektif beta blokerlerde) gibi durumlarda kontrendikedir. Hipertansiyon varlığında beta blokerler aslında faydalı olabilir ancak ciddi KAH varlığında iskemi riski nedeniyle dikkatli olunmalı veya kontrendike kabul edilebilir. Diğer seçenekler (Amitriptilin, Topiramat, Valproik asit, Sarpaglitin) bu spesifik kardiyovasküler kontrendikasyona sahip değildir.",
+      "spot": "Beta blokerler ciddi KAH ve dekompanse kalp yetmezliğinde kontrendikedir.",
+      "referans": "Slayt No: 52"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Akut küme baş ağrısı (cluster headache) atağı sırasında, hızlı ve etkili ağrı kesici olarak intranazal yoldan tercih edilen spesifik tedavi hangisidir?",
+      "siklar": [
+        "A) Sumatriptan",
+        "B) Ergotamin",
+        "C) Diklofenak",
+        "D) Parasetamol",
+        "E) Karisoprodol"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Küme baş ağrısı atakları çok şiddetli ve kısa süreli olduğundan hızlı etki eden ilaçlar gerekir. İntravenöz veya intranazal Sumatriptan, akut küme baş ağrısı tedavisinde altın standarttır. İntranazal form, IV erişim zor olduğunda veya hızlı etki istendiğinde tercih edilir. Ergotamin de etkilidir ancak yan etki profili ve kullanım sıklığı kısıtlamaları nedeniyle triptanlar genellikle ilk tercihtir. NSAİİ'ler ve parasetamol küme baş ağrısında genellikle yetersiz kalır.",
+      "spot": "Akut küme baş ağrısında intranazal/IV Sumatriptan ilk tercihtir.",
+      "referans": "Slayt No: 60"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Subaraknoid kanama (SAK) şüphesi olan bir hastada, bilgisayarlı tomografi (BT) negatif ise ancak klinik şüphe yüksekse ayırıcı tanı için altın standart tetkik hangisidir?",
+      "siklar": [
+        "A) Manyetik rezonans görüntüleme (MRG)",
+        "B) Lomber ponksiyon (LP)",
+        "C) Serebral anjiyografi",
+        "D) EEG",
+        "E) Doppler ultrasonografi"
+      ],
+      "dogru_index": 1,
+      "aciklama": "SAK'ta BT hassasiyeti yüksek olmakla birlikte, özellikle kanama miktarı azsa veya kanama sonrası zaman geçtikçe (24-72 saat) BT negatif çıkabilir. Bu durumda lomber ponksiyon (LP) yapılmalıdır. LP'de xantokromi (sarımsı renkli BOS) SAK'ın en spesifik bulgusudur. Serebral anjiyografi etiyolojiyi (anevrizma vb.) belirlemek için yapılır ancak tanı koymada LP'den sonra gelir. MRG (GRE sekansları) da kanama için hassastır ancak LP daha yaygın ve hızlı bir ayırıcı tanı aracıdır.",
+      "spot": "Negatif BT'de SAK şüphesinde LP ve xantokromi altın standarttır.",
+      "referans": "Slayt No: 75"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "İlaç aşırı kullanımı baş ağrısı (MOH) tanısı için, düzenli olarak kullanılan akut baş ağrısı ilaçlarının (NSAİİ, parasetamol, kombinasyon analjezikler) ayda kaç günden fazla kullanılması gerekir?",
+      "siklar": [
+        "A) 8 gün",
+        "B) 10 gün",
+        "C) 12 gün",
+        "D) 15 gün",
+        "E) 20 gün"
+      ],
+      "dogru_index": 2,
+      "aciklama": "İlaç aşırı kullanımı baş ağrısı (MOH) tanısında, basit analjezikler (NSAİİ, parasetamol) ayda 15 günden fazla, triptanlar, ergotaminler veya opioidler ise ayda 10 günden fazla kullanılması kriteri aranır. Soruda NSAİİ ve parasetamol gibi basit analjezikler belirtildiği için eşik değer 15 gündür. Ancak seçeneklerde 12 gün varken 15 gün de var. Standart kriter 15 gündür. (Not: Bazı kaynaklarda 10 gün triptan, 15 gün basit analjezik ayrımı yapılır. Soru kökünde NSAİİ/parasetamol denildiği için 15 gün doğrudur. Seçeneklerde 15 gün var.)",
+      "spot": "MOH tanısında basit analjezikler için ayda >15 gün kullanım kriteridir.",
+      "referans": "Slayt No: 88"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Hemipleji migreni (hemiplegic migraine) tanısı konulmuş bir hastada, ailede benzer atak öyküsü yoksa (sporadik form) ve hastada ciddi nörolojik defisitler varsa, profilaktik tedavi için en uygun ilaç hangisidir?",
+      "siklar": [
+        "A) Sumatriptan",
+        "B) Ergotamin",
+        "C) Topiramat",
+        "D) Diklofenak",
+        "E) Karisoprodol"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Hemipleji migreninde akut atak tedavisinde triptanlar ve ergotaminler KONTRENDİKASYONDUR çünkü serebrovasküler spazm riskini artırabilirler ve nörolojik defisiti kötüleştirebilirler. Bu nedenle profilaktik tedaviye ağırlık verilir. Topiramat, valproik asit ve beta blokerler profilaktik olarak kullanılabilir. Akut atakta sadece basit analjezikler ve antiemetikler güvenle kullanılabilir. Soru profilaktik tedaviyi sorduğu için Topiramat en uygun seçenektir.",
+      "spot": "Hemipleji migreninde triptan ve ergotaminler kontrendikedir; profilaksi Topiramat/Valproat ile yapılır.",
+      "referans": "Slayt No: 92"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Paroksismal otonom selenalji (PASH) ve küme baş ağrısı gibi trigeminal otonomik baş ağrıları (TÖBA) grubundaki hastalarda, profilaktik tedavi için en etkili ve yaygın olarak kullanılan ilaç hangisidir?",
+      "siklar": [
+        "A) Amitriptilin",
+        "B) Prednizon",
+        "C) Verapamil",
+        "D) Sumatriptan",
+        "E) Diklofenak"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Küme baş ağrısı ve PASH gibi TÖBA'ların profilaktik tedavisinde altın standart Verapamil'dir. Verapamil, kalsiyum kanal blokeri olup atak sıklığını ve şiddetini azaltır. Amitriptilin daha çok kronik gerginlik tipi baş ağrısı ve kronik migren profilaksisinde kullanılır. Prednizon akut küme baş ağrısı ataklarını kısaltmak için kısa süreli (köprü tedavisi) kullanılabilir ancak uzun süreli profilaksi için uygun değildir. Sumatriptan ve Diklofenak akut atak tedavisinde kullanılır.",
+      "spot": "Küme baş ağrısı profilaksisinde Verapamil altın standarttır.",
+      "referans": "Slayt No: 95"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Gerginlik tipi baş ağrısı (Tension-type headache) tanısı olan bir hastada, haftada 10'dan fazla gün süren kronik formu için profilaktik tedaviye başlanacaksa, ilk basamak olarak tercih edilen ilaç hangisidir?",
+      "siklar": [
+        "A) Sumatriptan",
+        "B) Amitriptilin",
+        "C) Topiramat",
+        "D) Verapamil",
+        "E) Diklofenak"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Kronik gerginlik tipi baş ağrısı profilaksisinde ilk basamak ilaç Amitriptilin'dir (trikiklik antidepresan). Etkinliği kanıtlanmış ve yaygın olarak kullanılır. Topiramat ve valproik asit de kullanılabilir ancak amitriptilin genellikle birinci basamak olarak kabul edilir. Sumatriptan ve Diklofenak akut atak tedavisinde kullanılır ve profilaktik etki göstermez. Verapamil TÖBA profilaksisindedir.",
+      "spot": "Kronik gerginlik tipi baş ağrısı profilaksisinde ilk basamak Amitriptilin'dir.",
+      "referans": "Slayt No: 102"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Akut subaraknoid kanama (SAK) sonrası gelişebilecek en önemli ve ölümcül komplikasyonlardan biri olan serebral vazospazmın en sık görüldüğü zaman dilimi hangisidir?",
+      "siklar": [
+        "A) Kanamadan sonraki 1-3. gün",
+        "B) Kanamadan sonraki 4-10. gün",
+        "C) Kanamadan sonraki 11-14. gün",
+        "D) Kanamadan sonraki 15-21. gün",
+        "E) Kanamadan sonraki 21-30. gün"
+      ],
+      "dogru_index": 1,
+      "aciklama": "SAK sonrası serebral vazospazm, kanamadan sonraki 4. günden başlayıp 10-14. günlerde pik yapar ve genellikle 21. güne kadar devam edebilir. En sık ve en şiddetli vazospazm 4-10. günler arasında görülür. Bu dönemde hastalar yakın nörolojik izlemde tutulmalı ve gerekirse transkraniyal doppler veya anjiyografi ile takip edilmelidir.",
+      "spot": "SAK sonrası vazospazm riski 4-10. günlerde en yüksektir.",
+      "referans": "Slayt No: 110"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Migren profilaksisinde kullanılan Topiramat ilacının, özellikle hamilelik veya hamilelik planlayan kadınlarda kullanımıyla ilgili en önemli yan etki/risksizlik profili hangisidir?",
+      "siklar": [
+        "A) Teratojenik etkisi yoktur, güvenle kullanılabilir",
+        "B) A grubu ilaçtır, hamilelikte ilk tercihtir",
+        "C) Teratojenik riski nedeniyle hamilelikte kontrendikedir veya dikkatli kullanılmalıdır",
+        "D) Sadece 3. trimesterde kullanılabilir",
+        "E) Emzirme sırasında kontrendikedir"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Topiramat, hamilelikte teratojenik risk (dudak-damak yarığı vb.) nedeniyle genellikle önerilmez veya dikkatli kullanılmalıdır. FDA sınıflandırmasında C grubu ilaçtır. Hamilelikte profilaktik migren tedavisi için genellikle beta blokerler (Propranolol) veya amitriptilin gibi daha güvenli profilli ilaçlar tercih edilir. Valproik asit de teratojenik olduğu için hamilelikte kesinlikle kaçınılmalıdır.",
+      "spot": "Topiramat ve Valproik asit hamilelikte teratojenik risk taşır, tercih edilmez.",
+      "referans": "Slayt No: 115"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Akut küme baş ağrısı atağı sırasında, hastanın triptanlara yanıt vermemesi veya triptan kullanımının kontrendike olması durumunda, alternatif olarak yüksek dozda intranazal yoldan uygulanabilecek ve vazokonstriktör etkisi olan ilaç hangisidir?",
+      "siklar": [
+        "A) Oksijen",
+        "B) Ergotamin",
+        "C) Diklofenak",
+        "D) Metoklopramid",
+        "E) Deksametazon"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Küme baş ağrısında akut tedavi için yüksek akışlı oksijen (100% O2, 12-15 dk) ve triptanlar (Sumatriptan) ilk basamaktır. Triptanlara yanıt yoksa veya kontrendikasyon varsa Ergotamin (sublingual veya intranazal) kullanılabilir. Ergotamin güçlü bir vazokonstriktördür. Oksijen bir tedavi modalitesidir ancak ilaç değildir. Diklofenak ve Metoklopramid küme baş ağrısında yetersizdir. Deksametazon profilaksi veya köprü tedavisinde kullanılır.",
+      "spot": "Küme baş ağrısında triptan alternatifi olarak Ergotamin kullanılabilir.",
+      "referans": "Slayt No: 118"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Lomber ponksiyon (LP) sonrası gelişen baş ağrısı (post-LP baş ağrısı) ile ilgili aşağıdaki ifadelerden hangisi DOĞRUDUR?",
+      "siklar": [
+        "A) Pozisyon bağımsızdır, her pozisyonda aynı şiddette seyreder",
+        "B) Ayakta durunca artar, yatınca azalır (postüral baş ağrısı)",
+        "C) Tek taraflı ve zonklayıcı karakterdedir",
+        "D) Bulantı ve kusma eşlik etmez",
+        "E) Kortikosteroid tedavisiyle tamamen önlenir"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Post-LP baş ağrısı, BOS kaçağına bağlı intrakraniyal hipotansiyon sonucu oluşur. Karakteristik özelliği postüral olmasıdır; yani hasta ayakta durduğunda veya oturduğunda baş ağrısı şiddetlenir, yatınca azalır veya kaybolur. Genellikle oksipital veya frontal bölgede, çift taraflı ve baskı tarzında hissedilir. Bulantı, kusma, işitme bozukluğu ve fotofobi eşlik edebilir. Tedavide dinlenme, hidrasyon ve gerekirse epidural kan yaması (epidural blood patch) uygulanır.",
+      "spot": "Post-LP baş ağrısı postüraldir (ayakta artar, yatınca azalır).",
+      "referans": "Slayt No: 125"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Status migrainosus tedavisinde ilk tercih edilen intravenöz ajan hangisidir?",
+      "siklar": [
+        "A) IV metoclopramide",
+        "B) Oral sumatriptan",
+        "C) IV magnesium sulfate",
+        "D) Oral NSAID",
+        "E) IV dexamethasone"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Status migrainosus, uzun süren migren atağıdır ve intravenöz magnezyum sülfat hızlı ağrı kontrolü sağlar, ayrıca antiemetik etkisi vardır. Diğer seçenekler tek başına yeterli olmayabilir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2023"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Kronik migren profilaksisinde ilk tercih edilen ilaç hangisidir?",
+      "siklar": [
+        "A) Topiramate",
+        "B) Amitriptyline",
+        "C) Propranolol",
+        "D) Valproate",
+        "E) Ergotamine"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Topiramate, kronik migren atağı sıklığını azaltmada kanıtlanmış etkilidir ve yan etki profili diğer seçeneklere göre daha uygundur. Diğer ilaçlar da kullanılabilir fakat ilk tercih genellikle topiramattır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2022"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Akut küme baş ağrısı atağında en etkili acil tedavi yöntemi hangisidir?",
+      "siklar": [
+        "A) High flow oxygen",
+        "B) Subcutaneous sumatriptan",
+        "C) Oral verapamil",
+        "D) Oral prednisone",
+        "E) Oral lithium"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Yüksek akım oksijen inhalasyonu, küme baş ağrısının ağrısını 70‑80% oranında hızlıca hafifletir ve ilk satır tedavidir. Diğer seçenekler atak sonrası profilaksi veya ikincil tedavi olarak kullanılır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2021"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Subaraknoid kanama şüphesi olan hastada ilk görüntüleme yöntemi nedir?",
+      "siklar": [
+        "A) Non contrast CT",
+        "B) MRI brain",
+        "C) Lumbar puncture",
+        "D) CT angiography",
+        "E) All of the above"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Acil durumda non kontrast bilgisayarlı tomografi, subaraknoid kanamayı 6‑12 saat içinde %95 duyarlılıkla gösterir ve en hızlı tanı aracıdır. Diğer yöntemler tanı sonrası ek bilgi sağlar.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2020"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "İlaç aşırı kullanımı baş ağrısı (MOH) tanısının kriterleri arasında aşağıdakilerden hangisi yanlıştır?",
+      "siklar": [
+        "A) Headache >15 days per month",
+        "B) Use of triptans >10 days per month",
+        "C) Use of NSAIDs >15 days per month",
+        "D) Use of any analgesic >10 days per month",
+        "E) All of the above"
+      ],
+      "dogru_index": 4,
+      "aciklama": "MOH tanısı, baş ağrısının sıklığı ve analjezik kullanım sıklığına dayanır; tüm seçenekler tanı kriterleridir, dolayısıyla 'All of the above' doğru cevaptır. Hiçbiri yanlış değildir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2019"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Hemipleji migreni tanısında en karakteristik bulgu nedir?",
+      "siklar": [
+        "A) Aura with motor weakness",
+        "B) Persistent hemiparesis >24 hours",
+        "C) CSF pleocytosis",
+        "D) MRI diffusion restriction",
+        "E) Fever"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Hemipleji migreni, migren atağı sırasında geçici motor güç kaybı (aurada motor zayıflık) ile karakterizedir ve genellikle 24 saat içinde geri döner. Diğer bulgular migren dışı patolojileri işaret eder.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2018"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Paroksismal otonom selenalji (PASH) tipik olarak hangi özelliği gösterir?",
+      "siklar": [
+        "A) Short unilateral stabbing pain with autonomic signs",
+        "B) Pain lasting >24 hours",
+        "C) Responds to ergotamine",
+        "D) Occurs only at night",
+        "E) Associated with nausea"
+      ],
+      "dogru_index": 0,
+      "aciklama": "PASH, birkaç saniyeden birkaç dakikaya kadar süren tek taraflı bıçak gibi ağrı ve konjonktival kızarıklık, lacrimation gibi otoonomik bulgularla karakterizedir. Diğer seçenekler farklı baş ağrısı tiplerine aittir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2017"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Gerginlik tipi baş ağrısının tanı kriterleri arasında aşağıdakilerden hangisi doğrudur?",
+      "siklar": [
+        "A) Bilateral pressing quality",
+        "B) No nausea",
+        "C) No photophobia",
+        "D) All of the above",
+        "E) None"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Gerginlik tipi baş ağrısı genellikle iki taraflı, baskılayıcı kalite, bulantı ve fotofobi olmaması ile tanımlanır; bu üç özellik birlikte tanıyı destekler. Dolayısıyla 'All of the above' doğru cevaptır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2016"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Akut subaraknoid kanama sonrası gelişen baş ağrısının önlenmesinde en etkili ilaç hangisidir?",
+      "siklar": [
+        "A) Bed rest",
+        "B) Analgesics",
+        "C) Nimodipine",
+        "D) Repeated lumbar puncture",
+        "E) Steroids"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Nimodipine, subaraknoid kanama sonrası vazospazmı önleyerek ikinci dereceli iskemik komplikasyonları ve baş ağrısını azaltır. Diğer seçenekler semptomatik tedavi sağlar ancak temel koruyucu etkiyi nimodipine verir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2015"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Lomber ponksiyon sonrası ortaya çıkan baş ağrısının tipik özellikleri aşağıdakilerden hangisinde yer almaz?",
+      "siklar": [
+        "A) Orthostatic",
+        "B) Bilateral",
+        "C) Occurs within 24 hours",
+        "D) Improves lying down",
+        "E) All of the above"
+      ],
+      "dogru_index": 4,
+      "aciklama": "Lomber ponksiyon sonrası baş ağrısı ortostatik, iki taraflı, 24 saat içinde ortaya çıkar ve yatarken hafifler; tüm bu bulgular birlikte görülür, bu yüzden 'All of the above' doğru cevaptır. Başka bir seçenek bu tanıma uymamaktadır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Çıkmış Föy 2014"
+    }
+  ]
+}
