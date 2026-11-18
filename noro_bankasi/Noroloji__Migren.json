@@ -1,0 +1,233 @@
+{
+  "ders": "Nöroloji",
+  "konu": "Migren",
+  "toplam_soru": 15,
+  "guncelleme": "18.11.2026 10:19",
+  "sorular": [
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren tanısında ICHD 3 kriterlerine göre aura belirtilerinin en uzun süresi ne kadardır",
+      "siklar": [
+        "A) 30 dakika",
+        "B) 45 dakika",
+        "C) 60 dakika",
+        "D) 90 dakika",
+        "E) 120 dakika"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Aura belirtileri tek bir semptomun ya da birden fazla semptomun toplam süresi bir saatten uzun olmamalıdır. Bu sınır aşılırsa başka bir nörolojik durum düşünülmelidir",
+      "spot": "Aura süresi sınırı",
+      "referans": "Föy 2021 Soru 12"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Aşağıdakilerden hangisi migren atakının tipik prodromal bulgu değildir",
+      "siklar": [
+        "A) Yorgunluk",
+        "B) Depresif ruh hali",
+        "C) Yüksek tansiyon",
+        "D) Çözülme hissi",
+        "E) Açlık"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Prodromal dönemde genellikle yorgunluk, ruh hali değişiklikleri, çözülme hissi ve açlık gibi semptomlar görülür. Yüksek tansiyon prodromal bulgu olarak kabul edilmez",
+      "spot": "Prodromal bulgular",
+      "referans": "Slayt 8"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren atağında bulantı ve kusma en çok hangi ilaç sınıfının tercih edilmesini zorunlu kılar",
+      "siklar": [
+        "A) NSAID",
+        "B) Triptan",
+        "C) Ergot alkaloid",
+        "D) Antiemetik",
+        "E) Beta bloker"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Şiddetli bulantı ve kusma oral tranket alımını engelleyebilir; bu durumda antiemetik ilaçların öncelikli verilmesi gerekir",
+      "spot": "Bulantı yönetimi",
+      "referans": "Föy 2020 Soru 7"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Aşağıdakilerden hangisi migren hastalarında ilaç aşırı kullanım başlığına (medikasyon aşırı başlığı) en çok yol açar",
+      "siklar": [
+        "A) Günde iki kez asetaminofen",
+        "B) Haftada bir kez ibuprofen",
+        "C) Ayda bir kez triptan",
+        "D) Günde on gün ergot",
+        "E) Haftada iki kez naproksen"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Asetaminofen gibi basit analjeziklerin günde iki kez ve ayda on günden fazla kullanımı medikasyon aşırı başlığına yol açar",
+      "spot": "İlaç aşırı kullanım",
+      "referans": "Slayt 15"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren atağında triptanların kontrendikasyonu olmayan durum aşağıdakilerden hangisidir",
+      "siklar": [
+        "A) Kontrol altına alınmamış hipertansiyon",
+        "B) Koroner arter hastalığı",
+        "C) İnflamatuar bağırsak hastalığı",
+        "D) Hamilelik ikinci trimester",
+        "E) Şiddetli karaciğer yetmezliği"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Triptanlar hamilelikte ikinci trimesterde genellikle kaçınılmaz bir kontrendikasyon değildir; ancak diğer seçeneklerde dikkat gerekir",
+      "spot": "Triptan kontrendikasyonları",
+      "referans": "Föy 2019 Soru 3"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren profilaksisi için ilk tercih edilen ilaç sınıfı aşağıdakilerden hangisidir",
+      "siklar": [
+        "A) Kalsiyum kanal blokeri",
+        "B) Beta bloker",
+        "C) SSRI",
+        "D) Opioid",
+        "E) Antikolinerjik"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Beta blokerlar hipertansiyonlu hastalarda hem kan basıncını hem migreni kontrol altına alması nedeniyle profilakside birinci basamak ilaçtır",
+      "spot": "Profilaksi ilk basamak",
+      "referans": "Slayt 22"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren atağında fotofobi ve fonofobi en çok hangi nörolojik bölgenin aşırı aktivasyonu ile ilişkilidir",
+      "siklar": [
+        "A) Talamus",
+        "B) Hipokampus",
+        "C) Görsel korteks",
+        "D) Beyin sapı",
+        "E) Prefrontal korteks"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Fotofobi ve fonofobi görsel ve işitsel korteksin aşırı uyarılması sonucu ortaya çıkar",
+      "spot": "Semptom patofizyolojisi",
+      "referans": "Föy 2022 Soru 9"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Aşağıdakilerden hangisi migren atağının tetikleyicisi olarak en sık rapor edilen faktör değildir",
+      "siklar": [
+        "A) Uyku eksikliği",
+        "B) Kafein alımı",
+        "C) Hava basıncı değişikliği",
+        "D) Yüksek glukoz seviyesi",
+        "E) Stres"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Yüksek glukoz seviyesi migren tetikleyicisi olarak yaygın bir rapor bulunmaz; diğerleri sık tetikleyicilerdir",
+      "spot": "Tetikleyiciler",
+      "referans": "Slayt 5"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren ile ilişkili olarak aşağıdaki gen mutasyonu en çok görülür",
+      "siklar": [
+        "A) CACNA1A",
+        "B) SCN1A",
+        "C) ATP1A2",
+        "D) KCNK18",
+        "E) NOTCH3"
+      ],
+      "dogru_index": 0,
+      "aciklama": "CACNA1A mutasyonu özellikle familial hemiplegic migren ile ilişkilidir ve sık görülür",
+      "spot": "Genetik faktörler",
+      "referans": "Föy 2023 Soru 4"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren atağında ergot alkaloidlerin kullanımına en çok hangi durum engel olur",
+      "siklar": [
+        "A) Hafif baş ağrısı",
+        "B) Kontrol altına alınmamış hipertansiyon",
+        "C) Alerjik rinit",
+        "D) Düşük tansiyon",
+        "E) Migren aura yokluğu"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Ergot alkaloidler vazokonstriktif etkileri nedeniyle kontrol altına alınmamış hipertansiyonda kontrendikasyondur",
+      "spot": "Ergot kontraendikasyonları",
+      "referans": "Slayt 18"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren hastalarında sıklıkla görülen ve baş ağrısı dışındaki nörolojik bulgu aşağıdakilerden hangisidir",
+      "siklar": [
+        "A) Konuşma bozukluğu",
+        "B) Görme bulanıklığı",
+        "C) Kas güçsüzlüğü",
+        "D) Çözülme hissi",
+        "E) Yüz felci"
+      ],
+      "dogru_index": 3,
+      "aciklama": "Migren prodromal dönemde hastalar sık sık çözülme hissi bildirir; diğerleri genellikle migrenle ilişkili değildir",
+      "spot": "Prodromal semptom",
+      "referans": "Föy 2020 Soru 15"
+    },
+    {
+      "etiket": "ÇIKMIŞ FÖY",
+      "soru": "Migren atağının başlangıcında hastanın en çok şikayet ettiği semptom aşağıdakilerden hangisidir",
+      "siklar": [
+        "A) Görme kaybı",
+        "B) Tek taraflı zonklayıcı ağrı",
+        "C) Bilinç kaybı",
+        "D) Kas spazmı",
+        "E) Yüksek ateş"
+      ],
+      "dogru_index": 1,
+      "aciklama": "Migrenin karakteristik özelliği tek taraflı, pulsatif ve zonklayıcı ağrıdır; diğerleri migrenin tipik başlangıcı değildir",
+      "spot": "Klinik sunum",
+      "referans": "Slayt 2"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Migren aurasının altında yatan elektrofizyolojik olay hangisidir?",
+      "siklar": [
+        "A) cortical spreading depression",
+        "B) epileptik aktivite",
+        "C) subkortikal disfonksiyon",
+        "D) beyin sapı irritasyonu",
+        "E) vasküler spazm"
+      ],
+      "dogru_index": 0,
+      "aciklama": "Migren aurası, kortikal alanda yavaşça yayılan bir depresyon dalgası olan cortical spreading depression ile ilişkilidir. Bu dalga, nöronal aktivitenin geçici olarak durması ve ardından artmasıyla karakterizedir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 8"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Koroner arter hastalığı öyküsü bulunan bir migren hastasında atak sırasında en güvenli akut tedavi seçeneği hangisidir?",
+      "siklar": [
+        "A) nonsteroid antiinflamatuar ilaç",
+        "B) asetaminofen",
+        "C) triptan",
+        "D) dihidroergotamin",
+        "E) CGRP reseptör antagonisti"
+      ],
+      "dogru_index": 4,
+      "aciklama": "Triptanlar ve ergot alkaloidler, vasküler etkileri nedeniyle koroner arter hastalığı olan hastalarda kontrendikedir. CGRP reseptör antagonistleri, vasküler yan etki yapmadan migren ataklarını hafifletir ve bu grup hastalar için tercih edilir.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 12"
+    },
+    {
+      "etiket": "VURGULU SLAYT",
+      "soru": "Depresyon eşlik eden kronik migren hastasında profilaktik tedavi için en uygun ilaç sınıfı hangisidir?",
+      "siklar": [
+        "A) beta bloker",
+        "B) topiramat",
+        "C) amitriptilin",
+        "D) valproat",
+        "E) flunarazin"
+      ],
+      "dogru_index": 2,
+      "aciklama": "Amitriptilin, hem migren profilaksisinde etkili hem de depresyon semptomlarını iyileştirir, bu nedenle depresyonlu migren hastalarında tercih edilen bir seçenektir. Diğer sınıflar migreni önleyebilir ancak depresyon üzerindeki faydaları sınırlıdır.",
+      "spot": "Altın Nöroloji Spotu",
+      "referans": "Slayt 15"
+    }
+  ]
+}
