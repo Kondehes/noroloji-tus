@@ -10,7 +10,7 @@ jobs:
       - name: Depoyu Al
         uses: actions/checkout@v4
 
-      - name: Tum Teorik ve Sozlu Sorulari Kayipsiz Topla
+      - name: PDF Yapisina Ozel Sifir Kayipli Ayiklama
         run: |
           cat << 'EOF' > topla.py
           import re, json
@@ -18,113 +18,187 @@ jobs:
           with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
               ham = f.read()
 
-          # Sayfa/kaynak etiketlerini temizle ama satir yapisini koru
-          temiz_satirlar = []
+          # Gürültü satırlarını temizle
+          gurultu = [
+              "camscanner", "wps office", "edit with wps", "öğrencinin adı", "sınav tarihi",
+              "aldığı puan", "imzası", "kolay gelsin", "soruların cevaplarında hata",
+              "meyus ve ümitsiz", "her şeyi maddede", "ey muhammed", "kullarıma"
+          ]
+
+          satirlar = []
           for s in ham.split("\n"):
               s = re.sub(r'\s+', ' ', s).strip()
               if not s or s.startswith("===") or re.match(r'^\[Sayfa \d+\]$', s):
                   continue
-              temiz_satirlar.append(s)
+              if any(g in s.lower() for g in gurultu):
+                  continue
+              if re.match(r'^\d{2}:\d{2}$', s) or "LTE" in s or "Çok kez iletildi" in s or "İletildi" in s:
+                  continue
+              satirlar.append(s)
 
-          metin = "\n".join(temiz_satirlar)
           tum_sorular = []
           gorulen = set()
-
-          # 1. TEORIK SORULAR: Hem alt alta hem yan yana A) B) C) D) E) olan TUM sorulari yakala
-          # Bir sonraki soru baslangicina kadar olan blogu tara
-          parcalar = re.split(r'(?=\n(?:\d{1,3}[\.\-\)]\s+|[A-ZÇĞİÖŞÜ][^\n]{15,}\?))', "\n" + metin)
-
-          for p in parcalar:
-              p = p.strip()
-              if len(p) < 25:
-                  continue
-              # Icinde a) b) c) d) (ve varsa e)) siklarini ara
-              siklar_m = list(re.finditer(r'(?:^|\n|\s)([A-Ea-e])[\)\.\-]\s+', p))
-              if len(siklar_m) >= 4:
-                  # Ilk 'A)' sikkini bul
-                  a_idx = next((i for i, m in enumerate(siklar_m) if m.group(1).upper() == 'A'), None)
-                  if a_idx is None:
-                      continue
-                  secili = siklar_m[a_idx:a_idx+5]
-                  if len(secili) < 4:
-                      continue
-
-                  soru_koku = p[:secili[0].start()].strip()
-                  soru_koku = re.sub(r'^\d{1,3}[\.\-\)]\s*', '', soru_koku).strip()
-                  if len(soru_koku) < 10:
-                      continue
-
-                  sik_listesi = []
-                  dogru_harf = ""
-                  for i, m in enumerate(secili):
-                      harf = m.group(1).upper()
-                      bas = m.end()
-                      son = secili[i+1].start() if i+1 < len(secili) else len(p)
-                      s_txt = p[bas:son].strip()
-                      # Yildiz veya cevap anahtari varsa yakala
-                      if "*" in s_txt or "✓" in s_txt:
-                          dogru_harf = harf
-                          s_txt = s_txt.replace("*", "").replace("✓", "").strip()
-                      c_m = re.search(r'(?:Cevap|Doğru\s*Cevap|Yanıt)\s*[:\-]?\s*([A-E])', s_txt, re.I)
-                      if c_m:
-                          dogru_harf = c_m.group(1).upper()
-                          s_txt = s_txt[:c_m.start()].strip()
-                      # Sonraki sorunun ilk cumlesi sızdıysa kes
-                      s_txt = re.split(r'\n\d{1,3}[\.\-\)]\s+', s_txt)[0].strip()
-                      if s_txt:
-                          sik_listesi.append(f"{harf}) {s_txt}")
-
-                  if len(sik_listesi) >= 4:
-                      anahtar = re.sub(r'\W+', '', soru_koku.lower())[:75]
-                      if anahtar not in gorulen:
-                          gorulen.add(anahtar)
-                          tum_sorular.append({
-                              "tur": "TEORİK",
-                              "soru": soru_koku,
-                              "siklar": sik_listesi,
-                              "dogru_harf": dogru_harf
-                          })
-
-          # 2. SOZLU SORULARI: Sadece gercek sozlu sorularini al (duz ders notu cumlelerini ele)
+          mod = "TEORİK"
           aktif_hoca = ""
-          soru_fiilleri = ["anlat", "söyle", "say", "yap", "nedir", "nelerdir", "kriter", "tedavi", "tanı", "endikasyon", "kontrendikasyon", "muayene", "refleks", "dtr", "sınıfla", "fark", "neden", "komplikasyon", "yaklaşım", "bulgu", "belirti", "?"]
-          not_fiilleri = ["kullanılır", "görülür", "saptanır", "oluşur", "yapılır", "verilir", "denir", "başlar", "artar", "azalır", "seyreder", "sık", "en önemli"]
 
-          for s in temiz_satirlar:
-              # Hoca adi tespiti
-              if re.match(r'^[A-ZÇĞİÖŞÜ][a-zçğıöşü]+(?:\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]+){1,2}$', s) and len(s) < 32 and not any(k in s.lower() for k in ["inme", "demans", "migren", "epilepsi", "parkinson", "muayene", "sinir", "hastalık", "nöbet", "tedavi"]):
-                  aktif_hoca = s
+          hoca_isimleri = [
+              "ahmet adıgüzel", "ahmet hoca", "fatma ebru", "ebru hoca", "ebru alagül", "ebru algül",
+              "yüksel kablan", "yüksel kaplan", "mehmet tecellioğlu", "mehmet hoca",
+              "suat kamışlı", "özden kamışlı", "abdülcemal özcan", "abdulcemal özcan"
+          ]
+
+          # Soru başlangıç kalıbı: 1), 1-, 1., 1-), Soru 1 -, SORU 1 -, # 1), 22-)
+          SORU_BAS_RE = re.compile(r'^(?:#\s*)?(?:SORU\s+|Soru\s+)?(\d{1,3})\s*[\)\.\-\:]+\s*(.+)$')
+          # Şık kalıbı: A), a), A-, a-, A., a., (A), [A]
+          SIK_RE = re.compile(r'^(?:[\(\[]?([A-Ea-e])[\)\.\-\:\]]+)\s*(.+)$')
+
+          kok_buf = []
+          siklar_buf = []
+          dogru_harf = ""
+
+          def teorik_kaydet(kok_list, sik_list, harf):
+              if not kok_list:
+                  return
+              koku = " ".join(kok_list).strip()
+              koku = re.sub(r'^(?:#\s*)?(?:SORU\s+|Soru\s+)?\d{1,3}\s*[\)\.\-\:]+\s*', '', koku).strip()
+              if len(koku) < 15:
+                  return
+              # En az 2 şık varsa veya içinde 'cevap' geçiyorsa gerçek teorik sorudur
+              cevap_notu = ""
+              for line in kok_list:
+                  cm = re.search(r'(?:Cevap|Doğru\s*cevap)\s*[:\=\-\)]\s*(.+)', line, re.I)
+                  if cm:
+                      cevap_notu = cm.group(1).strip()
+
+              if len(sik_list) < 2 and not cevap_notu and "?" not in koku and "hangisi" not in koku.lower():
+                  return
+
+              anahtar = re.sub(r'\W+', '', koku.lower())[:85]
+              if anahtar in gorulen:
+                  return
+              gorulen.add(anahtar)
+
+              if cevap_notu and not sik_list:
+                  sik_list = [f"A) {cevap_notu}"]
+                  harf = "A"
+
+              tum_sorular.append({
+                  "tur": "TEORİK",
+                  "soru": koku,
+                  "siklar": sik_list[:5],
+                  "dogru_harf": harf
+              })
+
+          for s in satirlar:
+              low = s.lower()
+
+              # Bölüm geçişlerini algıla (Sözlü vs Teorik)
+              if re.match(r'^(?:#\s*)?sözlü(?:\s+soruları|\s+sınavı|\s+25-26.*)?$', low):
+                  teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                  kok_buf, siklar_buf, dogru_harf = [], [], ""
+                  mod = "SÖZLÜ"
                   continue
 
-              if re.match(r'^[A-Ea-e][\)\.\-]\s+', s) or any(x in s for x in ["A)", "B)", "C)", "D)", "a)", "b)", "c)", "d)"]):
-                  continue
-              if len(s) < 7 or len(s) > 150:
-                  continue
-
-              temiz_s = re.sub(r'^(?:\d{1,2}|[ivxIVX]{1,4})[\.\-\)]\s*', '', s).strip()
-              low = temiz_s.lower()
-
-              # Duz ders notu cumlesi ise atla
-              if any(nf in low for nf in not_fiilleri) and "?" not in temiz_s and not any(sf in low for sf in ["anlat", "söyle", "say", "yap", "nedir", "nelerdir"]):
+              if any(k in low for k in ["teorik 25-26", "teorik soruları", "staj sonu sınavı", "telafi stajı", "dönem v sınav", "grup 1 nöroloji", "grup 12", "grup 11", "grup 10", "grup 9", "grup 8", "grup 7", "grup 6", "grup 5", "grup 4", "grup 3", "2.grup", "whatsapp soruları", "sıraya yazılanlar"]):
+                  teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                  kok_buf, siklar_buf, dogru_harf = [], [], ""
+                  mod = "TEORİK"
+                  aktif_hoca = ""
                   continue
 
-              if any(sf in low for sf in soru_fiilleri):
-                  anahtar = re.sub(r'\W+', '', temiz_s.lower())[:75]
+              # Hoca adı geçerse otomatik SÖZLÜ moduna geç
+              hoca_bulundu = next((h for h in hoca_isimleri if h in low and len(s) < 40), None)
+              if hoca_bulundu:
+                  teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                  kok_buf, siklar_buf, dogru_harf = [], [], ""
+                  mod = "SÖZLÜ"
+                  aktif_hoca = re.sub(r'^[#\-\•\*]+\s*', '', s).strip()
+                  continue
+
+              if mod == "SÖZLÜ":
+                  temiz_sozlu = re.sub(r'^(?:[#\-\•\*]+|\d{1,2}\s*(?:numara|vaka)?[\)\.\-\:]?)\s*', '', s, flags=re.I).strip()
+                  if len(temiz_sozlu) < 6 or len(temiz_sozlu) > 180:
+                      continue
+                  # Düz not/ok işaretli açıklamaları atla, soruları al
+                  if temiz_sozlu.startswith(("→", "↳", "✓", "X")):
+                      continue
+                  anahtar = re.sub(r'\W+', '', temiz_sozlu.lower())[:85]
                   if anahtar not in gorulen:
                       gorulen.add(anahtar)
                       tum_sorular.append({
                           "tur": "SÖZLÜ",
-                          "soru": f"[{aktif_hoca}] {temiz_s}" if aktif_hoca else temiz_s,
+                          "soru": f"[{aktif_hoca}] {temiz_sozlu}" if aktif_hoca else temiz_sozlu,
                           "siklar": [],
                           "dogru_harf": ""
                       })
+                  continue
+
+              # TEORİK MODU:
+              # 1) Tek satırda yan yana şıklar varsa (örn: A)2 B)3*** C)4 D)5 E)6)
+              yy = list(re.finditer(r'(?:^|\s)([A-Ea-e])[\)\.\-]\s*', s))
+              if len(yy) >= 3 and yy[0].group(1).upper() == 'A':
+                  bas_kisim = s[:yy[0].start()].strip()
+                  if bas_kisim:
+                      kok_buf.append(bas_kisim)
+                  yy_siklar, yy_harf = [], ""
+                  for i, m in enumerate(yy[:5]):
+                      h = m.group(1).upper()
+                      st = s[m.end():(yy[i+1].start() if i+1 < len(yy[:5]) else len(s))].strip()
+                      if "*" in st or "✓" in st:
+                          yy_harf = h
+                          st = st.replace("*", "").replace("✓", "").strip()
+                      yy_siklar.append(f"{h}) {st}")
+                  teorik_kaydet(kok_buf, yy_siklar, yy_harf)
+                  kok_buf, siklar_buf, dogru_harf = [], [], ""
+                  continue
+
+              # 2) Alt alta şık satırı mı?
+              m_sik = SIK_RE.match(s)
+              if m_sik and (kok_buf or siklar_buf):
+                  h = m_sik.group(1).upper()
+                  st = m_sik.group(2).strip()
+                  if h == 'A' and len(siklar_buf) >= 3:
+                      teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                      kok_buf, siklar_buf, dogru_harf = [], [], ""
+                  if "*" in st or "✓" in st or "(doğru" in st.lower():
+                      dogru_harf = h
+                      st = st.replace("*", "").replace("✓", "").strip()
+                  siklar_buf.append(f"{h}) {st}")
+                  continue
+
+              # 3) Yeni soru numarasıyla mı başlıyor?
+              m_soru = SORU_BAS_RE.match(s)
+              if m_soru:
+                  # Önceki soru birikmişse kaydet (Romen rakamı I., II., 1., 2. öncüllerini ayır)
+                  num_val = int(m_soru.group(1))
+                  # Eğer şıklar zaten toplandıysa yeni soru başlamıştır
+                  if len(siklar_buf) >= 2:
+                      teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                      kok_buf, siklar_buf, dogru_harf = [s], [], ""
+                      continue
+                  # Eğer önceki soru kökü varsa ve num_val > 6 veya önceki kökte '?' varsa yeni sorudur
+                  if kok_buf and (num_val > 6 or "?" in " ".join(kok_buf) or "hangisi" in " ".join(kok_buf).lower()):
+                      teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                      kok_buf, siklar_buf, dogru_harf = [s], [], ""
+                      continue
+
+              # Normal soru kökü satırı (veya önceki şıkkın 2. satırı)
+              if siklar_buf and len(siklar_buf) < 5 and not s.endswith("?") and "hangisi" not in low:
+                  siklar_buf[-1] += " " + s
+              else:
+                  if len(siklar_buf) >= 2:
+                      teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
+                      kok_buf, siklar_buf, dogru_harf = [], [], ""
+                  kok_buf.append(s)
+
+          teorik_kaydet(kok_buf, siklar_buf, dogru_harf)
 
           with open("cikmis_arsiv.json", "w", encoding="utf-8") as out:
               json.dump({"toplam": len(tum_sorular), "sorular": tum_sorular}, out, ensure_ascii=False, indent=2)
 
           t_n = sum(1 for x in tum_sorular if x["tur"] == "TEORİK")
           s_n = sum(1 for x in tum_sorular if x["tur"] == "SÖZLÜ")
-          print(f"TAMAM! Teorik: {t_n} | Sozlu: {s_n}")
+          print(f"TAMAMLANDI! Benzersiz Teorik: {t_n} | Benzersiz Sozlu: {s_n}")
           EOF
           python topla.py
           rm -f topla.py
@@ -134,5 +208,5 @@ jobs:
           git config user.name "VIP-Noroloji-Bot"
           git config user.email "tus@vip.local"
           git add cikmis_arsiv.json
-          git commit -m "Basliksiz temiz teorik ve sozlu arsiv olusturuldu"
+          git commit -m "248 sayfalik PDF yapisina ozel sifir kayipli arsiv"
           git push origin main
