@@ -16,12 +16,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: VIP Noroloji TUS Quiz ve Sozlu Uygulamasini Olustur
+      - name: VIP Noroloji Master APK Derle
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           mkdir -p app/src/main/java/com/vip/noroloji
-          mkdir -p app/src/main/res/values
           mkdir -p app/src/main/assets
 
           cat << 'EOF' > settings.gradle
@@ -58,8 +57,8 @@ jobs:
                   applicationId "com.vip.noroloji.master"
                   minSdk 24
                   targetSdk 34
-                  versionCode 5
-                  versionName "5.0"
+                  versionCode 6
+                  versionName "6.0"
               }
               buildTypes {
                   release {
@@ -145,7 +144,7 @@ jobs:
             body { background:var(--bg); color:var(--text); padding-bottom:76px; }
             .header { position:sticky; top:0; z-index:50; background:rgba(11,17,32,0.96); backdrop-filter:blur(10px); padding:12px 14px; border-bottom:1px solid #1e293b; }
             .top-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
-            .title { font-size:17px; font-weight:800; color:var(--accent); letter-spacing:0.3px; }
+            .title { font-size:17px; font-weight:800; color:var(--accent); }
             .badge { background:#1e293b; color:var(--gold); font-size:11px; font-weight:700; padding:4px 9px; border-radius:20px; border:1px solid #334155; }
             .search-box { width:100%; background:var(--card); border:1px solid #334155; color:var(--text); padding:10px 13px; border-radius:12px; font-size:14px; outline:none; }
             .search-box:focus { border-color:var(--accent); }
@@ -154,8 +153,7 @@ jobs:
             .tab.active { background:var(--accent); color:#0b1120; border-color:var(--accent); }
             .container { padding:12px 14px; }
             .slayt-grid { display:grid; grid-template-columns:1fr; gap:10px; }
-            .slayt-card { background:var(--card); border:1px solid #1e293b; border-radius:14px; padding:14px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:0.15s; }
-            .slayt-card:active { transform:scale(0.98); border-color:var(--accent); }
+            .slayt-card { background:var(--card); border:1px solid #1e293b; border-radius:14px; padding:14px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; }
             .slayt-name { font-size:14px; font-weight:700; color:var(--text); }
             .slayt-counts { display:flex; gap:6px; margin-top:5px; }
             .pill-t { background:rgba(56,189,248,0.15); color:var(--accent); font-size:11px; font-weight:700; padding:3px 8px; border-radius:8px; }
@@ -165,7 +163,7 @@ jobs:
             .q-card { background:var(--card); border:1px solid #1e293b; border-radius:14px; padding:14px; margin-bottom:12px; }
             .q-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; font-size:11px; color:var(--muted); }
             .q-text { font-size:14px; line-height:1.55; font-weight:600; margin-bottom:12px; white-space:pre-line; }
-            .opt-btn { width:100%; text-align:left; background:var(--card2); color:var(--text); border:1px solid #334155; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:13px; line-height:1.4; cursor:pointer; transition:0.15s; }
+            .opt-btn { width:100%; text-align:left; background:var(--card2); color:var(--text); border:1px solid #334155; border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:13px; line-height:1.4; cursor:pointer; }
             .opt-btn.correct { background:rgba(16,185,129,0.22); border-color:var(--green); color:#a7f3d0; font-weight:700; }
             .opt-btn.wrong { background:rgba(239,68,68,0.22); border-color:var(--red); color:#fecaca; }
             .exp-box { display:none; margin-top:10px; background:#0f172a; border-left:3px solid var(--green); padding:11px 12px; border-radius:8px; font-size:13px; line-height:1.55; color:#e2e8f0; white-space:pre-line; }
@@ -194,10 +192,12 @@ jobs:
           <div class="container" id="mainContainer"></div>
 
           <script>
+          const GROQ_KEY = "__GROQ_KEY_PLACEHOLDER__";
           let ALL_Q = [];
           let SLAYT_TEXT = "";
           let MODE = "ALL";
           let SELECTED_SLAYT = null;
+          let CURRENT_LIST = [];
 
           async function init() {
             try {
@@ -217,6 +217,94 @@ jobs:
             render();
           }
 
+          function findRelevantSlide(text) {
+            if (!SLAYT_TEXT) return "";
+            const words = text.toLowerCase().replace(/[^a-zçğıöşü\s]/g," ").split(/\s+/).filter(w => w.length > 4);
+            const parts = SLAYT_TEXT.split("=== KONU:").slice(1);
+            let best = "", bestScore = 0;
+            parts.forEach(p => {
+              const low = p.toLowerCase();
+              let score = 0;
+              words.slice(0,8).forEach(w => { if (low.includes(w)) score++; });
+              if (score > bestScore) { bestScore = score; best = p.slice(0, 2600); }
+            });
+            return best;
+          }
+
+          async function askGroqExplanation(qObj, chosenLetter, expEl, cardEl) {
+            const cacheKey = "vip_noro_exp_" + qObj.soru.slice(0,45);
+            const cached = localStorage.getItem(cacheKey);
+            if (cached) {
+              applyExplanation(qObj, chosenLetter, cached, expEl, cardEl);
+              return;
+            }
+            expEl.classList.add("show");
+            expEl.innerHTML = "⏳ <b>23 Slayt kaynağı taranıyor ve TUS/Hoca cevabı hazırlanıyor...</b>";
+            const slideCtx = findRelevantSlide(qObj.soru + " " + (qObj.siklar||[]).join(" "));
+            const prompt = qObj.tur === "TEORİK"
+              ? `İnönü Tıp Dönem 5 Nöroloji çıkmış sorusunu slayt kaynağına göre çöz.\nSoru: ${qObj.soru}\nŞıklar: ${(qObj.siklar||[]).join(" | ")}\nÖnceden işaretli harf: ${qObj.dogru_harf || 'Bilinmiyor'}\nİlgili Ders Slaytı:\n${slideCtx}\n\nİlk satıra SADECE 'DOĞRU ŞIK: X' (X yerine A/B/C/D/E) yaz. Ardından 'MEKANİZMA VE SLAYT NOTU:' ve 'SINAV TUZAĞI:' başlıklarıyla net, öğretici açıklama yaz.`
+              : `İnönü Tıp Dönem 5 Nöroloji sözlü/pratik hoca sorusuna slayt kaynağına göre tam puanlık cevap ver.\nSoru: ${qObj.soru}\nİlgili Ders Slaytı:\n${slideCtx}\n\n'HOCANIN DUYMAK İSTEDİĞİ MADDELER:' ve 'SLAYT KRİTİK NOTU:' başlıklarıyla maddeli, net açıklama yaz.`;
+
+            try {
+              const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                method: "POST",
+                headers: { "Authorization": "Bearer " + GROQ_KEY, "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  model: "llama-3.3-70b-versatile",
+                  temperature: 0.15,
+                  max_tokens: 900,
+                  messages: [{ role: "user", content: prompt }]
+                })
+              });
+              const data = await res.json();
+              const ans = data.choices[0].message.content.trim();
+              localStorage.setItem(cacheKey, ans);
+              applyExplanation(qObj, chosenLetter, ans, expEl, cardEl);
+            } catch(e) {
+              expEl.innerHTML = "⚠️ İnternet bağlantısı kontrol edilsin. (Hata: " + e.message + ")";
+            }
+          }
+
+          function applyExplanation(qObj, chosenLetter, ans, expEl, cardEl) {
+            if (qObj.tur === "TEORİK") {
+              const m = ans.match(/DOĞRU\s*ŞIK\s*:\s*([A-E])/i);
+              const correct = (m ? m[1].toUpperCase() : qObj.dogru_harf) || "";
+              if (cardEl && correct) {
+                cardEl.querySelectorAll(".opt-btn").forEach(b => {
+                  const l = b.getAttribute("data-letter");
+                  if (l === correct) b.classList.add("correct");
+                  else if (l === chosenLetter) b.classList.add("wrong");
+                });
+              }
+            }
+            expEl.classList.add("show");
+            expEl.innerText = ans;
+          }
+
+          function handleOptionClick(idx, chosenLetter) {
+            const qObj = CURRENT_LIST[idx];
+            const cardEl = document.getElementById("qcard_" + idx);
+            const expEl = document.getElementById("exp_" + idx);
+            if (qObj.dogru_harf) {
+              cardEl.querySelectorAll(".opt-btn").forEach(b => {
+                const l = b.getAttribute("data-letter");
+                if (l === qObj.dogru_harf) b.classList.add("correct");
+                else if (l === chosenLetter) b.classList.add("wrong");
+              });
+            }
+            askGroqExplanation(qObj, chosenLetter, expEl, cardEl);
+          }
+
+          function handleSozluClick(idx) {
+            const qObj = CURRENT_LIST[idx];
+            const expEl = document.getElementById("exp_" + idx);
+            if (expEl.classList.contains("show")) {
+              expEl.classList.remove("show");
+            } else {
+              askGroqExplanation(qObj, "", expEl, null);
+            }
+          }
+
           function setMode(m) {
             MODE = m;
             ["tabAll","tabTeorik","tabSozlu","tabSlayt"].forEach(id => document.getElementById(id).classList.remove("active"));
@@ -227,31 +315,8 @@ jobs:
             render();
           }
 
-          function openSlayt(name) {
-            SELECTED_SLAYT = name;
-            render();
-            window.scrollTo(0,0);
-          }
-
-          function closeSlayt() {
-            SELECTED_SLAYT = null;
-            render();
-          }
-
-          function checkOpt(qIdx, chosenLetter, correctLetter, btnEl) {
-            const card = document.getElementById("qcard_" + qIdx);
-            const btns = card.querySelectorAll(".opt-btn");
-            btns.forEach(b => {
-              const l = b.getAttribute("data-letter");
-              if (l === correctLetter) b.classList.add("correct");
-              else if (l === chosenLetter) b.classList.add("wrong");
-            });
-            document.getElementById("exp_" + qIdx).classList.add("show");
-          }
-
-          function toggleSozlu(qIdx) {
-            document.getElementById("exp_" + qIdx).classList.toggle("show");
-          }
+          function openSlayt(name) { SELECTED_SLAYT = name; render(); window.scrollTo(0,0); }
+          function closeSlayt() { SELECTED_SLAYT = null; render(); }
 
           function render() {
             const box = document.getElementById("mainContainer");
@@ -265,20 +330,19 @@ jobs:
                 const baslik = lines[0].replace("===","").trim();
                 const icerik = lines.slice(1).join("\n").trim();
                 if (!query || baslik.toLowerCase().includes(query) || icerik.toLowerCase().includes(query)) {
-                  html += `<div class="slayt-box"><h3>📑 ${baslik}</h3><pre>${icerik.slice(0, 6000)}</pre></div>`;
+                  html += `<div class="slayt-box"><h3>📑 ${baslik}</h3><pre>${icerik.slice(0, 8000)}</pre></div>`;
                 }
               });
-              box.innerHTML = html || "<p style='color:#94a3b8'>Slayt içeriği bulunamadı.</p>";
+              box.innerHTML = html || "<p style='color:#94a3b8'>Slayt bulunamadı.</p>";
               return;
             }
 
-            // Arama kelimesi varsa veya belirli bir slayt secildiyse doğrudan soruları göster
             if (query.length > 0 || SELECTED_SLAYT !== null) {
-              let filtered = ALL_Q.filter(q => {
+              CURRENT_LIST = ALL_Q.filter(q => {
                 if (MODE !== "ALL" && q.tur !== MODE) return false;
                 if (SELECTED_SLAYT && query.length === 0 && q.slayt_baslik !== SELECTED_SLAYT) return false;
                 if (query.length > 0) {
-                  const hay = (q.slayt_baslik + " " + q.soru + " " + (q.siklar||[]).join(" ") + " " + q.aciklama).toLowerCase();
+                  const hay = (q.slayt_baslik + " " + q.soru + " " + (q.siklar||[]).join(" ")).toLowerCase();
                   return hay.includes(query);
                 }
                 return true;
@@ -286,18 +350,18 @@ jobs:
 
               let headerBar = "";
               if (SELECTED_SLAYT && query.length === 0) {
-                headerBar = `<div class="back-bar"><div><div style="font-size:14px;font-weight:800;color:#38bdf8">${SELECTED_SLAYT}</div><div style="font-size:11px;color:#94a3b8">${filtered.length} soru listeleniyor</div></div><button class="back-btn" onclick="closeSlayt()">← Slaytlar</button></div>`;
+                headerBar = `<div class="back-bar"><div><div style="font-size:14px;font-weight:800;color:#38bdf8">${SELECTED_SLAYT}</div><div style="font-size:11px;color:#94a3b8">${CURRENT_LIST.length} soru listeleniyor</div></div><button class="back-btn" onclick="closeSlayt()">← Slaytlar</button></div>`;
               } else if (query.length > 0) {
-                headerBar = `<div class="back-bar"><div style="font-size:13px;font-weight:700;color:#f59e0b">"${query}" araması için ${filtered.length} sonuç</div>${SELECTED_SLAYT ? '<button class="back-btn" onclick="closeSlayt()">← Slaytlar</button>' : ''}</div>`;
+                headerBar = `<div class="back-bar"><div style="font-size:13px;font-weight:700;color:#f59e0b">"${query}" araması için ${CURRENT_LIST.length} sonuç</div>${SELECTED_SLAYT ? '<button class="back-btn" onclick="closeSlayt()">← Slaytlar</button>' : ''}</div>`;
               }
 
-              if (filtered.length === 0) {
+              if (CURRENT_LIST.length === 0) {
                 box.innerHTML = headerBar + "<p style='color:#94a3b8;text-align:center;margin-top:30px'>Bu filtrede soru bulunamadı.</p>";
                 return;
               }
 
               let html = headerBar;
-              filtered.forEach((q, idx) => {
+              CURRENT_LIST.forEach((q, idx) => {
                 const isTeorik = q.tur === "TEORİK";
                 const badge = isTeorik ? `<span class="pill-t">TEORİK</span>` : `<span class="pill-s">SÖZLÜ</span>`;
                 html += `<div class="q-card" id="qcard_${idx}">
@@ -307,12 +371,12 @@ jobs:
                 if (isTeorik && q.siklar && q.siklar.length > 0) {
                   q.siklar.forEach(opt => {
                     const letter = opt.trim().charAt(0).toUpperCase();
-                    html += `<button class="opt-btn" data-letter="${letter}" onclick="checkOpt(${idx}, '${letter}', '${q.dogru_harf}', this)">${opt}</button>`;
+                    html += `<button class="opt-btn" data-letter="${letter}" onclick="handleOptionClick(${idx}, '${letter}')">${opt}</button>`;
                   });
-                  html += `<div class="exp-box" id="exp_${idx}">✅ <b>Doğru Cevap: ${q.dogru_harf}</b>\n\n${q.aciklama}</div>`;
+                  html += `<div class="exp-box" id="exp_${idx}"></div>`;
                 } else {
-                  html += `<button class="sozlu-btn" onclick="toggleSozlu(${idx})">👨‍⚕️ Hocanın Cevabını & Slayt Notunu Gör</button>
-                  <div class="exp-box" id="exp_${idx}" style="border-left-color:#f59e0b">${q.aciklama}</div>`;
+                  html += `<button class="sozlu-btn" onclick="handleSozluClick(${idx})">👨‍⚕️ Hocanın Cevabını & Slayt Notunu Gör</button>
+                  <div class="exp-box" id="exp_${idx}" style="border-left-color:#f59e0b"></div>`;
                 }
                 html += `</div>`;
               });
@@ -320,7 +384,6 @@ jobs:
               return;
             }
 
-            // Ana Ekran: Alt başlık olmadan doğrudan Slayt Listesi
             const groups = {};
             ALL_Q.forEach(q => {
               if (MODE !== "ALL" && q.tur !== MODE) return;
@@ -354,10 +417,12 @@ jobs:
           </html>
           EOF
 
+          sed -i "s|__GROQ_KEY_PLACEHOLDER__|${GROQ_API_KEY}|g" app/src/main/assets/index.html
+
           gradle assembleDebug --no-daemon
 
       - name: APK Dosyasini Yukle
         uses: actions/upload-artifact@v4
         with:
-          name: VIP-Noroloji-Cikmis-Master-v5
+          name: VIP-Noroloji-Cikmis-Master-v6
           path: app/build/outputs/apk/debug/app-debug.apk
