@@ -1,0 +1,115 @@
+name: Cikmis Sorulari Tara ve Basliklandir
+
+on:
+  workflow_dispatch:
+
+jobs:
+  arsivle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu Al
+        uses: actions/checkout@v4
+
+      - name: Python Paketlerini Kur
+        run: |
+          pip install requests
+
+      - name: Cikmis Kaynagini Tara ve Siniflandir
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          cat << 'EOF' > arsivle.py
+          import os, re, json, time, requests
+
+          GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "").strip()
+          with open("noroloji_cikmis.txt", "r", encoding="utf-8", errors="ignore") as f:
+              ham_metin = f.read()
+
+          # Metni yaklasik 4500 karakterlik parcalara bol ki hicbir soru atlanmasin
+          satirlar = [s.strip() for s in ham_metin.split("\n") if s.strip()]
+          parcalar = []
+          aktif = ""
+          for s in satirlar:
+              if len(aktif) + len(s) > 4500:
+                  parcalar.append(aktif)
+                  aktif = s
+              else:
+                  aktif += "\n" + s
+          if aktif.strip():
+              parcalar.append(aktif)
+
+          def model_sec():
+              try:
+                  r = requests.get("https://api.groq.com/openai/v1/models", headers={"Authorization": f"Bearer {GROQ_API_KEY}"}, timeout=10)
+                  if r.status_code == 200:
+                      ids = [m["id"] for m in r.json().get("data", []) if not any(x in m["id"] for x in ["whisper", "guard", "tts", "8b"])]
+                      for k in ["70b", "120b", "qwen", "gpt-oss", "deepseek"]:
+                          bul = next((i for i in ids if k in i), None)
+                          if bul:
+                              return bul
+              except Exception:
+                  pass
+              return "llama-3.3-70b-versatile"
+
+          MODEL = model_sec()
+          tum_sorular = []
+          gorulen = set()
+
+          for idx, parca in enumerate(parcalar, 1):
+              print(f"Parca {idx}/{len(parcalar)} taraniyor...", flush=True)
+              sistem = (
+                  "Sen İnönü Tıp Dönem 5 Nöroloji arşiv uzmanısın. Sana verilen 'Çıkmış Nöroloji Föyü' metnindeki "
+                  "TÜM soruları eksiksiz ayıkla. KESİNLİKLE yeni soru uydurma, sadece metinde geçen çıkmış soruları çıkar! "
+                  "Her soruyu şu 4 alana ayır:\n"
+                  "1. 'ana_baslik': Standart Nöroloji ana başlığı (Örn: Baş Ağrıları, Serebrovasküler Hastalıklar, Epilepsi, Hareket Bozuklukları, Demiyelinizan Hastalıklar, Nöromüsküler Hastalıklar, Bilinç Bozuklukları, Kraniyal Sinirler, SSS Enfeksiyonları, Demans ve Diğerleri)\n"
+                  "2. 'alt_baslik': Spesifik alt konu (Örn: Migren, Küme Baş Ağrısı, Wallenberg Sendromu, GBS, CIDP, Myastenia Gravis, Parkinson, Status Epileptikus vb.)\n"
+                  "3. 'tur': Çoktan seçmeli test sorusu ise 'TEORİK', açık uçlu / hoca sorusu / vaka sorusu ise 'SÖZLÜ'\n"
+                  "4. 'soru': Çıkmış sorunun metni (varsa şıklarıyla birlikte)\n"
+                  "5. 'cevap': Metinde cevabı varsa o cevap, yoksa tıbbi olarak kesin doğru cevabı ve 1 cümlelik açıklaması.\n"
+                  "Metin içinde asla çift tırnak (\") kullanma. Sadece saf JSON döndür: "
+                  '{"sorular":[{"ana_baslik":"...","alt_baslik":"...","tur":"TEORİK veya SÖZLÜ","soru":"...","cevap":"..."}]}'
+              )
+              for deneme in range(3):
+                  try:
+                      r = requests.post(
+                          "https://api.groq.com/openai/v1/chat/completions",
+                          headers={"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"},
+                          json={
+                              "model": MODEL,
+                              "temperature": 0.1,
+                              "max_tokens": 8000,
+                              "response_format": {"type": "json_object"},
+                              "messages": [{"role": "system", "content": sistem}, {"role": "user", "content": parca}]
+                          },
+                          timeout=30
+                      )
+                      if r.status_code == 200:
+                          ham = re.sub(r'```json|```', '', r.json()["choices"][0]["message"]["content"]).strip()
+                          veri = json.loads(ham, strict=False)
+                          for q in veri.get("sorular", []):
+                              anahtar = re.sub(r'\W+', '', q.get("soru", "").lower())[:55]
+                              if anahtar and anahtar not in gorulen and q.get("cevap"):
+                                  gorulen.add(anahtar)
+                                  q["tur"] = "SÖZLÜ" if "SÖZLÜ" in q.get("tur", "").upper() else "TEORİK"
+                                  tum_sorular.append(q)
+                          break
+                      else:
+                          time.sleep(3)
+                  except Exception:
+                      time.sleep(2)
+              time.sleep(1.5)
+
+          with open("cikmis_arsiv.json", "w", encoding="utf-8") as out:
+              json.dump({"toplam": len(tum_sorular), "sorular": tum_sorular}, out, ensure_ascii=False, indent=2)
+          print(f"TAMAMLANDI! Toplam {len(tum_sorular)} cikmis soru arsivlendi.")
+          EOF
+          python arsivle.py
+          rm -f arsivle.py
+
+      - name: Arsivi Depoya Kaydet
+        run: |
+          git config user.name "VIP-Noroloji-Bot"
+          git config user.email "tus@vip.local"
+          git add cikmis_arsiv.json
+          git commit -m "Cikmis Noroloji Sorulari Basliklandirildi"
+          git push origin main
