@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Nöroloji Sözlü Asistanı</title>
+<style>
+  :root { --bg: #0f172a; --card: #1e293b; --accent: #38bdf8; --text: #f8fafc; --muted: #94a3b8; --ok: #22c55e; }
+  * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  body { margin: 0; background: var(--bg); color: var(--text); padding: 16px; padding-bottom: 40px; }
+  h1 { font-size: 1.3rem; margin: 0 0 12px; color: var(--accent); display: flex; justify-content: space-between; align-items: center; }
+  .card { background: var(--card); border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+  input, select, textarea { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #334155; background: #0f172a; color: var(--text); font-size: 0.95rem; margin-bottom: 10px; }
+  button { width: 100%; padding: 13px; border: none; border-radius: 10px; background: var(--accent); color: #0f172a; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.2s; }
+  button:active { transform: scale(0.98); }
+  button.sec { background: #334155; color: var(--text); margin-top: 8px; }
+  button.ok { background: var(--ok); color: #052e16; }
+  .badge { font-size: 0.75rem; background: #0284c7; padding: 4px 8px; border-radius: 6px; color: white; }
+  #soruAlani { font-size: 1.05rem; line-height: 1.5; white-space: pre-wrap; }
+  #sonucAlani { line-height: 1.55; white-space: pre-wrap; border-left: 4px solid var(--ok); padding-left: 12px; margin-top: 10px; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+
+<h1>🩺 Nöroloji Sözlü <span class="badge" onclick="toggleAyar()">⚙️ API & Model</span></h1>
+
+<div id="ayarKarti" class="card hidden">
+  <label>Groq API Anahtarın (gsk_...)</label>
+  <input type="password" id="apiKeyInput" placeholder="gsk_xxxxxxxxxxxxxxxx">
+  <label>Aktif Yapay Zeka Modeli</label>
+  <select id="modelSec">
+    <option value="llama-3.1-8b-instant">llama-3.1-8b-instant (Hızlı & Stabil)</option>
+  </select>
+  <button class="sec" onclick="modelleriGetir()" style="margin-bottom:8px;">🔄 Groq Hesabımdaki Modelleri Çek</button>
+  <button onclick="kaydetApi()">Ayarları Kaydet</button>
+</div>
+
+<div class="card">
+  <label>Çalışılacak Konu Seç</label>
+  <select id="konuSec">
+    <option value="Tümü">Tüm Nöroloji Slaytları (Karışık)</option>
+    <option value="Multipl Skleroz">Multipl Skleroz (MS)</option>
+    <option value="Parkinson">Parkinson & Hareket Bozuklukları</option>
+    <option value="Epilepsi">Epilepsi & Status Epileptikus</option>
+    <option value="İnme">İskemik & Hemorajik İnme / GİA</option>
+    <option value="Demans">Demanslar</option>
+    <option value="Myastenia Gravis">Myastenia Gravis (Sinir-Kas)</option>
+    <option value="Guillain Barre">Guillain-Barré (GBS) & CIDP</option>
+    <option value="Nörolojik Muayene">Nörolojik Muayene & Kraniyal Sinirler</option>
+    <option value="Baş Ağrısı">Baş Ağrısı & Trigeminal Nevralji</option>
+    <option value="Bilinç Bozuklukları">Bilinç Bozuklukları & Koma</option>
+    <option value="ALS">Motor Nöron Hastalıkları (ALS)</option>
+    <option value="Kas Hastalıkları">Kas Hastalıkları</option>
+  </select>
+  <button id="soruBtn" onclick="soruUret()">🎲 Yeni Sözlü Sorusu Sor</button>
+</div>
+
+<div id="soruKarti" class="card hidden">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+    <span style="color:var(--accent); font-weight:bold;">👨‍⚕️ Hoca Soruyor:</span>
+    <button style="width:auto; padding:6px 10px; font-size:0.8rem;" onclick="sesliOku(aktifSoru)">🔊 Dinle</button>
+  </div>
+  <div id="soruAlani"></div>
+  <hr style="border-color:#334155; margin:14px 0;">
+  <label>Cevabın (Yaz veya klavyeden sesle dikte et):</label>
+  <textarea id="cevapInput" rows="4" placeholder="Cevabını buraya yaz..."></textarea>
+  <button class="ok" id="kontrolBtn" onclick="cevapKontrol()">✅ Cevabı Hocaya Gönder</button>
+  <button class="sec" onclick="direktCevap()">👀 Bilmiyorum, Doğru Cevabı Göster</button>
+</div>
+
+<div id="sonucKarti" class="card hidden">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <span style="color:var(--ok); font-weight:bold;">📋 Hoca Değerlendirmesi:</span>
+    <button style="width:auto; padding:6px 10px; font-size:0.8rem;" onclick="sesliOku(document.getElementById('sonucAlani').innerText)">🔊 Dinle</button>
+  </div>
+  <div id="sonucAlani"></div>
+</div>
+
+<script>
+let tumNotlar = "";
+let aktifSoru = "";
+let aktifBaglam = "";
+
+window.onload = async () => {
+  const key = localStorage.getItem("groq_key");
+  const savedModel = localStorage.getItem("groq_model");
+  if (!key) document.getElementById("ayarKarti").classList.remove("hidden");
+  else {
+    document.getElementById("apiKeyInput").value = key;
+    await modelleriGetir(true);
+  }
+  if (savedModel) {
+    const sel = document.getElementById("modelSec");
+    if (![...sel.options].some(o => o.value === savedModel)) {
+      sel.add(new Option(savedModel, savedModel));
+    }
+    sel.value = savedModel;
+  }
+
+  try {
+    const res = await fetch("notlar.txt");
+    tumNotlar = await res.text();
+  } catch (e) {
+    alert("notlar.txt yüklenemedi!");
+  }
+};
+
+function toggleAyar() {
+  document.getElementById("ayarKarti").classList.toggle("hidden");
+}
+
+async function modelleriGetir(sessiz = false) {
+  const key = document.getElementById("apiKeyInput").value.trim();
+  if (!key) { if (!sessiz) alert("Önce API anahtarını gir Şef!"); return; }
+  try {
+    const res = await fetch("https://api.groq.com/openai/v1/models", {
+      headers: { "Authorization": "Bearer " + key }
+    });
+    const data = await res.json();
+    if (data.data && data.data.length > 0) {
+      const sel = document.getElementById("modelSec");
+      const eski = sel.value;
+      sel.innerHTML = "";
+      data.data.filter(m => !m.id.includes("whisper") && !m.id.includes("guard")).forEach(m => {
+        sel.add(new Option(m.id, m.id));
+      });
+      if ([...sel.options].some(o => o.value === eski)) sel.value = eski;
+      if (!sessiz) alert("Aktif modeller güncellendi!");
+    }
+  } catch (e) {
+    if (!sessiz) alert("Modeller çekilemedi: " + e.message);
+  }
+}
+
+function kaydetApi() {
+  const val = document.getElementById("apiKeyInput").value.trim();
+  const model = document.getElementById("modelSec").value;
+  if (!val.startsWith("gsk_")) return alert("Geçerli bir Groq API anahtarı (gsk_...) gir Şef!");
+  localStorage.setItem("groq_key", val);
+  localStorage.setItem("groq_model", model);
+  document.getElementById("ayarKarti").classList.add("hidden");
+  alert("Ayarlar kaydedildi! Seçili model: " + model);
+}
+
+function sesliOku(metin) {
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(metin);
+  u.lang = "tr-TR";
+  u.rate = 1.05;
+  window.speechSynthesis.speak(u);
+}
+
+function ilgiliParcaBul(konu) {
+  if (!tumNotlar || tumNotlar.length < 100) return "Genel Nöroloji Bilgisi";
+  if (konu !== "Tümü") {
+    const idx = tumNotlar.toLowerCase().indexOf(konu.toLowerCase());
+    if (idx !== -1) {
+      const bas = Math.max(0, idx - 500);
+      return tumNotlar.substring(bas, bas + 7500);
+    }
+  }
+  const maxStart = Math.max(0, tumNotlar.length - 7500);
+  const rnd = Math.floor(Math.random() * maxStart);
+  return tumNotlar.substring(rnd, rnd + 7500);
+}
+
+async function groqSor(mesajlar) {
+  const key = localStorage.getItem("groq_key");
+  const model = localStorage.getItem("groq_model") || "llama-3.1-8b-instant";
+  if (!key) { toggleAyar(); throw new Error("API anahtarı eksik"); }
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: { "Authorization": "Bearer " + key, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: model,
+      messages: mesajlar,
+      temperature: 0.6
+    })
+  });
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message);
+  return data.choices[0].message.content;
+}
+
+async function soruUret() {
+  const btn = document.getElementById("soruBtn");
+  const konu = document.getElementById("konuSec").value;
+  btn.innerText = "⏳ Hoca slaytları tarıyor...";
+  btn.disabled = true;
+  document.getElementById("sonucKarti").classList.add("hidden");
+  document.getElementById("cevapInput").value = "";
+
+  try {
+    aktifBaglam = ilgiliParcaBul(konu);
+    const prompt = `Sen bir Tıp Fakültesi Nöroloji Profesörüsün. Aşağıdaki ders notu kesitinden Dönem 5 öğrencisine staj sözlüsünde sorulabilecek tek bir net, klinik veya spot soru sor. Cevabı verme, sadece soruyu sor.\n\nDERS NOTU:\n${aktifBaglam}`;
+    aktifSoru = await groqSor([{ role: "user", content: prompt }]);
+    document.getElementById("soruAlani").innerText = aktifSoru;
+    document.getElementById("soruKarti").classList.remove("hidden");
+  } catch (e) {
+    alert("Hata: " + e.message);
+  } finally {
+    btn.innerText = "🎲 Yeni Sözlü Sorusu Sor";
+    btn.disabled = false;
+  }
+}
+
+async function cevapKontrol() {
+  const cevap = document.getElementById("cevapInput").value.trim();
+  if (!cevap) return alert("Önce bir cevap yaz Şef!");
+  const btn = document.getElementById("kontrolBtn");
+  btn.innerText = "⏳ Değerlendiriliyor...";
+  btn.disabled = true;
+
+  try {
+    const prompt = `DERS NOTU:\n${aktifBaglam}\n\nSORU: ${aktifSoru}\nÖĞRENCİNİN CEVABI: ${cevap}\n\nBir Nöroloji profesörü olarak öğrencinin cevabını ders notuna göre değerlendir. Önce 10 üzerinden puan ver, eksik veya yanlış yerleri düzelt ve slayttaki tam doğru cevabı maddeler halinde özetle.`;
+    const yanit = await groqSor([{ role: "user", content: prompt }]);
+    document.getElementById("sonucAlani").innerText = yanit;
+    document.getElementById("sonucKarti").classList.remove("hidden");
+  } catch (e) {
+    alert("Hata: " + e.message);
+  } finally {
+    btn.innerText = "✅ Cevabı Hocaya Gönder";
+    btn.disabled = false;
+  }
+}
+
+async function direktCevap() {
+  document.getElementById("cevapInput").value = "Bilmiyorum hocam, açıklayabilir misiniz?";
+  await cevapKontrol();
+}
+</script>
+</body>
+</html>
